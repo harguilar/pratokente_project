@@ -1,0 +1,2029 @@
+DEBUG:paramiko.transport:starting thread (client mode): 0x6024d68
+DEBUG:paramiko.transport:Local version/idstring: SSH-2.0-paramiko_2.7.1
+DEBUG:paramiko.transport:Remote version/idstring: SSH-1.99-Cisco-1.25
+INFO:paramiko.transport:Connected (version 1.99, client Cisco-1.25)
+DEBUG:paramiko.transport:kex algos:['diffie-hellman-group-exchange-sha1', 'diffie-hellman-group14-sha1'] server key:['ssh-rsa'] client encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] server encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] client mac:['hmac-sha1', 'hmac-sha1-96'] server mac:['hmac-sha1', 'hmac-sha1-96'] client compress:['none'] server compress:['none'] client lang:[''] server lang:[''] kex follows?False
+DEBUG:paramiko.transport:Kex agreed: diffie-hellman-group-exchange-sha1
+DEBUG:paramiko.transport:HostKey agreed: ssh-rsa
+DEBUG:paramiko.transport:Cipher agreed: aes128-ctr
+DEBUG:paramiko.transport:MAC agreed: hmac-sha1
+DEBUG:paramiko.transport:Compression agreed: none
+DEBUG:paramiko.transport:Got server p (2048 bits)
+DEBUG:paramiko.transport:kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+DEBUG:paramiko.transport:Switch to new keys ...
+DEBUG:paramiko.transport:Adding ssh-rsa host key for 192.168.15.221: b'3867b1b7be96189d986109e4406d0c27'
+DEBUG:paramiko.transport:userauth is OK
+INFO:paramiko.transport:Authentication (password) successful!
+DEBUG:paramiko.transport:[chan 0] Max packet in: 32768 bytes
+DEBUG:paramiko.transport:[chan 0] Max packet out: 4096 bytes
+DEBUG:paramiko.transport:Secsh channel 0 opened.
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:netmiko:read_channel: C
+#############################################################################################
+# UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED                                          #
+#                                                                                           #
+# You must have explicit, authorized permission to access or configure this device.         #
+# Unauthorized attempts and actions to access or use this system may result in civil and/or #
+# criminal penalties.                                                                       #
+#                                                                                           #
+# All activities performed on this device are logged and monitored.                         #
+#############################################################################################
+
+SWTC21#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: 
+SWTC21#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:In disable_paging
+DEBUG:netmiko:Command: terminal length 0
+
+DEBUG:netmiko:write_channel: b'terminal length 0\n'
+DEBUG:netmiko:Pattern is: SWTC21
+DEBUG:netmiko:_read_channel_expect read_data: t
+DEBUG:netmiko:_read_channel_expect read_data: erminal length 0
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC21#
+DEBUG:netmiko:Pattern found: SWTC21 terminal length 0
+SWTC21#
+DEBUG:netmiko:terminal length 0
+SWTC21#
+DEBUG:netmiko:Exiting disable_paging
+DEBUG:netmiko:write_channel: b'terminal width 511\n'
+DEBUG:netmiko:Pattern is: SWTC21
+DEBUG:netmiko:_read_channel_expect read_data: t
+DEBUG:netmiko:_read_channel_expect read_data: erminal width 511
+SWTC21#
+DEBUG:netmiko:Pattern found: SWTC21 terminal width 511
+SWTC21#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: SWTC21
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC21#
+DEBUG:netmiko:Pattern found: SWTC21 
+SWTC21#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC21#
+DEBUG:netmiko:Pattern found: # 
+SWTC21#
+DEBUG:netmiko:write_channel: b'config term\n'
+DEBUG:netmiko:Pattern is: SWTC21
+DEBUG:netmiko:_read_channel_expect read_data: c
+DEBUG:netmiko:_read_channel_expect read_data: onfig term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC21(config)#
+DEBUG:netmiko:Pattern found: SWTC21 config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC21(config)#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC21(config)#
+DEBUG:netmiko:Pattern found: # 
+SWTC21(config)#
+DEBUG:netmiko:write_channel: b'int loop3\n'
+DEBUG:netmiko:write_channel: b'ip add 3.3.3.3 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'int loop4\n'
+DEBUG:netmiko:write_channel: b'ip add 4.4.4.4 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'int loop1\n'
+DEBUG:netmiko:write_channel: b'ip add 1.1.1.1 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'int loop2\n'
+DEBUG:netmiko:write_channel: b'ip add 2.2.2.2 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: int loop3
+SWTC21(config-if)#ip add 3.3.3.3 255.255.255.255
+SWTC21(config-if)#exit
+SWTC21(config)#int loop4
+SWTC21(config-if)#ip add 4.4.4.4 255.255.255.255
+SWTC21(config-if)#exit
+SWTC21(config)#int loop1
+SWTC21(config-if)#ip add 1.1.1.1 255.255.255.255
+SWTC21(config-if)#exit
+SWTC21(config)#int loop2
+SWTC21(config-if)#ip add 2.2.2.2 255.255.255.255
+SWTC21(config-if)#exit
+SWTC21(config)#
+SWTC21(config)#
+SWTC21(config)#
+SWTC21(config)#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC21(config)#
+DEBUG:netmiko:Pattern found: # 
+SWTC21(config)#
+DEBUG:netmiko:write_channel: b'end\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: e
+DEBUG:netmiko:_read_channel_expect read_data: nd
+SWTC21#
+DEBUG:netmiko:Pattern found: # end
+SWTC21#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC21#
+DEBUG:netmiko:Pattern found: # 
+SWTC21#
+DEBUG:netmiko:exit_config_mode: end
+SWTC21#
+DEBUG:netmiko:config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC21(config)#int loop3
+SWTC21(config-if)#ip add 3.3.3.3 255.255.255.255
+SWTC21(config-if)#exit
+SWTC21(config)#int loop4
+SWTC21(config-if)#ip add 4.4.4.4 255.255.255.255
+SWTC21(config-if)#exit
+SWTC21(config)#int loop1
+SWTC21(config-if)#ip add 1.1.1.1 255.255.255.255
+SWTC21(config-if)#exit
+SWTC21(config)#int loop2
+SWTC21(config-if)#ip add 2.2.2.2 255.255.255.255
+SWTC21(config-if)#exit
+SWTC21(config)#
+SWTC21(config)#
+SWTC21(config)#
+SWTC21(config)#end
+SWTC21#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC21#
+DEBUG:netmiko:Pattern found: # 
+SWTC21#
+DEBUG:netmiko:exit_config_mode: 
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:paramiko.transport:EOF in transport thread
+DEBUG:paramiko.transport:starting thread (client mode): 0x60419b0
+DEBUG:paramiko.transport:Local version/idstring: SSH-2.0-paramiko_2.7.1
+DEBUG:paramiko.transport:Remote version/idstring: SSH-1.99-Cisco-1.25
+INFO:paramiko.transport:Connected (version 1.99, client Cisco-1.25)
+DEBUG:paramiko.transport:kex algos:['diffie-hellman-group-exchange-sha1', 'diffie-hellman-group14-sha1'] server key:['ssh-rsa'] client encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] server encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] client mac:['hmac-sha1', 'hmac-sha1-96'] server mac:['hmac-sha1', 'hmac-sha1-96'] client compress:['none'] server compress:['none'] client lang:[''] server lang:[''] kex follows?False
+DEBUG:paramiko.transport:Kex agreed: diffie-hellman-group-exchange-sha1
+DEBUG:paramiko.transport:HostKey agreed: ssh-rsa
+DEBUG:paramiko.transport:Cipher agreed: aes128-ctr
+DEBUG:paramiko.transport:MAC agreed: hmac-sha1
+DEBUG:paramiko.transport:Compression agreed: none
+DEBUG:paramiko.transport:Got server p (2048 bits)
+DEBUG:paramiko.transport:kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+DEBUG:paramiko.transport:Switch to new keys ...
+DEBUG:paramiko.transport:Adding ssh-rsa host key for 192.168.15.222: b'3867b1b7be96189d986109e4406d0c27'
+DEBUG:paramiko.transport:userauth is OK
+INFO:paramiko.transport:Authentication (password) successful!
+DEBUG:paramiko.transport:[chan 0] Max packet in: 32768 bytes
+DEBUG:paramiko.transport:[chan 0] Max packet out: 4096 bytes
+DEBUG:paramiko.transport:Secsh channel 0 opened.
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:netmiko:read_channel: C
+#############################################################################################
+# UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED                                          #
+#                                                                                           #
+# You must have explicit, authorized permission to access or configure this device.         #
+# Unauthorized attempts and actions to access or use this system may result in civil and/or #
+# criminal penalties.                                                                       #
+#                                                                                           #
+# All activities performed on this device are logged and monitored.                         #
+#############################################################################################
+SWTC22#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: 
+SWTC22#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:In disable_paging
+DEBUG:netmiko:Command: terminal length 0
+
+DEBUG:netmiko:write_channel: b'terminal length 0\n'
+DEBUG:netmiko:Pattern is: SWTC22
+DEBUG:netmiko:_read_channel_expect read_data: t
+DEBUG:netmiko:_read_channel_expect read_data: erminal length 0
+SWTC22#
+DEBUG:netmiko:Pattern found: SWTC22 terminal length 0
+SWTC22#
+DEBUG:netmiko:terminal length 0
+SWTC22#
+DEBUG:netmiko:Exiting disable_paging
+DEBUG:netmiko:write_channel: b'terminal width 511\n'
+DEBUG:netmiko:Pattern is: SWTC22
+DEBUG:netmiko:_read_channel_expect read_data: t
+DEBUG:netmiko:_read_channel_expect read_data: erminal width 511
+SWTC22#
+DEBUG:netmiko:Pattern found: SWTC22 terminal width 511
+SWTC22#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: SWTC22
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC22#
+DEBUG:netmiko:Pattern found: SWTC22 
+SWTC22#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC22#
+DEBUG:netmiko:Pattern found: # 
+SWTC22#
+DEBUG:netmiko:write_channel: b'config term\n'
+DEBUG:netmiko:Pattern is: SWTC22
+DEBUG:netmiko:_read_channel_expect read_data: c
+DEBUG:netmiko:_read_channel_expect read_data: onfig term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC22(config)#
+DEBUG:netmiko:Pattern found: SWTC22 config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC22(config)#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC22(config)#
+DEBUG:netmiko:Pattern found: # 
+SWTC22(config)#
+DEBUG:netmiko:write_channel: b'int loop3\n'
+DEBUG:netmiko:write_channel: b'ip add 3.3.3.3 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'int loop4\n'
+DEBUG:netmiko:write_channel: b'ip add 4.4.4.4 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'int loop1\n'
+DEBUG:netmiko:write_channel: b'ip add 1.1.1.1 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'int loop2\n'
+DEBUG:netmiko:write_channel: b'ip add 2.2.2.2 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: int loop3
+SWTC22(config-if)#ip add 3.3.3.3 255.255.255.255
+SWTC22(config-if)#exit
+SWTC22(config)#int loop4
+SWTC22(config-if)#ip add 4.4.4.4 255.255.255.255
+SWTC22(config-if)#exit
+SWTC22(config)#int loop1
+SWTC22(config-if)#ip add 1.1.1.1 255.255.255.255
+SWTC22(config-if)#exit
+SWTC22(config)#int loop2
+SWTC22(config-if)#ip add 2.2.2.2 255.255.255.255
+SWTC22(config-if)#exit
+SWTC22(config)#
+SWTC22(config)#
+SWTC22(config)#
+SWTC22(config)#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC22(config)#
+DEBUG:netmiko:Pattern found: # 
+SWTC22(config)#
+DEBUG:netmiko:write_channel: b'end\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: e
+DEBUG:netmiko:_read_channel_expect read_data: nd
+SWTC22#
+DEBUG:netmiko:Pattern found: # end
+SWTC22#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC22#
+DEBUG:netmiko:Pattern found: # 
+SWTC22#
+DEBUG:netmiko:exit_config_mode: end
+SWTC22#
+DEBUG:netmiko:config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC22(config)#int loop3
+SWTC22(config-if)#ip add 3.3.3.3 255.255.255.255
+SWTC22(config-if)#exit
+SWTC22(config)#int loop4
+SWTC22(config-if)#ip add 4.4.4.4 255.255.255.255
+SWTC22(config-if)#exit
+SWTC22(config)#int loop1
+SWTC22(config-if)#ip add 1.1.1.1 255.255.255.255
+SWTC22(config-if)#exit
+SWTC22(config)#int loop2
+SWTC22(config-if)#ip add 2.2.2.2 255.255.255.255
+SWTC22(config-if)#exit
+SWTC22(config)#
+SWTC22(config)#
+SWTC22(config)#
+SWTC22(config)#end
+SWTC22#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC22#
+DEBUG:netmiko:Pattern found: # 
+SWTC22#
+DEBUG:netmiko:exit_config_mode: 
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:paramiko.transport:EOF in transport thread
+DEBUG:paramiko.transport:starting thread (client mode): 0xa8aeef0
+DEBUG:paramiko.transport:Local version/idstring: SSH-2.0-paramiko_2.7.1
+DEBUG:paramiko.transport:Remote version/idstring: SSH-1.99-Cisco-1.25
+INFO:paramiko.transport:Connected (version 1.99, client Cisco-1.25)
+DEBUG:paramiko.transport:kex algos:['diffie-hellman-group-exchange-sha1', 'diffie-hellman-group14-sha1'] server key:['ssh-rsa'] client encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] server encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] client mac:['hmac-sha1', 'hmac-sha1-96'] server mac:['hmac-sha1', 'hmac-sha1-96'] client compress:['none'] server compress:['none'] client lang:[''] server lang:[''] kex follows?False
+DEBUG:paramiko.transport:Kex agreed: diffie-hellman-group-exchange-sha1
+DEBUG:paramiko.transport:HostKey agreed: ssh-rsa
+DEBUG:paramiko.transport:Cipher agreed: aes128-ctr
+DEBUG:paramiko.transport:MAC agreed: hmac-sha1
+DEBUG:paramiko.transport:Compression agreed: none
+DEBUG:paramiko.transport:Got server p (2048 bits)
+DEBUG:paramiko.transport:kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+DEBUG:paramiko.transport:Switch to new keys ...
+DEBUG:paramiko.transport:Adding ssh-rsa host key for 192.168.15.223: b'3867b1b7be96189d986109e4406d0c27'
+DEBUG:paramiko.transport:userauth is OK
+INFO:paramiko.transport:Authentication (password) successful!
+DEBUG:paramiko.transport:[chan 0] Max packet in: 32768 bytes
+DEBUG:paramiko.transport:[chan 0] Max packet out: 4096 bytes
+DEBUG:paramiko.transport:Secsh channel 0 opened.
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:netmiko:read_channel: C
+#############################################################################################
+# UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED                                          #
+#                                                                                           #
+# You must have explicit, authorized permission to access or configure this device.         #
+# Unauthorized attempts and actions to access or use this system may result in civil and/or #
+# criminal penalties.                                                                       #
+#                                                                                           #
+# All activities performed on this device are logged and monitored.                         #
+#############################################################################################
+
+SWTC23#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: 
+SWTC23#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:In disable_paging
+DEBUG:netmiko:Command: terminal length 0
+
+DEBUG:netmiko:write_channel: b'terminal length 0\n'
+DEBUG:netmiko:Pattern is: SWTC23
+DEBUG:netmiko:_read_channel_expect read_data: t
+DEBUG:netmiko:_read_channel_expect read_data: erminal length 0
+SWTC23#
+DEBUG:netmiko:Pattern found: SWTC23 terminal length 0
+SWTC23#
+DEBUG:netmiko:terminal length 0
+SWTC23#
+DEBUG:netmiko:Exiting disable_paging
+DEBUG:netmiko:write_channel: b'terminal width 511\n'
+DEBUG:netmiko:Pattern is: SWTC23
+DEBUG:netmiko:_read_channel_expect read_data: t
+DEBUG:netmiko:_read_channel_expect read_data: erminal width 511
+SWTC23#
+DEBUG:netmiko:Pattern found: SWTC23 terminal width 511
+SWTC23#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: SWTC23
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC23#
+DEBUG:netmiko:Pattern found: SWTC23 
+SWTC23#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC23#
+DEBUG:netmiko:Pattern found: # 
+SWTC23#
+DEBUG:netmiko:write_channel: b'config term\n'
+DEBUG:netmiko:Pattern is: SWTC23
+DEBUG:netmiko:_read_channel_expect read_data: c
+DEBUG:netmiko:_read_channel_expect read_data: onfig
+DEBUG:netmiko:_read_channel_expect read_data:  term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC23(config)#
+DEBUG:netmiko:Pattern found: SWTC23 config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC23(config)#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC23(config)#
+DEBUG:netmiko:Pattern found: # 
+SWTC23(config)#
+DEBUG:netmiko:write_channel: b'int loop3\n'
+DEBUG:netmiko:write_channel: b'ip add 3.3.3.3 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'int loop4\n'
+DEBUG:netmiko:write_channel: b'ip add 4.4.4.4 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'int loop1\n'
+DEBUG:netmiko:write_channel: b'ip add 1.1.1.1 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'int loop2\n'
+DEBUG:netmiko:write_channel: b'ip add 2.2.2.2 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: int loop3
+SWTC23(config-if)#ip add 3.3.3.3 255.255.255.255
+SWTC23(config-if)#exit
+SWTC23(config)#int loop4
+SWTC23(config-if)#ip add 4.4.4.4 255.255.255.255
+SWTC23(config-if)#exit
+SWTC23(config)#int loop1
+SWTC23(config-if)#ip add 1.1.1.1 255.255.255.255
+SWTC23(config-if)#exit
+SWTC23(config)#int loop2
+SWTC23(config-if)#ip add 2.2.2.2 255.255.255.255
+SWTC23(config-if)#exit
+SWTC23(config)#
+SWTC23(config)#
+SWTC23(config)#
+SWTC23(config)#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC23(config)#
+DEBUG:netmiko:Pattern found: # 
+SWTC23(config)#
+DEBUG:netmiko:write_channel: b'end\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: e
+DEBUG:netmiko:_read_channel_expect read_data: nd
+SWTC23#
+DEBUG:netmiko:Pattern found: # end
+SWTC23#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC23#
+DEBUG:netmiko:Pattern found: # 
+SWTC23#
+DEBUG:netmiko:exit_config_mode: end
+SWTC23#
+DEBUG:netmiko:config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC23(config)#int loop3
+SWTC23(config-if)#ip add 3.3.3.3 255.255.255.255
+SWTC23(config-if)#exit
+SWTC23(config)#int loop4
+SWTC23(config-if)#ip add 4.4.4.4 255.255.255.255
+SWTC23(config-if)#exit
+SWTC23(config)#int loop1
+SWTC23(config-if)#ip add 1.1.1.1 255.255.255.255
+SWTC23(config-if)#exit
+SWTC23(config)#int loop2
+SWTC23(config-if)#ip add 2.2.2.2 255.255.255.255
+SWTC23(config-if)#exit
+SWTC23(config)#
+SWTC23(config)#
+SWTC23(config)#
+SWTC23(config)#end
+SWTC23#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC23#
+DEBUG:netmiko:Pattern found: # 
+SWTC23#
+DEBUG:netmiko:exit_config_mode: 
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:paramiko.transport:EOF in transport thread
+DEBUG:paramiko.transport:starting thread (client mode): 0xa8c4f60
+DEBUG:paramiko.transport:Local version/idstring: SSH-2.0-paramiko_2.7.1
+DEBUG:paramiko.transport:Remote version/idstring: SSH-1.99-Cisco-1.25
+INFO:paramiko.transport:Connected (version 1.99, client Cisco-1.25)
+DEBUG:paramiko.transport:kex algos:['diffie-hellman-group-exchange-sha1', 'diffie-hellman-group14-sha1'] server key:['ssh-rsa'] client encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] server encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] client mac:['hmac-sha1', 'hmac-sha1-96'] server mac:['hmac-sha1', 'hmac-sha1-96'] client compress:['none'] server compress:['none'] client lang:[''] server lang:[''] kex follows?False
+DEBUG:paramiko.transport:Kex agreed: diffie-hellman-group-exchange-sha1
+DEBUG:paramiko.transport:HostKey agreed: ssh-rsa
+DEBUG:paramiko.transport:Cipher agreed: aes128-ctr
+DEBUG:paramiko.transport:MAC agreed: hmac-sha1
+DEBUG:paramiko.transport:Compression agreed: none
+DEBUG:paramiko.transport:Got server p (2048 bits)
+DEBUG:paramiko.transport:kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+DEBUG:paramiko.transport:Switch to new keys ...
+DEBUG:paramiko.transport:Adding ssh-rsa host key for 192.168.15.224: b'568d0468b13b4980b1979539a727f973'
+DEBUG:paramiko.transport:userauth is OK
+INFO:paramiko.transport:Authentication (password) successful!
+DEBUG:paramiko.transport:[chan 0] Max packet in: 32768 bytes
+DEBUG:paramiko.transport:[chan 0] Max packet out: 4096 bytes
+DEBUG:paramiko.transport:Secsh channel 0 opened.
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:netmiko:read_channel: C
+#############################################################################################
+# UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED                                          #
+#                                                                                           #
+# You must have explicit, authorized permission to access or configure this device.         #
+# Unauthorized attempts and actions to access or use this system may result in civil and/or #
+# criminal penalties.                                                                       #
+#                                                                                           #
+# All activities performed on this device are logged and monitored.                         #
+#############################################################################################
+
+SWTC24#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: 
+SWTC24#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:In disable_paging
+DEBUG:netmiko:Command: terminal length 0
+
+DEBUG:netmiko:write_channel: b'terminal length 0\n'
+DEBUG:netmiko:Pattern is: SWTC24
+DEBUG:netmiko:_read_channel_expect read_data: t
+DEBUG:netmiko:_read_channel_expect read_data: erminal length 0
+SWTC24#
+DEBUG:netmiko:Pattern found: SWTC24 terminal length 0
+SWTC24#
+DEBUG:netmiko:terminal length 0
+SWTC24#
+DEBUG:netmiko:Exiting disable_paging
+DEBUG:netmiko:write_channel: b'terminal width 511\n'
+DEBUG:netmiko:Pattern is: SWTC24
+DEBUG:netmiko:_read_channel_expect read_data: t
+DEBUG:netmiko:_read_channel_expect read_data: erminal width 511
+SWTC24#
+DEBUG:netmiko:Pattern found: SWTC24 terminal width 511
+SWTC24#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: SWTC24
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC24#
+DEBUG:netmiko:Pattern found: SWTC24 
+SWTC24#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC24#
+DEBUG:netmiko:Pattern found: # 
+SWTC24#
+DEBUG:netmiko:write_channel: b'config term\n'
+DEBUG:netmiko:Pattern is: SWTC24
+DEBUG:netmiko:_read_channel_expect read_data: c
+DEBUG:netmiko:_read_channel_expect read_data: onfig term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC24(config)#
+DEBUG:netmiko:Pattern found: SWTC24 config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC24(config)#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC24(config)#
+DEBUG:netmiko:Pattern found: # 
+SWTC24(config)#
+DEBUG:netmiko:write_channel: b'int loop3\n'
+DEBUG:netmiko:write_channel: b'ip add 3.3.3.3 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'int loop4\n'
+DEBUG:netmiko:write_channel: b'ip add 4.4.4.4 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'int loop1\n'
+DEBUG:netmiko:write_channel: b'ip add 1.1.1.1 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'int loop2\n'
+DEBUG:netmiko:write_channel: b'ip add 2.2.2.2 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: int loop3
+SWTC24(config-if)#ip add 3.3.3.3 255.255.255.255
+SWTC24(config-if)#exit
+SWTC24(config)#int loop4
+SWTC24(config-if)#ip add 4.4.4.4 255.255.255
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: .
+DEBUG:netmiko:_read_channel_expect read_data: 255
+SWTC24(config-if)#exit
+SWTC24(config)#int loop1
+SWTC24(config-if)#ip add 1.1.1.1 255.
+DEBUG:netmiko:Pattern found: # .255
+SWTC24(config-if)#exit
+SWTC24(config)#int loop1
+SWTC24(config-if)#ip add 1.1.1.1 255.
+DEBUG:netmiko:write_channel: b'end\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 2
+DEBUG:netmiko:_read_channel_expect read_data: 55.255.255
+SWTC24(config-if)#exit
+SWTC24(config)#int loop2
+SWTC24(config-if)#ip add 2.
+DEBUG:netmiko:Pattern found: # 255.255.255
+SWTC24(config-if)#exit
+SWTC24(config)#int loop2
+SWTC24(config-if)#ip add 2.
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 2
+DEBUG:netmiko:_read_channel_expect read_data: .2.2 255.255.255.255
+SWTC24(config-if)#exit
+
+DEBUG:netmiko:Pattern found: # 2.2.2 255.255.255.255
+SWTC24(config-if)#exit
+
+DEBUG:paramiko.transport:starting thread (client mode): 0x7123da0
+DEBUG:paramiko.transport:Local version/idstring: SSH-2.0-paramiko_2.7.1
+DEBUG:paramiko.transport:Remote version/idstring: SSH-1.99-Cisco-1.25
+INFO:paramiko.transport:Connected (version 1.99, client Cisco-1.25)
+DEBUG:paramiko.transport:kex algos:['diffie-hellman-group-exchange-sha1', 'diffie-hellman-group14-sha1'] server key:['ssh-rsa'] client encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] server encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] client mac:['hmac-sha1', 'hmac-sha1-96'] server mac:['hmac-sha1', 'hmac-sha1-96'] client compress:['none'] server compress:['none'] client lang:[''] server lang:[''] kex follows?False
+DEBUG:paramiko.transport:Kex agreed: diffie-hellman-group-exchange-sha1
+DEBUG:paramiko.transport:HostKey agreed: ssh-rsa
+DEBUG:paramiko.transport:Cipher agreed: aes128-ctr
+DEBUG:paramiko.transport:MAC agreed: hmac-sha1
+DEBUG:paramiko.transport:Compression agreed: none
+DEBUG:paramiko.transport:Got server p (2048 bits)
+DEBUG:paramiko.transport:kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+DEBUG:paramiko.transport:Switch to new keys ...
+DEBUG:paramiko.transport:Adding ssh-rsa host key for 192.168.15.221: b'3867b1b7be96189d986109e4406d0c27'
+DEBUG:paramiko.transport:userauth is OK
+INFO:paramiko.transport:Authentication (password) successful!
+DEBUG:paramiko.transport:[chan 0] Max packet in: 32768 bytes
+DEBUG:paramiko.transport:[chan 0] Max packet out: 4096 bytes
+DEBUG:paramiko.transport:Secsh channel 0 opened.
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:netmiko:read_channel: C
+#############################################################################################
+# UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED                                          #
+#                                                                                           #
+# You must have explicit, authorized permission to access or configure this device.         #
+# Unauthorized attempts and actions to access or use this system may result in civil and/or #
+# criminal penalties.                                                                       #
+#                                                                                           #
+# All activities performed on this device are logged and monitored.                         #
+#############################################################################################
+
+SWTC21#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: 
+SWTC21#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:In disable_paging
+DEBUG:netmiko:Command: terminal length 0
+
+DEBUG:netmiko:write_channel: b'terminal length 0\n'
+DEBUG:netmiko:Pattern is: SWTC21
+DEBUG:netmiko:_read_channel_expect read_data: t
+DEBUG:netmiko:_read_channel_expect read_data: erminal length 0
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC21#
+DEBUG:netmiko:Pattern found: SWTC21 terminal length 0
+SWTC21#
+DEBUG:netmiko:terminal length 0
+SWTC21#
+DEBUG:netmiko:Exiting disable_paging
+DEBUG:netmiko:write_channel: b'terminal width 511\n'
+DEBUG:netmiko:Pattern is: SWTC21
+DEBUG:netmiko:_read_channel_expect read_data: t
+DEBUG:netmiko:_read_channel_expect read_data: erminal width 511
+SWTC21#
+DEBUG:netmiko:Pattern found: SWTC21 terminal width 511
+SWTC21#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: SWTC21
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC21#
+DEBUG:netmiko:Pattern found: SWTC21 
+SWTC21#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC21#
+DEBUG:netmiko:Pattern found: # 
+SWTC21#
+DEBUG:netmiko:write_channel: b'config term\n'
+DEBUG:netmiko:Pattern is: SWTC21
+DEBUG:netmiko:_read_channel_expect read_data: c
+DEBUG:netmiko:_read_channel_expect read_data: onfig term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC21(config)#
+DEBUG:netmiko:Pattern found: SWTC21 config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC21(config)#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC21(config)#
+DEBUG:netmiko:Pattern found: # 
+SWTC21(config)#
+DEBUG:netmiko:write_channel: b'int loop3\n'
+DEBUG:netmiko:write_channel: b'no ip add 3.3.3.3 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'int loop4\n'
+DEBUG:netmiko:write_channel: b'no ip add 4.4.4.4 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'int loop1\n'
+DEBUG:netmiko:write_channel: b'no ip add 1.1.1.1 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'int loop2\n'
+DEBUG:netmiko:write_channel: b'no ip add 2.2.2.2 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: int loop3
+SWTC21(config-if)#no ip add 3.3.3.3 255.255.255.255
+SWTC21(config-if)#exit
+SWTC21(config)#int loop4
+SWTC21(config-if)#no ip add 4.4.4.4 255.255.255.255
+SWTC21(config-if)#exit
+SWTC21(config)#int loop1
+SWTC21(config-if)#no ip add 1.1.1.1 255.255.255.255
+SWTC21(config-if)#exit
+SWTC21(config)#int loop2
+SWTC21(config-if)#no ip add 2.2.2.2 255.255.255.255
+SWTC21(config-if)#exit
+SWTC21(config)#
+SWTC21(config)#
+SWTC21(config)#
+SWTC21(config)#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC21(config)#
+DEBUG:netmiko:Pattern found: # 
+SWTC21(config)#
+DEBUG:netmiko:write_channel: b'end\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: e
+DEBUG:netmiko:_read_channel_expect read_data: nd
+SWTC21#
+DEBUG:netmiko:Pattern found: # end
+SWTC21#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC21#
+DEBUG:netmiko:Pattern found: # 
+SWTC21#
+DEBUG:netmiko:exit_config_mode: end
+SWTC21#
+DEBUG:netmiko:config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC21(config)#int loop3
+SWTC21(config-if)#no ip add 3.3.3.3 255.255.255.255
+SWTC21(config-if)#exit
+SWTC21(config)#int loop4
+SWTC21(config-if)#no ip add 4.4.4.4 255.255.255.255
+SWTC21(config-if)#exit
+SWTC21(config)#int loop1
+SWTC21(config-if)#no ip add 1.1.1.1 255.255.255.255
+SWTC21(config-if)#exit
+SWTC21(config)#int loop2
+SWTC21(config-if)#no ip add 2.2.2.2 255.255.255.255
+SWTC21(config-if)#exit
+SWTC21(config)#
+SWTC21(config)#
+SWTC21(config)#
+SWTC21(config)#end
+SWTC21#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC21#
+DEBUG:netmiko:Pattern found: # 
+SWTC21#
+DEBUG:netmiko:exit_config_mode: 
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:paramiko.transport:EOF in transport thread
+DEBUG:paramiko.transport:starting thread (client mode): 0x713fa20
+DEBUG:paramiko.transport:Local version/idstring: SSH-2.0-paramiko_2.7.1
+DEBUG:paramiko.transport:Remote version/idstring: SSH-1.99-Cisco-1.25
+INFO:paramiko.transport:Connected (version 1.99, client Cisco-1.25)
+DEBUG:paramiko.transport:kex algos:['diffie-hellman-group-exchange-sha1', 'diffie-hellman-group14-sha1'] server key:['ssh-rsa'] client encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] server encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] client mac:['hmac-sha1', 'hmac-sha1-96'] server mac:['hmac-sha1', 'hmac-sha1-96'] client compress:['none'] server compress:['none'] client lang:[''] server lang:[''] kex follows?False
+DEBUG:paramiko.transport:Kex agreed: diffie-hellman-group-exchange-sha1
+DEBUG:paramiko.transport:HostKey agreed: ssh-rsa
+DEBUG:paramiko.transport:Cipher agreed: aes128-ctr
+DEBUG:paramiko.transport:MAC agreed: hmac-sha1
+DEBUG:paramiko.transport:Compression agreed: none
+DEBUG:paramiko.transport:Got server p (2048 bits)
+DEBUG:paramiko.transport:kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+DEBUG:paramiko.transport:Switch to new keys ...
+DEBUG:paramiko.transport:Adding ssh-rsa host key for 192.168.15.222: b'3867b1b7be96189d986109e4406d0c27'
+DEBUG:paramiko.transport:userauth is OK
+INFO:paramiko.transport:Authentication (password) successful!
+DEBUG:paramiko.transport:[chan 0] Max packet in: 32768 bytes
+DEBUG:paramiko.transport:[chan 0] Max packet out: 4096 bytes
+DEBUG:paramiko.transport:Secsh channel 0 opened.
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:netmiko:read_channel: C
+#############################################################################################
+# UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED                                          #
+#                                                                                           #
+# You must have explicit, authorized permission to access or configure this device.         #
+# Unauthorized attempts and actions to access or use this system may result in civil and/or #
+# criminal penalties.                                                                       #
+#                                                                                           #
+# All activities performed on this device are logged and monitored.                         #
+#############################################################################################
+
+SWTC22#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: 
+SWTC22#
+SWTC22#
+SWTC22#
+SWTC22#
+SWTC22#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:In disable_paging
+DEBUG:netmiko:Command: terminal length 0
+
+DEBUG:netmiko:write_channel: b'terminal length 0\n'
+DEBUG:netmiko:Pattern is: SWTC22
+DEBUG:netmiko:_read_channel_expect read_data: t
+DEBUG:netmiko:_read_channel_expect read_data: erminal length 0
+SWTC22#
+DEBUG:netmiko:Pattern found: SWTC22 terminal length 0
+SWTC22#
+DEBUG:netmiko:terminal length 0
+SWTC22#
+DEBUG:netmiko:Exiting disable_paging
+DEBUG:netmiko:write_channel: b'terminal width 511\n'
+DEBUG:netmiko:Pattern is: SWTC22
+DEBUG:netmiko:_read_channel_expect read_data: t
+DEBUG:netmiko:_read_channel_expect read_data: erminal width 511
+SWTC22#
+DEBUG:netmiko:Pattern found: SWTC22 terminal width 511
+SWTC22#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: SWTC22
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC22#
+DEBUG:netmiko:Pattern found: SWTC22 
+SWTC22#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC22#
+DEBUG:netmiko:Pattern found: # 
+SWTC22#
+DEBUG:netmiko:write_channel: b'config term\n'
+DEBUG:netmiko:Pattern is: SWTC22
+DEBUG:netmiko:_read_channel_expect read_data: c
+DEBUG:netmiko:_read_channel_expect read_data: onfig term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC22(config)#
+DEBUG:netmiko:Pattern found: SWTC22 config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC22(config)#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC22(config)#
+DEBUG:netmiko:Pattern found: # 
+SWTC22(config)#
+DEBUG:netmiko:write_channel: b'int loop3\n'
+DEBUG:netmiko:write_channel: b'no ip add 3.3.3.3 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'int loop4\n'
+DEBUG:netmiko:write_channel: b'no ip add 4.4.4.4 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'int loop1\n'
+DEBUG:netmiko:write_channel: b'no ip add 1.1.1.1 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'int loop2\n'
+DEBUG:netmiko:write_channel: b'no ip add 2.2.2.2 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: int loop3
+SWTC22(config-if)#no ip add 3.3.3.3 255.255.255.255
+SWTC22(config-if)#exit
+SWTC22(config)#int loop4
+SWTC22(config-if)#no ip add 4.4.4.4 255.255.255.255
+SWTC22(config-if)#exit
+SWTC22(config)#int loop1
+SWTC22(config-if)#no ip add 1.1.1.1 255.255.255.255
+SWTC22(config-if)#exit
+SWTC22(config)#int loop2
+SWTC22(config-if)#no ip add 2.2.2.2 255.255.255.255
+SWTC22(config-if)#exit
+SWTC22(config)#
+SWTC22(config)#
+SWTC22(config)#
+SWTC22(config)#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC22(config)#
+DEBUG:netmiko:Pattern found: # 
+SWTC22(config)#
+DEBUG:netmiko:write_channel: b'end\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: e
+DEBUG:netmiko:_read_channel_expect read_data: nd
+SWTC22#
+DEBUG:netmiko:Pattern found: # end
+SWTC22#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC22#
+DEBUG:netmiko:Pattern found: # 
+SWTC22#
+DEBUG:netmiko:exit_config_mode: end
+SWTC22#
+DEBUG:netmiko:config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC22(config)#int loop3
+SWTC22(config-if)#no ip add 3.3.3.3 255.255.255.255
+SWTC22(config-if)#exit
+SWTC22(config)#int loop4
+SWTC22(config-if)#no ip add 4.4.4.4 255.255.255.255
+SWTC22(config-if)#exit
+SWTC22(config)#int loop1
+SWTC22(config-if)#no ip add 1.1.1.1 255.255.255.255
+SWTC22(config-if)#exit
+SWTC22(config)#int loop2
+SWTC22(config-if)#no ip add 2.2.2.2 255.255.255.255
+SWTC22(config-if)#exit
+SWTC22(config)#
+SWTC22(config)#
+SWTC22(config)#
+SWTC22(config)#end
+SWTC22#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC22#
+DEBUG:netmiko:Pattern found: # 
+SWTC22#
+DEBUG:netmiko:exit_config_mode: 
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:paramiko.transport:EOF in transport thread
+DEBUG:paramiko.transport:starting thread (client mode): 0x7123e10
+DEBUG:paramiko.transport:Local version/idstring: SSH-2.0-paramiko_2.7.1
+DEBUG:paramiko.transport:Remote version/idstring: SSH-1.99-Cisco-1.25
+INFO:paramiko.transport:Connected (version 1.99, client Cisco-1.25)
+DEBUG:paramiko.transport:kex algos:['diffie-hellman-group-exchange-sha1', 'diffie-hellman-group14-sha1'] server key:['ssh-rsa'] client encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] server encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] client mac:['hmac-sha1', 'hmac-sha1-96'] server mac:['hmac-sha1', 'hmac-sha1-96'] client compress:['none'] server compress:['none'] client lang:[''] server lang:[''] kex follows?False
+DEBUG:paramiko.transport:Kex agreed: diffie-hellman-group-exchange-sha1
+DEBUG:paramiko.transport:HostKey agreed: ssh-rsa
+DEBUG:paramiko.transport:Cipher agreed: aes128-ctr
+DEBUG:paramiko.transport:MAC agreed: hmac-sha1
+DEBUG:paramiko.transport:Compression agreed: none
+DEBUG:paramiko.transport:Got server p (2048 bits)
+DEBUG:paramiko.transport:kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+DEBUG:paramiko.transport:Switch to new keys ...
+DEBUG:paramiko.transport:Adding ssh-rsa host key for 192.168.15.223: b'3867b1b7be96189d986109e4406d0c27'
+DEBUG:paramiko.transport:userauth is OK
+INFO:paramiko.transport:Authentication (password) successful!
+DEBUG:paramiko.transport:[chan 0] Max packet in: 32768 bytes
+DEBUG:paramiko.transport:[chan 0] Max packet out: 4096 bytes
+DEBUG:paramiko.transport:Secsh channel 0 opened.
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:netmiko:read_channel: C
+#############################################################################################
+# UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED                                          #
+#                                                                                           #
+# You must have explicit, authorized permission to access or configure this device.         #
+# Unauthorized attempts and actions to access or use this system may result in civil and/or #
+# criminal penalties.                                                                       #
+#                                                                                           #
+# All activities performed on this device are logged and monitored.                         #
+#############################################################################################
+
+SWTC23#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: 
+SWTC23#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:In disable_paging
+DEBUG:netmiko:Command: terminal length 0
+
+DEBUG:netmiko:write_channel: b'terminal length 0\n'
+DEBUG:netmiko:Pattern is: SWTC23
+DEBUG:netmiko:_read_channel_expect read_data: t
+DEBUG:netmiko:_read_channel_expect read_data: erminal length 0
+SWTC23#
+DEBUG:netmiko:Pattern found: SWTC23 terminal length 0
+SWTC23#
+DEBUG:netmiko:terminal length 0
+SWTC23#
+DEBUG:netmiko:Exiting disable_paging
+DEBUG:netmiko:write_channel: b'terminal width 511\n'
+DEBUG:netmiko:Pattern is: SWTC23
+DEBUG:netmiko:_read_channel_expect read_data: t
+DEBUG:netmiko:_read_channel_expect read_data: erminal width 511
+SWTC23#
+DEBUG:netmiko:Pattern found: SWTC23 terminal width 511
+SWTC23#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: SWTC23
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC23#
+DEBUG:netmiko:Pattern found: SWTC23 
+SWTC23#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC23#
+DEBUG:netmiko:Pattern found: # 
+SWTC23#
+DEBUG:netmiko:write_channel: b'config term\n'
+DEBUG:netmiko:Pattern is: SWTC23
+DEBUG:netmiko:_read_channel_expect read_data: c
+DEBUG:netmiko:_read_channel_expect read_data: onfig term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC23(config)#
+DEBUG:netmiko:Pattern found: SWTC23 config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC23(config)#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC23(config)#
+DEBUG:netmiko:Pattern found: # 
+SWTC23(config)#
+DEBUG:netmiko:write_channel: b'int loop3\n'
+DEBUG:netmiko:write_channel: b'no ip add 3.3.3.3 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'int loop4\n'
+DEBUG:netmiko:write_channel: b'no ip add 4.4.4.4 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'int loop1\n'
+DEBUG:netmiko:write_channel: b'no ip add 1.1.1.1 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'int loop2\n'
+DEBUG:netmiko:write_channel: b'no ip add 2.2.2.2 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: int loop3
+SWTC23(config-if)#no ip add 3.3.3.3 255.255.255.255
+SWTC23(config-if)#exit
+SWTC23(config)#int loop4
+SWTC23(config-if)#no ip add 4.4.4.4 255.255.255.255
+SWTC23(config-if)#exit
+SWTC23(config)#int loop1
+SWTC23(config-if)#no ip add 1.1.1.1 255.255.255.255
+SWTC23(config-if)#exit
+SWTC23(config)#int loop2
+SWTC23(config-if)#no ip add 2.2.2.2 255.255.255.255
+SWTC23(config-if)#exit
+SWTC23(config)#
+SWTC23(config)#
+SWTC23(config)#
+SWTC23(config)#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC23(config)#
+DEBUG:netmiko:Pattern found: # 
+SWTC23(config)#
+DEBUG:netmiko:write_channel: b'end\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: e
+DEBUG:netmiko:_read_channel_expect read_data: nd
+SWTC23#
+DEBUG:netmiko:Pattern found: # end
+SWTC23#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC23#
+DEBUG:netmiko:Pattern found: # 
+SWTC23#
+DEBUG:netmiko:exit_config_mode: end
+SWTC23#
+DEBUG:netmiko:config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC23(config)#int loop3
+SWTC23(config-if)#no ip add 3.3.3.3 255.255.255.255
+SWTC23(config-if)#exit
+SWTC23(config)#int loop4
+SWTC23(config-if)#no ip add 4.4.4.4 255.255.255.255
+SWTC23(config-if)#exit
+SWTC23(config)#int loop1
+SWTC23(config-if)#no ip add 1.1.1.1 255.255.255.255
+SWTC23(config-if)#exit
+SWTC23(config)#int loop2
+SWTC23(config-if)#no ip add 2.2.2.2 255.255.255.255
+SWTC23(config-if)#exit
+SWTC23(config)#
+SWTC23(config)#
+SWTC23(config)#
+SWTC23(config)#end
+SWTC23#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC23#
+DEBUG:netmiko:Pattern found: # 
+SWTC23#
+DEBUG:netmiko:exit_config_mode: 
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:paramiko.transport:EOF in transport thread
+DEBUG:paramiko.transport:starting thread (client mode): 0xb9acc18
+DEBUG:paramiko.transport:Local version/idstring: SSH-2.0-paramiko_2.7.1
+DEBUG:paramiko.transport:Remote version/idstring: SSH-1.99-Cisco-1.25
+INFO:paramiko.transport:Connected (version 1.99, client Cisco-1.25)
+DEBUG:paramiko.transport:kex algos:['diffie-hellman-group-exchange-sha1', 'diffie-hellman-group14-sha1'] server key:['ssh-rsa'] client encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] server encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] client mac:['hmac-sha1', 'hmac-sha1-96'] server mac:['hmac-sha1', 'hmac-sha1-96'] client compress:['none'] server compress:['none'] client lang:[''] server lang:[''] kex follows?False
+DEBUG:paramiko.transport:Kex agreed: diffie-hellman-group-exchange-sha1
+DEBUG:paramiko.transport:HostKey agreed: ssh-rsa
+DEBUG:paramiko.transport:Cipher agreed: aes128-ctr
+DEBUG:paramiko.transport:MAC agreed: hmac-sha1
+DEBUG:paramiko.transport:Compression agreed: none
+DEBUG:paramiko.transport:Got server p (2048 bits)
+DEBUG:paramiko.transport:kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+DEBUG:paramiko.transport:Switch to new keys ...
+DEBUG:paramiko.transport:Adding ssh-rsa host key for 192.168.15.224: b'568d0468b13b4980b1979539a727f973'
+DEBUG:paramiko.transport:userauth is OK
+INFO:paramiko.transport:Authentication (password) successful!
+DEBUG:paramiko.transport:[chan 0] Max packet in: 32768 bytes
+DEBUG:paramiko.transport:[chan 0] Max packet out: 4096 bytes
+DEBUG:paramiko.transport:Secsh channel 0 opened.
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:netmiko:read_channel: C
+#############################################################################################
+# UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED                                          #
+#                                                                                           #
+# You must have explicit, authorized permission to access or configure this device.         #
+# Unauthorized attempts and actions to access or use this system may result in civil and/or #
+# criminal penalties.                                                                       #
+#                                                                                           #
+# All activities performed on this device are logged and monitored.                         #
+#############################################################################################
+
+SWTC24#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: 
+SWTC24#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:In disable_paging
+DEBUG:netmiko:Command: terminal length 0
+
+DEBUG:netmiko:write_channel: b'terminal length 0\n'
+DEBUG:netmiko:Pattern is: SWTC24
+DEBUG:netmiko:_read_channel_expect read_data: t
+DEBUG:netmiko:_read_channel_expect read_data: erminal length 0
+SWTC24#
+DEBUG:netmiko:Pattern found: SWTC24 terminal length 0
+SWTC24#
+DEBUG:netmiko:terminal length 0
+SWTC24#
+DEBUG:netmiko:Exiting disable_paging
+DEBUG:netmiko:write_channel: b'terminal width 511\n'
+DEBUG:netmiko:Pattern is: SWTC24
+DEBUG:netmiko:_read_channel_expect read_data: t
+DEBUG:netmiko:_read_channel_expect read_data: erminal 
+DEBUG:netmiko:_read_channel_expect read_data: w
+DEBUG:netmiko:_read_channel_expect read_data: idth 511
+SWTC24#
+DEBUG:netmiko:Pattern found: SWTC24 terminal width 511
+SWTC24#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: SWTC24
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC24#
+DEBUG:netmiko:Pattern found: SWTC24 
+SWTC24#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC24#
+DEBUG:netmiko:Pattern found: # 
+SWTC24#
+DEBUG:netmiko:write_channel: b'config term\n'
+DEBUG:netmiko:Pattern is: SWTC24
+DEBUG:netmiko:_read_channel_expect read_data: c
+DEBUG:netmiko:_read_channel_expect read_data: onfig term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC24(config)#
+DEBUG:netmiko:Pattern found: SWTC24 config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC24(config)#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC24(config)#
+DEBUG:netmiko:Pattern found: # 
+SWTC24(config)#
+DEBUG:netmiko:write_channel: b'int loop3\n'
+DEBUG:netmiko:write_channel: b'no ip add 3.3.3.3 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'int loop4\n'
+DEBUG:netmiko:write_channel: b'no ip add 4.4.4.4 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'int loop1\n'
+DEBUG:netmiko:write_channel: b'no ip add 1.1.1.1 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'int loop2\n'
+DEBUG:netmiko:write_channel: b'no ip add 2.2.2.2 255.255.255.255\n'
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: int loop3
+SWTC24(config-if)#no ip add 3.3.3.3 255.255.255.255
+SWTC24(config-if)#exit
+SWTC24(config)#int loop4
+SWTC24(config-if)#no ip add 4.4.4.4 255.255.255.255
+SWTC24(config-if)#exit
+SWTC24(config)#int loop1
+SWTC24(config-if)#no ip add 1.1.1.1 255.255.255.255
+SWTC24(config-if)#exit
+SWTC24(config)#int loop2
+SWTC24(config-if)#no ip add 2.2.2.2 255.255.255.255
+SWTC24(config-if)#exit
+SWTC24(config)#
+SWTC24(config)#
+SWTC24(config)#
+SWTC24(config)#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC24(config)#
+DEBUG:netmiko:Pattern found: # 
+SWTC24(config)#
+DEBUG:netmiko:write_channel: b'end\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: e
+DEBUG:netmiko:_read_channel_expect read_data: nd
+SWTC24#
+DEBUG:netmiko:Pattern found: # end
+SWTC24#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC24#
+DEBUG:netmiko:Pattern found: # 
+SWTC24#
+DEBUG:netmiko:exit_config_mode: end
+SWTC24#
+DEBUG:netmiko:config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC24(config)#int loop3
+SWTC24(config-if)#no ip add 3.3.3.3 255.255.255.255
+SWTC24(config-if)#exit
+SWTC24(config)#int loop4
+SWTC24(config-if)#no ip add 4.4.4.4 255.255.255.255
+SWTC24(config-if)#exit
+SWTC24(config)#int loop1
+SWTC24(config-if)#no ip add 1.1.1.1 255.255.255.255
+SWTC24(config-if)#exit
+SWTC24(config)#int loop2
+SWTC24(config-if)#no ip add 2.2.2.2 255.255.255.255
+SWTC24(config-if)#exit
+SWTC24(config)#
+SWTC24(config)#
+SWTC24(config)#
+SWTC24(config)#end
+SWTC24#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC24#
+DEBUG:netmiko:Pattern found: # 
+SWTC24#
+DEBUG:netmiko:exit_config_mode: 
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:paramiko.transport:starting thread (client mode): 0x7223d68
+DEBUG:paramiko.transport:Local version/idstring: SSH-2.0-paramiko_2.7.1
+DEBUG:paramiko.transport:Remote version/idstring: SSH-1.99-Cisco-1.25
+INFO:paramiko.transport:Connected (version 1.99, client Cisco-1.25)
+DEBUG:paramiko.transport:kex algos:['diffie-hellman-group-exchange-sha1', 'diffie-hellman-group14-sha1'] server key:['ssh-rsa'] client encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] server encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] client mac:['hmac-sha1', 'hmac-sha1-96'] server mac:['hmac-sha1', 'hmac-sha1-96'] client compress:['none'] server compress:['none'] client lang:[''] server lang:[''] kex follows?False
+DEBUG:paramiko.transport:Kex agreed: diffie-hellman-group-exchange-sha1
+DEBUG:paramiko.transport:HostKey agreed: ssh-rsa
+DEBUG:paramiko.transport:Cipher agreed: aes128-ctr
+DEBUG:paramiko.transport:MAC agreed: hmac-sha1
+DEBUG:paramiko.transport:Compression agreed: none
+DEBUG:paramiko.transport:Got server p (2048 bits)
+DEBUG:paramiko.transport:kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+DEBUG:paramiko.transport:Switch to new keys ...
+DEBUG:paramiko.transport:Adding ssh-rsa host key for 192.168.15.221: b'3867b1b7be96189d986109e4406d0c27'
+DEBUG:paramiko.transport:userauth is OK
+INFO:paramiko.transport:Authentication (password) successful!
+DEBUG:paramiko.transport:[chan 0] Max packet in: 32768 bytes
+DEBUG:paramiko.transport:[chan 0] Max packet out: 4096 bytes
+DEBUG:paramiko.transport:Secsh channel 0 opened.
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:netmiko:read_channel: C
+#############################################################################################
+# UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED                                          #
+#                                                                                           #
+# You must have explicit, authorized permission to access or configure this device.         #
+# Unauthorized attempts and actions to access or use this system may result in civil and/or #
+# criminal penalties.                                                                       #
+#                                                                                           #
+# All activities performed on this device are logged and monitored.                         #
+#############################################################################################
+SWTC21#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: 
+SWTC21#
+SWTC21#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:In disable_paging
+DEBUG:netmiko:Command: terminal length 0
+
+DEBUG:netmiko:write_channel: b'terminal length 0\n'
+DEBUG:netmiko:Pattern is: SWTC21
+DEBUG:netmiko:_read_channel_expect read_data: t
+DEBUG:netmiko:_read_channel_expect read_data: erminal length 0
+SWTC21#
+DEBUG:netmiko:Pattern found: SWTC21 terminal length 0
+SWTC21#
+DEBUG:netmiko:terminal length 0
+SWTC21#
+DEBUG:netmiko:Exiting disable_paging
+DEBUG:netmiko:write_channel: b'terminal width 511\n'
+DEBUG:netmiko:Pattern is: SWTC21
+DEBUG:netmiko:_read_channel_expect read_data: t
+DEBUG:netmiko:_read_channel_expect read_data: erminal width 511
+SWTC21#
+DEBUG:netmiko:Pattern found: SWTC21 terminal width 511
+SWTC21#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: SWTC21
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC21#
+DEBUG:netmiko:Pattern found: SWTC21 
+SWTC21#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC21#
+DEBUG:netmiko:Pattern found: # 
+SWTC21#
+DEBUG:netmiko:write_channel: b'config term\n'
+DEBUG:netmiko:Pattern is: SWTC21
+DEBUG:netmiko:_read_channel_expect read_data: c
+DEBUG:netmiko:_read_channel_expect read_data: onfig term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC21(config)#
+DEBUG:netmiko:Pattern found: SWTC21 config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC21(config)#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC21(config)#
+DEBUG:netmiko:Pattern found: # 
+SWTC21(config)#
+DEBUG:netmiko:write_channel: b'no int loop3\n'
+DEBUG:netmiko:write_channel: b'no int loop4\n'
+DEBUG:netmiko:write_channel: b'no int loop1\n'
+DEBUG:netmiko:write_channel: b'no int loop2\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: no int loop3
+SWTC21(config)#no int loop4
+SWTC21(config)#no int loop1
+SWTC21(config)#no int loop2
+SWTC21(config)#
+SWTC21(config)#
+SWTC21(config)#
+SWTC21(config)#
+SWTC21(config)#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC21(config)#
+DEBUG:netmiko:Pattern found: # 
+SWTC21(config)#
+DEBUG:netmiko:write_channel: b'end\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: e
+DEBUG:netmiko:_read_channel_expect read_data: nd
+SWTC21#
+DEBUG:netmiko:Pattern found: # end
+SWTC21#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC21#
+DEBUG:netmiko:Pattern found: # 
+SWTC21#
+DEBUG:netmiko:exit_config_mode: end
+SWTC21#
+DEBUG:netmiko:config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC21(config)#no int loop3
+SWTC21(config)#no int loop4
+SWTC21(config)#no int loop1
+SWTC21(config)#no int loop2
+SWTC21(config)#
+SWTC21(config)#
+SWTC21(config)#
+SWTC21(config)#
+SWTC21(config)#end
+SWTC21#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC21#
+DEBUG:netmiko:Pattern found: # 
+SWTC21#
+DEBUG:netmiko:exit_config_mode: 
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:paramiko.transport:EOF in transport thread
+DEBUG:paramiko.transport:starting thread (client mode): 0x723f9e8
+DEBUG:paramiko.transport:Local version/idstring: SSH-2.0-paramiko_2.7.1
+DEBUG:paramiko.transport:Remote version/idstring: SSH-1.99-Cisco-1.25
+INFO:paramiko.transport:Connected (version 1.99, client Cisco-1.25)
+DEBUG:paramiko.transport:kex algos:['diffie-hellman-group-exchange-sha1', 'diffie-hellman-group14-sha1'] server key:['ssh-rsa'] client encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] server encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] client mac:['hmac-sha1', 'hmac-sha1-96'] server mac:['hmac-sha1', 'hmac-sha1-96'] client compress:['none'] server compress:['none'] client lang:[''] server lang:[''] kex follows?False
+DEBUG:paramiko.transport:Kex agreed: diffie-hellman-group-exchange-sha1
+DEBUG:paramiko.transport:HostKey agreed: ssh-rsa
+DEBUG:paramiko.transport:Cipher agreed: aes128-ctr
+DEBUG:paramiko.transport:MAC agreed: hmac-sha1
+DEBUG:paramiko.transport:Compression agreed: none
+DEBUG:paramiko.transport:Got server p (2048 bits)
+DEBUG:paramiko.transport:kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+DEBUG:paramiko.transport:Switch to new keys ...
+DEBUG:paramiko.transport:Adding ssh-rsa host key for 192.168.15.222: b'3867b1b7be96189d986109e4406d0c27'
+DEBUG:paramiko.transport:userauth is OK
+INFO:paramiko.transport:Authentication (password) successful!
+DEBUG:paramiko.transport:[chan 0] Max packet in: 32768 bytes
+DEBUG:paramiko.transport:[chan 0] Max packet out: 4096 bytes
+DEBUG:paramiko.transport:Secsh channel 0 opened.
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:netmiko:read_channel: C
+#############################################################################################
+# UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED                                          #
+#                                                                                           #
+# You must have explicit, authorized permission to access or configure this device.         #
+# Unauthorized attempts and actions to access or use this system may result in civil and/or #
+# criminal penalties.                                                                       #
+#                                                                                           #
+# All activities performed on this device are logged and monitored.                         #
+#############################################################################################
+
+SWTC22#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: 
+SWTC22#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:In disable_paging
+DEBUG:netmiko:Command: terminal length 0
+
+DEBUG:netmiko:write_channel: b'terminal length 0\n'
+DEBUG:netmiko:Pattern is: SWTC22
+DEBUG:netmiko:_read_channel_expect read_data: t
+DEBUG:netmiko:_read_channel_expect read_data: erminal length 0
+SWTC22#
+DEBUG:netmiko:Pattern found: SWTC22 terminal length 0
+SWTC22#
+DEBUG:netmiko:terminal length 0
+SWTC22#
+DEBUG:netmiko:Exiting disable_paging
+DEBUG:netmiko:write_channel: b'terminal width 511\n'
+DEBUG:netmiko:Pattern is: SWTC22
+DEBUG:netmiko:_read_channel_expect read_data: t
+DEBUG:netmiko:_read_channel_expect read_data: erminal width 511
+SWTC22#
+DEBUG:netmiko:Pattern found: SWTC22 terminal width 511
+SWTC22#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: SWTC22
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC22#
+DEBUG:netmiko:Pattern found: SWTC22 
+SWTC22#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC22#
+DEBUG:netmiko:Pattern found: # 
+SWTC22#
+DEBUG:netmiko:write_channel: b'config term\n'
+DEBUG:netmiko:Pattern is: SWTC22
+DEBUG:netmiko:_read_channel_expect read_data: c
+DEBUG:netmiko:_read_channel_expect read_data: onfig term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC22(config)#
+DEBUG:netmiko:Pattern found: SWTC22 config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC22(config)#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC22(config)#
+DEBUG:netmiko:Pattern found: # 
+SWTC22(config)#
+DEBUG:netmiko:write_channel: b'no int loop3\n'
+DEBUG:netmiko:write_channel: b'no int loop4\n'
+DEBUG:netmiko:write_channel: b'no int loop1\n'
+DEBUG:netmiko:write_channel: b'no int loop2\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: no int loop3
+SWTC22(config)#no int loop4
+SWTC22(config)#no int loop1
+SWTC22(config)#no int loop2
+SWTC22(config)#
+SWTC22(config)#
+SWTC22(config)#
+SWTC22(config)#
+SWTC22(config)#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC22(config)#
+DEBUG:netmiko:Pattern found: # 
+SWTC22(config)#
+DEBUG:netmiko:write_channel: b'end\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: e
+DEBUG:netmiko:_read_channel_expect read_data: nd
+SWTC22#
+DEBUG:netmiko:Pattern found: # end
+SWTC22#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC22#
+DEBUG:netmiko:Pattern found: # 
+SWTC22#
+DEBUG:netmiko:exit_config_mode: end
+SWTC22#
+DEBUG:netmiko:config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC22(config)#no int loop3
+SWTC22(config)#no int loop4
+SWTC22(config)#no int loop1
+SWTC22(config)#no int loop2
+SWTC22(config)#
+SWTC22(config)#
+SWTC22(config)#
+SWTC22(config)#
+SWTC22(config)#end
+SWTC22#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC22#
+DEBUG:netmiko:Pattern found: # 
+SWTC22#
+DEBUG:netmiko:exit_config_mode: 
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:paramiko.transport:EOF in transport thread
+DEBUG:paramiko.transport:starting thread (client mode): 0xb9a9eb8
+DEBUG:paramiko.transport:Local version/idstring: SSH-2.0-paramiko_2.7.1
+DEBUG:paramiko.transport:Remote version/idstring: SSH-1.99-Cisco-1.25
+INFO:paramiko.transport:Connected (version 1.99, client Cisco-1.25)
+DEBUG:paramiko.transport:kex algos:['diffie-hellman-group-exchange-sha1', 'diffie-hellman-group14-sha1'] server key:['ssh-rsa'] client encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] server encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] client mac:['hmac-sha1', 'hmac-sha1-96'] server mac:['hmac-sha1', 'hmac-sha1-96'] client compress:['none'] server compress:['none'] client lang:[''] server lang:[''] kex follows?False
+DEBUG:paramiko.transport:Kex agreed: diffie-hellman-group-exchange-sha1
+DEBUG:paramiko.transport:HostKey agreed: ssh-rsa
+DEBUG:paramiko.transport:Cipher agreed: aes128-ctr
+DEBUG:paramiko.transport:MAC agreed: hmac-sha1
+DEBUG:paramiko.transport:Compression agreed: none
+DEBUG:paramiko.transport:Got server p (2048 bits)
+DEBUG:paramiko.transport:kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+DEBUG:paramiko.transport:Switch to new keys ...
+DEBUG:paramiko.transport:Adding ssh-rsa host key for 192.168.15.223: b'3867b1b7be96189d986109e4406d0c27'
+DEBUG:paramiko.transport:userauth is OK
+INFO:paramiko.transport:Authentication (password) successful!
+DEBUG:paramiko.transport:[chan 0] Max packet in: 32768 bytes
+DEBUG:paramiko.transport:[chan 0] Max packet out: 4096 bytes
+DEBUG:paramiko.transport:Secsh channel 0 opened.
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:netmiko:read_channel: C
+#############################################################################################
+# UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED                                          #
+#                                                                                           #
+# You must have explicit, authorized permission to access or configure this device.         #
+# Unauthorized attempts and actions to access or use this system may result in civil and/or #
+# criminal penalties.                                                                       #
+#                                                                                           #
+# All activities performed on this device are logged and monitored.                         #
+#############################################################################################
+
+SWTC23#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: 
+SWTC23#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:In disable_paging
+DEBUG:netmiko:Command: terminal length 0
+
+DEBUG:netmiko:write_channel: b'terminal length 0\n'
+DEBUG:netmiko:Pattern is: SWTC23
+DEBUG:netmiko:_read_channel_expect read_data: t
+DEBUG:netmiko:_read_channel_expect read_data: erminal length 0
+SWTC23#
+DEBUG:netmiko:Pattern found: SWTC23 terminal length 0
+SWTC23#
+DEBUG:netmiko:terminal length 0
+SWTC23#
+DEBUG:netmiko:Exiting disable_paging
+DEBUG:netmiko:write_channel: b'terminal width 511\n'
+DEBUG:netmiko:Pattern is: SWTC23
+DEBUG:netmiko:_read_channel_expect read_data: t
+DEBUG:netmiko:_read_channel_expect read_data: erminal width 511
+SWTC23#
+DEBUG:netmiko:Pattern found: SWTC23 terminal width 511
+SWTC23#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: SWTC23
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC23#
+DEBUG:netmiko:Pattern found: SWTC23 
+SWTC23#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC23#
+DEBUG:netmiko:Pattern found: # 
+SWTC23#
+DEBUG:netmiko:write_channel: b'config term\n'
+DEBUG:netmiko:Pattern is: SWTC23
+DEBUG:netmiko:_read_channel_expect read_data: c
+DEBUG:netmiko:_read_channel_expect read_data: onfig term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC23(config)#
+DEBUG:netmiko:Pattern found: SWTC23 config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC23(config)#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC23(config)#
+DEBUG:netmiko:Pattern found: # 
+SWTC23(config)#
+DEBUG:netmiko:write_channel: b'no int loop3\n'
+DEBUG:netmiko:write_channel: b'no int loop4\n'
+DEBUG:netmiko:write_channel: b'no int loop1\n'
+DEBUG:netmiko:write_channel: b'no int loop2\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: no int loop3
+SWTC23(config)#no int loop4
+SWTC23(config)#no int loop1
+SWTC23(config)#no int loop2
+SWTC23(config)#
+SWTC23(config)#
+SWTC23(config)#
+SWTC23(config)#
+SWTC23(config)#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC23(config)#
+DEBUG:netmiko:Pattern found: # 
+SWTC23(config)#
+DEBUG:netmiko:write_channel: b'end\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: e
+DEBUG:netmiko:_read_channel_expect read_data: nd
+SWTC23#
+DEBUG:netmiko:Pattern found: # end
+SWTC23#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC23#
+DEBUG:netmiko:Pattern found: # 
+SWTC23#
+DEBUG:netmiko:exit_config_mode: end
+SWTC23#
+DEBUG:netmiko:config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC23(config)#no int loop3
+SWTC23(config)#no int loop4
+SWTC23(config)#no int loop1
+SWTC23(config)#no int loop2
+SWTC23(config)#
+SWTC23(config)#
+SWTC23(config)#
+SWTC23(config)#
+SWTC23(config)#end
+SWTC23#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC23#
+DEBUG:netmiko:Pattern found: # 
+SWTC23#
+DEBUG:netmiko:exit_config_mode: 
+DEBUG:netmiko:write_channel: b'exit\n'
+DEBUG:paramiko.transport:EOF in transport thread
+DEBUG:paramiko.transport:starting thread (client mode): 0xb9bfcf8
+DEBUG:paramiko.transport:Local version/idstring: SSH-2.0-paramiko_2.7.1
+DEBUG:paramiko.transport:Remote version/idstring: SSH-1.99-Cisco-1.25
+INFO:paramiko.transport:Connected (version 1.99, client Cisco-1.25)
+DEBUG:paramiko.transport:kex algos:['diffie-hellman-group-exchange-sha1', 'diffie-hellman-group14-sha1'] server key:['ssh-rsa'] client encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] server encrypt:['aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-cbc', '3des-cbc', 'aes192-cbc', 'aes256-cbc'] client mac:['hmac-sha1', 'hmac-sha1-96'] server mac:['hmac-sha1', 'hmac-sha1-96'] client compress:['none'] server compress:['none'] client lang:[''] server lang:[''] kex follows?False
+DEBUG:paramiko.transport:Kex agreed: diffie-hellman-group-exchange-sha1
+DEBUG:paramiko.transport:HostKey agreed: ssh-rsa
+DEBUG:paramiko.transport:Cipher agreed: aes128-ctr
+DEBUG:paramiko.transport:MAC agreed: hmac-sha1
+DEBUG:paramiko.transport:Compression agreed: none
+DEBUG:paramiko.transport:Got server p (2048 bits)
+DEBUG:paramiko.transport:kex engine KexGex specified hash_algo <built-in function openssl_sha1>
+DEBUG:paramiko.transport:Switch to new keys ...
+DEBUG:paramiko.transport:Adding ssh-rsa host key for 192.168.15.224: b'568d0468b13b4980b1979539a727f973'
+DEBUG:paramiko.transport:userauth is OK
+INFO:paramiko.transport:Authentication (password) successful!
+DEBUG:paramiko.transport:[chan 0] Max packet in: 32768 bytes
+DEBUG:paramiko.transport:[chan 0] Max packet out: 4096 bytes
+DEBUG:paramiko.transport:Secsh channel 0 opened.
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:netmiko:read_channel: C
+#############################################################################################
+# UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED                                          #
+#                                                                                           #
+# You must have explicit, authorized permission to access or configure this device.         #
+# Unauthorized attempts and actions to access or use this system may result in civil and/or #
+# criminal penalties.                                                                       #
+#                                                                                           #
+# All activities performed on this device are logged and monitored.                         #
+#############################################################################################
+
+SWTC24#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: 
+SWTC24#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:In disable_paging
+DEBUG:netmiko:Command: terminal length 0
+
+DEBUG:netmiko:write_channel: b'terminal length 0\n'
+DEBUG:netmiko:Pattern is: SWTC24
+DEBUG:netmiko:_read_channel_expect read_data: t
+DEBUG:netmiko:_read_channel_expect read_data: erminal length 0
+SWTC24#
+DEBUG:netmiko:Pattern found: SWTC24 terminal length 0
+SWTC24#
+DEBUG:netmiko:terminal length 0
+SWTC24#
+DEBUG:netmiko:Exiting disable_paging
+DEBUG:netmiko:write_channel: b'terminal width 511\n'
+DEBUG:netmiko:Pattern is: SWTC24
+DEBUG:netmiko:_read_channel_expect read_data: t
+DEBUG:netmiko:_read_channel_expect read_data: erminal width 511
+SWTC24#
+DEBUG:netmiko:Pattern found: SWTC24 terminal width 511
+SWTC24#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: SWTC24
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC24#
+DEBUG:netmiko:Pattern found: SWTC24 
+SWTC24#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC24#
+DEBUG:netmiko:Pattern found: # 
+SWTC24#
+DEBUG:netmiko:write_channel: b'config term\n'
+DEBUG:netmiko:Pattern is: SWTC24
+DEBUG:netmiko:_read_channel_expect read_data: c
+DEBUG:netmiko:_read_channel_expect read_data: onfig term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC24(config)#
+DEBUG:netmiko:Pattern found: SWTC24 config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC24(config)#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC24(config)#
+DEBUG:netmiko:Pattern found: # 
+SWTC24(config)#
+DEBUG:netmiko:write_channel: b'no int loop3\n'
+DEBUG:netmiko:write_channel: b'no int loop4\n'
+DEBUG:netmiko:write_channel: b'no int loop1\n'
+DEBUG:netmiko:write_channel: b'no int loop2\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:read_channel: no int loop3
+SWTC24(config)#no int loop4
+SWTC24(config)#no int loop1
+SWTC24(config)#no int loop2
+SWTC24(config)#
+SWTC24(config)#
+SWTC24(config)#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+SWTC24(config)#
+SWTC24(config)#
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:read_channel: 
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC24(config)#
+DEBUG:netmiko:Pattern found: # 
+SWTC24(config)#
+DEBUG:netmiko:write_channel: b'end\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: e
+DEBUG:netmiko:_read_channel_expect read_data: nd
+SWTC24#
+DEBUG:netmiko:Pattern found: # end
+SWTC24#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC24#
+DEBUG:netmiko:Pattern found: # 
+SWTC24#
+DEBUG:netmiko:exit_config_mode: end
+SWTC24#
+DEBUG:netmiko:config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+SWTC24(config)#no int loop3
+SWTC24(config)#no int loop4
+SWTC24(config)#no int loop1
+SWTC24(config)#no int loop2
+SWTC24(config)#
+SWTC24(config)#
+SWTC24(config)#
+SWTC24(config)#
+SWTC24(config)#end
+SWTC24#
+DEBUG:netmiko:write_channel: b'\n'
+DEBUG:netmiko:Pattern is: #
+DEBUG:netmiko:_read_channel_expect read_data: 
+
+DEBUG:netmiko:_read_channel_expect read_data: SWTC24#
+DEBUG:netmiko:Pattern found: # 
+SWTC24#
+DEBUG:netmiko:exit_config_mode: 
+DEBUG:netmiko:write_channel: b'exit\n'
