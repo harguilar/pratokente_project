@@ -1,6 +1,7 @@
 from netmiko import ConnectHandler
 import getpass
 import logging
+import time
 
 logging.basicConfig(filename='test.log',level=logging.DEBUG)
 logger = logging.getLogger('netmiko')
@@ -13,7 +14,7 @@ for ip in ips:
     devices = {
         'device_type':'cisco_ios',
         'ip':ip,
-        'username':'hnhanga',
+        'username':input("Please Enter The Username: \n"),
         'password':getpass.getpass(),
         'port':22,
         'secret':'cisco'

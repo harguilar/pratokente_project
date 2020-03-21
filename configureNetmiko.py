@@ -3,12 +3,11 @@ from netmiko import Netmiko
 from netmiko import ConnectHandler
 import getpass
 
-#connection = Netmiko(host='192.168.15.222',username='hnhanga',password='', device_type='cisco_ios')
 #Create The devices
 devices = {
     'device_type':'cisco_ios',
-    'ip': '192.168.15.221',
-    'username':'hnhanga',
+    'ip': 'xxxxxx',
+    'username':input("Please Enter the Username \n"),
     'password':getpass.getpass()
 
 }

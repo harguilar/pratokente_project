@@ -2,6 +2,7 @@ from netmiko import ConnectHandler
 import getpass
 import logging
 
+
 logging.basicConfig(filename='testNet.log', level=logging.DEBUG)
 logger = logging.getLogger('netmiko')
 '''''
@@ -15,7 +16,7 @@ try:
         devicesDic = {
             'device_type':'cisco_ios',
             'ip':ip,
-            'username':'hnhanga',
+            'username':input("Please Enter Your User Name: \n"),
             'password':getpass.getpass(),
             'port':22,
             'secret':'cisco', # Secret Password or Root in Linux
@@ -27,7 +28,7 @@ try:
         configurations = ConnectHandler(**devicesDic)
         # Place in Enable Mode
         configurations.enable()
-        #Configure the Devices From A File
+        #Configure the Devices From A File IT will Automatically Enter the Configuration mode and Send the CMDs
         configurations.send_config_from_file('ospf.txt')
         #Close The Configurations
         configurations.disconnect()
