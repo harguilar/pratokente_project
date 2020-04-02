@@ -3,7 +3,7 @@ import getpass
 import logging
 import time
 
-logging.basicConfig(filename='test.log',level=logging.DEBUG)
+logging.basicConfig(filename='test.log', level=logging.DEBUG)
 logger = logging.getLogger('netmiko')
 
 with open('devices.txt') as f:

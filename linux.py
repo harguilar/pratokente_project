@@ -4,7 +4,7 @@ import getpass
 import logging
 
 def main():
-    logging.basicConfig(filename='test.log',level=logging.DEBUG)
+    logging.basicConfig(filename='test.log', level=logging.DEBUG)
     logger = logging.getLogger('netmiko')
     linux = {
         'device_type':'linux',
