@@ -13,6 +13,7 @@ logger = logging.getLogger('netmiko')
 def devIps():
     try :
         with open('devices.txt') as f:
+            #Create a List of IPs from a File
             ips = f.read().splitlines()
         return ips
     except Exception as e:
@@ -32,7 +33,7 @@ def setDeviceType(ip, **deviceDic):
         #Return The Dictionary
         return deviceDic
     except Exception as e:
-        print(e)
+        print(e) 
 
 def config():
     #create an Empty Dictionary
