@@ -7,8 +7,7 @@ import 'package:pratokente/core/datamodels/booked/booked_data.dart';
 import 'package:pratokente/core/datamodels/merchants/merchant_data.dart';
 import 'package:pratokente/core/datamodels/products/product_data.dart';
 import 'package:pratokente/expections/firestore_api_exceptions.dart';
-
-import 'firestore_api.dart';
+import '../../apis/firestore_api.dart';
 
 class ProductService {
   final _firestoreApi = locator<FirestoreApi>();
@@ -127,7 +126,7 @@ class ProductService {
     }
   }
 
-  Stream<List<ProductData>> getProductsByCategory() {
+/*   Stream<List<ProductData>> getProductsByCategory() {
     try {
       return categoryReference
           .doc(_productCategory)
@@ -146,7 +145,7 @@ class ProductService {
       throw '';
       //return e.toString();
     }
-  }
+  } */
 
 /*   Stream<List<ProductData>> getProdutsByCategory(String uid) {
     return productsReference

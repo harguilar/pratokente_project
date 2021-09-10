@@ -6,11 +6,11 @@ import 'package:pratokente/app/app.locator.dart';
 import 'package:pratokente/app/app.logger.dart';
 import 'package:pratokente/core/datamodels/cart/cart_product.dart';
 import 'package:pratokente/core/datamodels/orders/order_data.dart';
-import 'package:pratokente/core/services/users_services.dart';
+import 'package:pratokente/core/services/users/users_services.dart';
 import 'package:pratokente/global/global.dart';
 import 'package:pratokente/constants/constants.dart';
 
-import 'firestore_api.dart';
+import '../../../apis/firestore_api.dart';
 
 class CartService {
   final log = getLogger('CartService');

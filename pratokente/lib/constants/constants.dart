@@ -35,6 +35,7 @@ const NoKey = 'NoKey';
 
 //Define an Instance of the DB
 final productsReference = FirebaseFirestore.instance.collection('products');
+final merchantsReference = FirebaseFirestore.instance.collection('merchants');
 // final _addProducts = FirebaseFirestore.instance.collection('category').doc('Restaurante').collection('itens');
 final categoryReference = FirebaseFirestore.instance.collection('category');
 final bookingReference = FirebaseFirestore.instance.collection('booked');

@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:pratokente/constants/constants.dart';
-import 'package:pratokente/ui/shared/shared_styles.dart';
-import 'package:pratokente/ui/shared/ui_helpers.dart';
-// ignore: import_of_legacy_library_into_null_safe
-//import 'package:splashscreen/splashscreen.dart';
+import 'package:pratokente_ui/pratokente_ui.dart';
 import 'package:stacked/stacked.dart';
-
 import 'startup_viewModel.dart';
 
 class StartupView extends StatelessWidget {

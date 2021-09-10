@@ -52,6 +52,12 @@ const TextStyle kcMediumBody = TextStyle(
     fontSize: 14.0,
     color: Colors.orange);
 
+// colors
+const Color kcPrimaryColor = Color(0xff22A45D);
+
+const TextStyle kcBottomNav =
+    TextStyle(fontFamily: "Sofia", letterSpacing: 0.5);
+
 const TextStyle ktMediumBody = TextStyle(
     fontFamily: "Sofia",
     fontWeight: FontWeight.w500,
@@ -68,9 +74,6 @@ const TextStyle kcProductNameBody = TextStyle(
     fontSize: 17.0,
     color: Colors.black87);
 // TextStyle
-
-const TextStyle kcBottomNav =
-    TextStyle(fontFamily: "Sofia", letterSpacing: 0.5);
 
 const TextStyle kcLocation = TextStyle(
     fontFamily: "Sofia",

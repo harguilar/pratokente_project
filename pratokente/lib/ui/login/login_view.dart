@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pratokente/ui/shared/ui_helpers.dart';
 import 'package:pratokente/ui/widgets/authentication_layout.dart';
+import 'package:pratokente_ui/pratokente_ui.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 

@@ -12,13 +12,14 @@ import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_firebase_auth/stacked_firebase_auth.dart';
 import 'package:stacked_services/stacked_services.dart';
 
+import '../apis/firestore_api.dart';
 import '../core/services/bottom_navigation_service.dart';
-import '../core/services/cart_service.dart';
+import '../core/services/cart/cart_service.dart';
 import '../core/services/environment_services.dart';
-import '../core/services/firestore_api.dart';
+import '../core/services/merchants/merchants_services.dart';
 import '../core/services/orders_service.dart';
 import '../core/services/product_service.dart';
-import '../core/services/users_services.dart';
+import '../core/services/users/users_services.dart';
 
 final locator = StackedLocator.instance;
 
@@ -40,4 +41,5 @@ void setupLocator({String? environment, EnvironmentFilter? environmentFilter}) {
   locator.registerLazySingleton(() => FirestoreApi());
   locator.registerLazySingleton(() => UserService());
   locator.registerLazySingleton(() => PlacesService());
+  locator.registerLazySingleton(() => MerchantsService());
 }

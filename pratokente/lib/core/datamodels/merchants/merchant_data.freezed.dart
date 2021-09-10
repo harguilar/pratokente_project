@@ -21,23 +21,17 @@ class _$MerchantDataTearOff {
   const _$MerchantDataTearOff();
 
   _MerchantData call(
-      {String? deliveryFee,
-      DateTime? times,
-      String? rating,
-      int? numRatings,
-      String? id,
-      String? images,
+      {int? rating,
+      int? numberOfRatings,
+      String? image,
       String? name,
-      String? category}) {
+      List<String>? categories}) {
     return _MerchantData(
-      deliveryFee: deliveryFee,
-      times: times,
       rating: rating,
-      numRatings: numRatings,
-      id: id,
-      images: images,
+      numberOfRatings: numberOfRatings,
+      image: image,
       name: name,
-      category: category,
+      categories: categories,
     );
   }
 
@@ -51,14 +45,13 @@ const $MerchantData = _$MerchantDataTearOff();
 
 /// @nodoc
 mixin _$MerchantData {
-  String? get deliveryFee => throw _privateConstructorUsedError;
-  DateTime? get times => throw _privateConstructorUsedError;
-  String? get rating => throw _privateConstructorUsedError;
-  int? get numRatings => throw _privateConstructorUsedError;
-  String? get id => throw _privateConstructorUsedError;
-  String? get images => throw _privateConstructorUsedError;
+// String? deliveryFee,
+//DateTime? times,
+  int? get rating => throw _privateConstructorUsedError;
+  int? get numberOfRatings => throw _privateConstructorUsedError; //String? id,
+  String? get image => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
-  String? get category => throw _privateConstructorUsedError;
+  List<String>? get categories => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -72,14 +65,11 @@ abstract class $MerchantDataCopyWith<$Res> {
           MerchantData value, $Res Function(MerchantData) then) =
       _$MerchantDataCopyWithImpl<$Res>;
   $Res call(
-      {String? deliveryFee,
-      DateTime? times,
-      String? rating,
-      int? numRatings,
-      String? id,
-      String? images,
+      {int? rating,
+      int? numberOfRatings,
+      String? image,
       String? name,
-      String? category});
+      List<String>? categories});
 }
 
 /// @nodoc
@@ -92,48 +82,33 @@ class _$MerchantDataCopyWithImpl<$Res> implements $MerchantDataCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? deliveryFee = freezed,
-    Object? times = freezed,
     Object? rating = freezed,
-    Object? numRatings = freezed,
-    Object? id = freezed,
-    Object? images = freezed,
+    Object? numberOfRatings = freezed,
+    Object? image = freezed,
     Object? name = freezed,
-    Object? category = freezed,
+    Object? categories = freezed,
   }) {
     return _then(_value.copyWith(
-      deliveryFee: deliveryFee == freezed
-          ? _value.deliveryFee
-          : deliveryFee // ignore: cast_nullable_to_non_nullable
-              as String?,
-      times: times == freezed
-          ? _value.times
-          : times // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
       rating: rating == freezed
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
-              as String?,
-      numRatings: numRatings == freezed
-          ? _value.numRatings
-          : numRatings // ignore: cast_nullable_to_non_nullable
               as int?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      images: images == freezed
-          ? _value.images
-          : images // ignore: cast_nullable_to_non_nullable
+      numberOfRatings: numberOfRatings == freezed
+          ? _value.numberOfRatings
+          : numberOfRatings // ignore: cast_nullable_to_non_nullable
+              as int?,
+      image: image == freezed
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
               as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      category: category == freezed
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as String?,
+      categories: categories == freezed
+          ? _value.categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
@@ -146,14 +121,11 @@ abstract class _$MerchantDataCopyWith<$Res>
       __$MerchantDataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? deliveryFee,
-      DateTime? times,
-      String? rating,
-      int? numRatings,
-      String? id,
-      String? images,
+      {int? rating,
+      int? numberOfRatings,
+      String? image,
       String? name,
-      String? category});
+      List<String>? categories});
 }
 
 /// @nodoc
@@ -168,48 +140,33 @@ class __$MerchantDataCopyWithImpl<$Res> extends _$MerchantDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? deliveryFee = freezed,
-    Object? times = freezed,
     Object? rating = freezed,
-    Object? numRatings = freezed,
-    Object? id = freezed,
-    Object? images = freezed,
+    Object? numberOfRatings = freezed,
+    Object? image = freezed,
     Object? name = freezed,
-    Object? category = freezed,
+    Object? categories = freezed,
   }) {
     return _then(_MerchantData(
-      deliveryFee: deliveryFee == freezed
-          ? _value.deliveryFee
-          : deliveryFee // ignore: cast_nullable_to_non_nullable
-              as String?,
-      times: times == freezed
-          ? _value.times
-          : times // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
       rating: rating == freezed
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
-              as String?,
-      numRatings: numRatings == freezed
-          ? _value.numRatings
-          : numRatings // ignore: cast_nullable_to_non_nullable
               as int?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      images: images == freezed
-          ? _value.images
-          : images // ignore: cast_nullable_to_non_nullable
+      numberOfRatings: numberOfRatings == freezed
+          ? _value.numberOfRatings
+          : numberOfRatings // ignore: cast_nullable_to_non_nullable
+              as int?,
+      image: image == freezed
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
               as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      category: category == freezed
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as String?,
+      categories: categories == freezed
+          ? _value.categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
@@ -218,76 +175,58 @@ class __$MerchantDataCopyWithImpl<$Res> extends _$MerchantDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_MerchantData implements _MerchantData {
   _$_MerchantData(
-      {this.deliveryFee,
-      this.times,
-      this.rating,
-      this.numRatings,
-      this.id,
-      this.images,
+      {this.rating,
+      this.numberOfRatings,
+      this.image,
       this.name,
-      this.category});
+      this.categories});
 
   factory _$_MerchantData.fromJson(Map<String, dynamic> json) =>
       _$_$_MerchantDataFromJson(json);
 
+  @override // String? deliveryFee,
+//DateTime? times,
+  final int? rating;
   @override
-  final String? deliveryFee;
-  @override
-  final DateTime? times;
-  @override
-  final String? rating;
-  @override
-  final int? numRatings;
-  @override
-  final String? id;
-  @override
-  final String? images;
+  final int? numberOfRatings;
+  @override //String? id,
+  final String? image;
   @override
   final String? name;
   @override
-  final String? category;
+  final List<String>? categories;
 
   @override
   String toString() {
-    return 'MerchantData(deliveryFee: $deliveryFee, times: $times, rating: $rating, numRatings: $numRatings, id: $id, images: $images, name: $name, category: $category)';
+    return 'MerchantData(rating: $rating, numberOfRatings: $numberOfRatings, image: $image, name: $name, categories: $categories)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _MerchantData &&
-            (identical(other.deliveryFee, deliveryFee) ||
-                const DeepCollectionEquality()
-                    .equals(other.deliveryFee, deliveryFee)) &&
-            (identical(other.times, times) ||
-                const DeepCollectionEquality().equals(other.times, times)) &&
             (identical(other.rating, rating) ||
                 const DeepCollectionEquality().equals(other.rating, rating)) &&
-            (identical(other.numRatings, numRatings) ||
+            (identical(other.numberOfRatings, numberOfRatings) ||
                 const DeepCollectionEquality()
-                    .equals(other.numRatings, numRatings)) &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.images, images) ||
-                const DeepCollectionEquality().equals(other.images, images)) &&
+                    .equals(other.numberOfRatings, numberOfRatings)) &&
+            (identical(other.image, image) ||
+                const DeepCollectionEquality().equals(other.image, image)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.category, category) ||
+            (identical(other.categories, categories) ||
                 const DeepCollectionEquality()
-                    .equals(other.category, category)));
+                    .equals(other.categories, categories)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(deliveryFee) ^
-      const DeepCollectionEquality().hash(times) ^
       const DeepCollectionEquality().hash(rating) ^
-      const DeepCollectionEquality().hash(numRatings) ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(images) ^
+      const DeepCollectionEquality().hash(numberOfRatings) ^
+      const DeepCollectionEquality().hash(image) ^
       const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(category);
+      const DeepCollectionEquality().hash(categories);
 
   @JsonKey(ignore: true)
   @override
@@ -302,34 +241,26 @@ class _$_MerchantData implements _MerchantData {
 
 abstract class _MerchantData implements MerchantData {
   factory _MerchantData(
-      {String? deliveryFee,
-      DateTime? times,
-      String? rating,
-      int? numRatings,
-      String? id,
-      String? images,
+      {int? rating,
+      int? numberOfRatings,
+      String? image,
       String? name,
-      String? category}) = _$_MerchantData;
+      List<String>? categories}) = _$_MerchantData;
 
   factory _MerchantData.fromJson(Map<String, dynamic> json) =
       _$_MerchantData.fromJson;
 
+  @override // String? deliveryFee,
+//DateTime? times,
+  int? get rating => throw _privateConstructorUsedError;
   @override
-  String? get deliveryFee => throw _privateConstructorUsedError;
-  @override
-  DateTime? get times => throw _privateConstructorUsedError;
-  @override
-  String? get rating => throw _privateConstructorUsedError;
-  @override
-  int? get numRatings => throw _privateConstructorUsedError;
-  @override
-  String? get id => throw _privateConstructorUsedError;
-  @override
-  String? get images => throw _privateConstructorUsedError;
+  int? get numberOfRatings => throw _privateConstructorUsedError;
+  @override //String? id,
+  String? get image => throw _privateConstructorUsedError;
   @override
   String? get name => throw _privateConstructorUsedError;
   @override
-  String? get category => throw _privateConstructorUsedError;
+  List<String>? get categories => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$MerchantDataCopyWith<_MerchantData> get copyWith =>

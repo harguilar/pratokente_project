@@ -2,7 +2,7 @@ import 'package:pratokente/app/app.locator.dart';
 import 'package:pratokente/app/app.logger.dart';
 import 'package:pratokente/core/datamodels/user/user_models.dart';
 //import 'package:pratokente/app/app.router.dart';
-import 'package:pratokente/core/services/users_services.dart';
+import 'package:pratokente/core/services/users/users_services.dart';
 import 'package:pratokente/expections/firestore_api_exceptions.dart';
 import 'package:pratokente/global/global.dart';
 import 'package:pratokente/ui/create_account/create_accountview.form.dart';

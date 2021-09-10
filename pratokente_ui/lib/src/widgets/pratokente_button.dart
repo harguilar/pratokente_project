@@ -39,14 +39,14 @@ class PratokenteButton extends StatelessWidget {
         alignment: Alignment.center,
         decoration: !outline
             ? BoxDecoration(
-                color: !disabled ? kcPrimaryColor : kcMediumGreyColor,
+                color: !disabled ? Color(0xff22A45D) : kcMediumGreyColor,
                 borderRadius: BorderRadius.circular(8),
               )
             : BoxDecoration(
                 color: Colors.transparent,
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
-                  color: kcPrimaryColor,
+                  color: Color(0xff22A45D),
                   width: 1,
                 )),
         child: !busy
@@ -59,7 +59,7 @@ class PratokenteButton extends StatelessWidget {
                     title,
                     style: bodyStyle.copyWith(
                       fontWeight: !outline ? FontWeight.bold : FontWeight.w400,
-                      color: !outline ? Colors.white : kcPrimaryColor,
+                      color: !outline ? Colors.white : Color(0xff22A45D),
                     ),
                   ),
                 ],

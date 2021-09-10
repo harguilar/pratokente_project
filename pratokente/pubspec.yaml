@@ -90,6 +90,8 @@ dependencies:
   auth_buttons: ^1.0.1+3
   carousel_slider: ^4.0.0-nullsafety.0
   money2: ^2.2.1
+  #Pagination Controller
+  paginate_firestore:
   
   #Pratokente UI Package
   pratokente_ui:

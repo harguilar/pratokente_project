@@ -1,20 +1,33 @@
+import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:pratokente/app/app.logger.dart';
 import 'package:pratokente/constants/app_keys.dart';
 import 'package:pratokente/constants/constants.dart';
 import 'package:pratokente/core/datamodels/cart/cart_product.dart';
+import 'package:pratokente/core/datamodels/merchants/merchant_data.dart';
 import 'package:pratokente/core/datamodels/products/product_data.dart';
 import 'package:pratokente/core/datamodels/user/user_models.dart';
 import 'package:pratokente/expections/firestore_api_exceptions.dart';
 
 class FirestoreApi {
+  DocumentSnapshot? _lastDocument;
   final log = getLogger('FirestoreApi');
+  List<List<MerchantData>>? _allPagedResults = [];
+  bool _loadingMerchants = true;
+  List<DocumentSnapshot>? merchantsList = [];
+
+  final StreamController<List<MerchantData>> _merchantsController =
+      StreamController<List<MerchantData>>.broadcast();
+  static const int MerchantsLimit = 10;
+
   final CollectionReference usersCollection =
       FirebaseFirestore.instance.collection(UsersFirestoreKey);
 
   final CollectionReference regionsCollection =
       FirebaseFirestore.instance.collection(RegionsFirestoreKey);
   // final _userService = locator<UserService>();
+
+  bool _hasMoreMerchants = true;
 
   // Users Section
   Future<void> createUser({required User user}) async {
@@ -108,10 +121,9 @@ class FirestoreApi {
         if (query.docs.isEmpty) {
           log.v(
               'We do not have Cart Product for the User Id: $userId in our Database');
-          return null;
         } else {
-          //final userCartProducts = query.docs;
-          //log.v('User Found. Data: $query');
+          final userCartProducts = query.docs;
+          log.v('User Found. Data: $userCartProducts');
           //return query.docs.map((docs) => CartProduct.fromJson(docs)));
           return query.docs
               .map((docs) => CartProduct.fromJson(docs.data()))
@@ -173,4 +185,99 @@ class FirestoreApi {
       return false;
     }
   }
+
+  Stream listenToMerchantsRealTime() {
+    _requestMerchants();
+    return _merchantsController.stream;
+  }
+
+  void _requestMerchants() {
+    var pageMerchantQuery =
+        merchantsReference.orderBy('name').limit(MerchantsLimit);
+
+    //  If we have a document start the query after it
+    if (_lastDocument != null) {
+      pageMerchantQuery = pageMerchantQuery.startAfterDocument(_lastDocument!);
+    }
+
+    // If there's no more Merchants then bail out of the function
+    if (!_hasMoreMerchants) return;
+
+    var currentRequestIndex = _allPagedResults!.length;
+
+    // Register the handler for when the Merchants data changes
+    pageMerchantQuery.snapshots().listen((_merchantsSnapshot) {
+      if (_merchantsSnapshot.docs.isNotEmpty) {
+        var merchants = _merchantsSnapshot.docs
+            .map((docs) => MerchantData.fromJson(docs.data()))
+            .toList();
+
+        var pageExists = currentRequestIndex < _allPagedResults!.length;
+
+        if (pageExists) {
+          _allPagedResults![currentRequestIndex] = merchants;
+        } else {
+          _allPagedResults!.add(merchants);
+        }
+
+        // Concatenate the full list to be shown
+        var allMerchants = _allPagedResults!.fold<List<MerchantData>>(
+            // ignore: deprecated_member_use
+            [], (initialValue, pageItems) => initialValue..addAll(pageItems));
+
+        // Add the Merchants onto the controller
+        _merchantsController.add(allMerchants);
+
+        // Save the last document from the results only if it's the current last page
+        if (currentRequestIndex == _allPagedResults!.length - 1) {
+          _lastDocument = _merchantsSnapshot.docs.last;
+        }
+        // Determine if there's more Merchants to request
+        _hasMoreMerchants = merchants.length == 10;
+      }
+    });
+  }
+  //Get Merchants By Users Section
+
+  Future<List<MerchantData>?> getMerchants() async {
+    try {
+      final _merchants =
+          await merchantsReference.orderBy('name').limit(MerchantsLimit).get();
+
+      if (_merchants.docs.isEmpty) {
+        log.v('We do not have User with Id: $_merchants in our Database');
+      } else {
+        _loadingMerchants = true;
+        _lastDocument = _merchants.docs[_merchants.docs.length - 1];
+        merchantsList = _merchants.docs;
+        return _merchants.docs
+            .map((docs) => MerchantData.fromJson(docs.data()))
+            .toList();
+      }
+    } catch (e) {
+      log.wtf('I dont know what is cooking $e');
+    }
+  }
+
+  Future<List<MerchantData>?> getMoreMerchants() async {
+    try {
+      final _merchants = await merchantsReference
+          .orderBy('name')
+          .startAfter([_lastDocument])
+          .limit(MerchantsLimit)
+          .get();
+
+      if (_merchants.docs.isEmpty) {
+        log.v('We do not have User with Id: $_merchants in our Database');
+      } else {
+        return _merchants.docs
+            .map((docs) => MerchantData.fromJson(docs.data()))
+            .toList();
+      }
+    } catch (e) {
+      log.wtf('I dont know what is cooking $e');
+    }
+  }
+
+  void requestMoreData() => _requestMerchants();
 }

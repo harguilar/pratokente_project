@@ -1,9 +1,8 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:pratokente/ui/shared/shared_styles.dart';
+import 'package:pratokente/ui/merchant/merchant_view.dart';
 import 'package:stacked/stacked.dart';
-
 import 'home_viewmodel.dart';
 
 class HomeView extends StatelessWidget {
@@ -46,33 +45,37 @@ class HomeView extends StatelessWidget {
                 icon: FaIcon(FontAwesomeIcons.home),
                 title: Text(
                   "Home",
-                  style: kcBottomNav,
+                  style: TextStyle(fontFamily: "Sofia", letterSpacing: 0.5),
                 ),
               ),
               BottomNavigationBarItem(
                 icon: FaIcon(FontAwesomeIcons.cartPlus),
                 title: Text(
                   "Cart",
-                  style: kcBottomNav,
+                  style: TextStyle(fontFamily: "Sofia", letterSpacing: 0.5),
                 ),
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.grain),
                 title: Text(
                   "Categorias",
-                  style: kcBottomNav,
+                  style: TextStyle(fontFamily: "Sofia", letterSpacing: 0.5),
                 ),
               ),
               BottomNavigationBarItem(
                 icon: FaIcon(FontAwesomeIcons.listAlt),
                 title: Text(
                   "Encomendas",
-                  style: kcBottomNav,
+                  style: TextStyle(fontFamily: "Sofia", letterSpacing: 0.5),
                 ),
               ),
               BottomNavigationBarItem(
-                  icon: FaIcon(FontAwesomeIcons.user),
-                  title: Text("Profile", style: kcBottomNav)),
+                icon: FaIcon(FontAwesomeIcons.user),
+                title: Text(
+                  "Profile",
+                  style: TextStyle(fontFamily: "Sofia", letterSpacing: 0.5),
+                ),
+              ),
             ],
           ),
         ),
@@ -85,7 +88,7 @@ class HomeView extends StatelessWidget {
   Widget getViewForIndex(int? index) {
     switch (index) {
       case 0:
-        return Container();
+        return MerchantView();
       //return HomeViewDetailed();
       case 1:
 

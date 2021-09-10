@@ -3,7 +3,7 @@ import 'package:pratokente/app/app.logger.dart';
 import 'package:pratokente/core/datamodels/user/user_models.dart';
 import 'package:stacked_firebase_auth/stacked_firebase_auth.dart';
 
-import 'firestore_api.dart';
+import '../../../apis/firestore_api.dart';
 
 class UserService {
   final log = getLogger('UserService');

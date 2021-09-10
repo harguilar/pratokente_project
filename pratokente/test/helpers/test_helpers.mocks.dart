@@ -10,12 +10,14 @@ import 'package:flutter/material.dart' as _i8;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:places_service/src/models/application_models.dart' as _i3;
 import 'package:places_service/src/places_service.dart' as _i9;
+import 'package:pratokente/apis/firestore_api.dart' as _i12;
 import 'package:pratokente/core/datamodels/cart/cart_product.dart' as _i14;
+import 'package:pratokente/core/datamodels/merchants/merchant_data.dart'
+    as _i15;
 import 'package:pratokente/core/datamodels/products/product_data.dart' as _i13;
 import 'package:pratokente/core/datamodels/user/user_models.dart' as _i2;
 import 'package:pratokente/core/services/environment_services.dart' as _i10;
-import 'package:pratokente/core/services/firestore_api.dart' as _i12;
-import 'package:pratokente/core/services/users_services.dart' as _i5;
+import 'package:pratokente/core/services/users/users_services.dart' as _i5;
 import 'package:stacked_services/stacked_services.dart' as _i7;
 
 // ignore_for_file: avoid_redundant_argument_values
@@ -485,6 +487,19 @@ class MockFirestoreApi extends _i1.Mock implements _i12.FirestoreApi {
       (super.noSuchMethod(
           Invocation.method(#saveAddress, [], {#address: address, #user: user}),
           returnValue: Future<bool>.value(false)) as _i6.Future<bool>);
+  @override
+  _i6.Stream<dynamic> listenToMerchantsRealTime() =>
+      (super.noSuchMethod(Invocation.method(#listenToMerchantsRealTime, []),
+          returnValue: Stream<dynamic>.empty()) as _i6.Stream<dynamic>);
+  @override
+  _i6.Future<List<_i15.MerchantData>?> getMerchants() =>
+      (super.noSuchMethod(Invocation.method(#getMerchants, []),
+              returnValue: Future<List<_i15.MerchantData>?>.value())
+          as _i6.Future<List<_i15.MerchantData>?>);
+  @override
+  void requestMoreData() =>
+      super.noSuchMethod(Invocation.method(#requestMoreData, []),
+          returnValueForMissingStub: null);
   @override
   String toString() => super.toString();
 }

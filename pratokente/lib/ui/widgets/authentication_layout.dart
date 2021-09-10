@@ -1,9 +1,7 @@
 import 'dart:io';
-
 import 'package:auth_buttons/auth_buttons.dart';
 import 'package:flutter/material.dart';
-import 'package:pratokente/ui/shared/shared_styles.dart';
-import 'package:pratokente/ui/shared/ui_helpers.dart';
+import 'package:pratokente_ui/pratokente_ui.dart';
 
 class AuthenticationLayout extends StatelessWidget {
   final String? title;
@@ -70,7 +68,7 @@ class AuthenticationLayout extends StatelessWidget {
               width: screenWidthPercentage(context, percentage: 0.7),
               child: Text(
                 subtitle!,
-                style: ktsMediumGreyBodyText,
+                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 17.0),
               ),
             ),
           ),
@@ -84,7 +82,8 @@ class AuthenticationLayout extends StatelessWidget {
                 onTap: onForgotPassword,
                 child: Text(
                   'Forget Password?',
-                  style: ktsMediumGreyBodyText.copyWith(
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 17.0)
+                      .copyWith(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -96,7 +95,7 @@ class AuthenticationLayout extends StatelessWidget {
               validationMessage!,
               style: TextStyle(
                 color: Colors.red,
-                fontSize: kBodyTextSize,
+                fontSize: 16,
               ),
             ),
           if (validationMessage != null) verticalSpaceRegular,
@@ -144,7 +143,7 @@ class AuthenticationLayout extends StatelessWidget {
           if (showTermsText)
             Text(
               'By signing up you agree to our terms, conditions and privacy policy.',
-              style: ktsMediumGreyBodyText,
+              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 17.0),
               textAlign: TextAlign.center,
             ),
           verticalSpaceRegular,
@@ -152,7 +151,7 @@ class AuthenticationLayout extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(
               'Or',
-              style: ktsMediumGreyBodyText,
+              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 17.0),
             ),
           ),
           verticalSpaceRegular,

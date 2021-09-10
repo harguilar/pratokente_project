@@ -6,7 +6,7 @@ import 'package:pratokente/app/app.logger.dart';
 import 'package:pratokente/constants/constants.dart';
 import 'package:pratokente/core/datamodels/cart/cart_product.dart';
 import 'package:pratokente/core/datamodels/orders/order_data.dart';
-import 'package:pratokente/core/services/users_services.dart';
+import 'package:pratokente/core/services/users/users_services.dart';
 
 import 'package:pratokente/global/global.dart';
 

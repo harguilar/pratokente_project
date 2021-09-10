@@ -5,7 +5,7 @@ import 'package:pratokente/app/app.logger.dart';
 import 'package:pratokente/app/app.router.dart';
 import 'package:pratokente/constants/constants.dart';
 import 'package:pratokente/core/services/environment_services.dart';
-import 'package:pratokente/core/services/users_services.dart';
+import 'package:pratokente/core/services/users/users_services.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
