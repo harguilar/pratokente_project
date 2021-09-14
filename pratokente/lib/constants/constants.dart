@@ -43,3 +43,5 @@ final userRef = FirebaseFirestore.instance.collection('users');
 final ordersRef = FirebaseFirestore.instance.collection('orders');
 final cancelledOrders =
     FirebaseFirestore.instance.collection('ordersCancelled');
+final CollectionReference supportCollectionReference =
+    FirebaseFirestore.instance.collection("supportMessages");

@@ -13,9 +13,9 @@ class MerchantView extends StatelessWidget {
 
     return ViewModelBuilder<MerchantsViewModel>.reactive(
         disposeViewModel: false,
-        initialiseSpecialViewModelsOnce: true,
+        //initialiseSpecialViewModelsOnce: true,
         //Indicates if the onModelReady should fire every time the model is inserted into the widget tree
-        fireOnModelReadyOnce: true,
+        // fireOnModelReadyOnce: true,
         onModelReady: (model) => model.listenToMerchants(),
         builder: (context, model, child) => model.getMerchants != null
             ? Scaffold(
@@ -58,7 +58,7 @@ class MerchantView extends StatelessWidget {
                                 itemCreated: () {
                                   // when the item is created we request more data when it's the 20th index
                                   if (index % 10 == 0) {
-                                    model.requestMoreData();
+                                    model.requestMoreMerchants();
                                   }
                                 },
                                 child: Container(

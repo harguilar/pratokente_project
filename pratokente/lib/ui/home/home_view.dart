@@ -2,6 +2,7 @@ import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pratokente/ui/merchant/merchant_view.dart';
+import 'package:pratokente/ui/profile/profile_view.dart';
 import 'package:stacked/stacked.dart';
 import 'home_viewmodel.dart';
 
@@ -91,19 +92,18 @@ class HomeView extends StatelessWidget {
         return MerchantView();
       //return HomeViewDetailed();
       case 1:
-
-      //return Container();
+        return Container();
       //Harguilar
       //return CartView();
       case 2:
-      //return Container();
+        return Container();
       //return CategoryView();
       case 3:
-      // return Container();
+        return Container();
       //Harguilar Commented This
       //return OrdersViewList();
       case 4:
-      //return ProfileViewEmail();
+        return ProfileViewEmail();
       //return ProfileViewEmail();
       default:
         return Container();

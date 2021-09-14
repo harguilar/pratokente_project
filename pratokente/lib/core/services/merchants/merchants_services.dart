@@ -14,4 +14,13 @@ class MerchantsService {
     log.v('this is the list of your Merchants $_merchants');
     return _merchants!;
   }
+
+  Stream? listenToMerchants() {
+    //setBusy(true);
+    return _firestoreApi.listenToMerchantsRealTime();
+    // _merchants = merchants;
+    // notifyListeners();
+  }
+
+  void requestMoreData() => _firestoreApi.requestMoreData();
 }

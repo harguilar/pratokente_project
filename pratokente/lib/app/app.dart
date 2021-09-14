@@ -6,6 +6,7 @@ import 'package:pratokente/core/services/cart/cart_service.dart';
 import 'package:pratokente/core/services/merchants/merchants_services.dart';
 import 'package:pratokente/core/services/orders_service.dart';
 import 'package:pratokente/core/services/product_service.dart';
+import 'package:pratokente/core/services/support/support_services.dart';
 import 'package:pratokente/core/services/users/users_services.dart';
 import 'package:pratokente/ui/addres_selection/address_selection_view.dart';
 import 'package:pratokente/ui/create_account/create_accountview.dart';
@@ -48,7 +49,6 @@ import 'package:stacked_services/stacked_services.dart';
     LazySingleton(classType: ProductService),
     LazySingleton(classType: EnvironmentService),
     LazySingleton(classType: DialogService),
-    // LazySingleton(classType: SupportService),
     // LazySingleton(classType: CategoryViewModel),
     //LazySingleton(classType: LocalStorageService),
     LazySingleton(classType: SnackbarService),
@@ -56,6 +56,7 @@ import 'package:stacked_services/stacked_services.dart';
     LazySingleton(classType: UserService),
     LazySingleton(classType: PlacesService),
     LazySingleton(classType: MerchantsService),
+    LazySingleton(classType: SupportService),
 
     //LazySingleton(classType: ThirdPartyServicesModule),
     // LazySingleton(classType: OrderViewModelList),

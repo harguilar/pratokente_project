@@ -432,6 +432,10 @@ class MockDialogService extends _i1.Mock implements _i7.DialogService {
 /// See the documentation for Mockito's code generation for more information.
 class MockFirestoreApi extends _i1.Mock implements _i12.FirestoreApi {
   @override
+  set merchantsList(List<_i4.DocumentSnapshot>? _merchantsList) =>
+      super.noSuchMethod(Invocation.setter(#merchantsList, _merchantsList),
+          returnValueForMissingStub: null);
+  @override
   _i4.CollectionReference get usersCollection =>
       (super.noSuchMethod(Invocation.getter(#usersCollection),
           returnValue: _FakeCollectionReference()) as _i4.CollectionReference);
@@ -494,6 +498,11 @@ class MockFirestoreApi extends _i1.Mock implements _i12.FirestoreApi {
   @override
   _i6.Future<List<_i15.MerchantData>?> getMerchants() =>
       (super.noSuchMethod(Invocation.method(#getMerchants, []),
+              returnValue: Future<List<_i15.MerchantData>?>.value())
+          as _i6.Future<List<_i15.MerchantData>?>);
+  @override
+  _i6.Future<List<_i15.MerchantData>?> getMoreMerchants() =>
+      (super.noSuchMethod(Invocation.method(#getMoreMerchants, []),
               returnValue: Future<List<_i15.MerchantData>?>.value())
           as _i6.Future<List<_i15.MerchantData>?>);
   @override

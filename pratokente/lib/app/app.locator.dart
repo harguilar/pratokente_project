@@ -19,6 +19,7 @@ import '../core/services/environment_services.dart';
 import '../core/services/merchants/merchants_services.dart';
 import '../core/services/orders_service.dart';
 import '../core/services/product_service.dart';
+import '../core/services/support/support_services.dart';
 import '../core/services/users/users_services.dart';
 
 final locator = StackedLocator.instance;
@@ -42,4 +43,5 @@ void setupLocator({String? environment, EnvironmentFilter? environmentFilter}) {
   locator.registerLazySingleton(() => UserService());
   locator.registerLazySingleton(() => PlacesService());
   locator.registerLazySingleton(() => MerchantsService());
+  locator.registerLazySingleton(() => SupportService());
 }

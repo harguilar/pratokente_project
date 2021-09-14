@@ -51,7 +51,11 @@ const TextStyle kcMediumBody = TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: 14.0,
     color: Colors.orange);
-
+const TextStyle kcTextProfileBody = TextStyle(
+    color: Colors.black,
+    fontFamily: "Sofia",
+    fontWeight: FontWeight.bold,
+    fontSize: 16.0);
 // colors
 const Color kcPrimaryColor = Color(0xff22A45D);
 
