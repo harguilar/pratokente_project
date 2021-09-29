@@ -9,7 +9,7 @@ import 'login_viewmodel.dart';
 
 @FormView(fields: [
   FormTextField(name: 'email'),
-  FormTextField(name: 'password'),
+  FormTextField(name: 'password', isPassword: true),
 ])
 class LoginView extends StatelessWidget with $LoginView {
   LoginView({Key? key}) : super(key: key);
@@ -34,20 +34,35 @@ class LoginView extends StatelessWidget with $LoginView {
             onMainButtonTapped: model.saveData,
             onCreateAccountTapped: model.navigateToCreateAccount,
             validationMessage: model.validationMessage,
-            title: 'PratoKente',
-            subtitle: 'Enter your email address to sign in. Enjoy your food',
+            title: PratokenteText.headingOne(
+              'PratoKente',
+              align: TextAlign.center,
+            ),
+            subtitle: PratokenteText.subheading(
+                'Enter your email address to sign in. Enjoy your food'),
             mainButtonTitle: 'SIGN IN',
             form: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TextField(
-                  autofocus: true,
-                  decoration: InputDecoration(labelText: 'Email'),
+                PratokenteText.headingLogin('Email: '),
+                PratokenteInputField(
                   controller: emailController,
+                  leading: Icon(Icons.email),
+                  //  placeholder: "Email",
+                  trailing: Icon(Icons.close),
+                  trailingTapped: () => emailController.clear(),
+                  //leading: Text('Email'),
                 ),
-                TextField(
-                  decoration: InputDecoration(labelText: 'Password'),
+                verticalSpaceRegular,
+                PratokenteText.headingLogin('Password: '),
+                PratokenteInputField(
+                  leading: Icon(Icons.lock),
                   controller: passwordController,
-                  obscureText: true,
+                  // placeholder: "Password",
+                  //leading: Text('Password'),
+                  password: true,
+                  trailing: Icon(Icons.close),
+                  trailingTapped: () => passwordController.clear(),
                 ),
               ],
             ),

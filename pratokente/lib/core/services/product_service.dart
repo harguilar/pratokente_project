@@ -1,66 +1,41 @@
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/services.dart';
+import 'package:pratokente/apis/firestore_api.dart';
 import 'package:pratokente/app/app.locator.dart';
+import 'package:pratokente/app/app.logger.dart';
 import 'package:pratokente/constants/constants.dart';
 import 'package:pratokente/core/datamodels/booked/booked_data.dart';
 import 'package:pratokente/core/datamodels/merchants/merchant_data.dart';
 import 'package:pratokente/core/datamodels/products/product_data.dart';
-import 'package:pratokente/expections/firestore_api_exceptions.dart';
-import '../../apis/firestore_api.dart';
 
 class ProductService {
+  final log = getLogger('ProductService');
   final _firestoreApi = locator<FirestoreApi>();
-  String _productCategory = '';
   DocumentReference? doc;
+  int productLimit = 10;
+  bool _hasMoreProducts = true;
+
   MerchantData? _merchantData;
-  List<MerchantData>? _merchantlistData;
-  int merchantProductLimit = 2;
-  bool _hasMoreMerchants = true;
 
-  // #6: Create a list that will keep the paged results
-  List<List<MerchantData>>? _allPagedResults = [];
-
-  DocumentSnapshot? _lastDocument;
-
-  final StreamController<List<MerchantData>> _merchantController =
-      StreamController<List<MerchantData>>.broadcast();
-
-  void setProductCategory({required String productCategory}) {
-    _productCategory = productCategory;
-  }
-
-  void setListMerchant({required List<MerchantData> merchantListData}) {
-    _merchantlistData = merchantListData;
-  }
-
-  void setMerchant({required MerchantData merchantData}) {
-    _merchantData = merchantData;
-  }
-
-  MerchantData? get getMerchantData => _merchantData;
-  List<MerchantData>? get getMerchantListData => _merchantlistData;
-
-  get getProductCategory => _productCategory;
-
-  Stream<List<ProductData>> getFeaturedProducts() {
-    try {
-      return productsReference
-          .where('isFeatured', isEqualTo: true)
-          .snapshots()
-          .map((snapshot) => snapshot.docs
-              .map((doc) => ProductData.fromJson(doc.data()))
-              .toList());
-    } catch (e) {
-      // ignore: todo
-      // TODO: Find or create a way to repeat error handling without so much repeated code
-      if (e is PlatformException) {
-        // return e;
-      }
-      //return e.toString();
-      throw FirestoreApiExceptions(message: 'Product Not Fetched ...');
+  void setMerchantData({required MerchantData merchantData}) {
+    if (merchantData != null) {
+      log.i('This is the Current Data Being Set $merchantData');
+      _merchantData = merchantData;
+    } else {
+      log.w('I dont Like Empty Values');
     }
   }
+
+  MerchantData? get getMerchantData => _merchantData!;
+
+  final StreamController<List<ProductData>> _productController =
+      StreamController<List<ProductData>>.broadcast();
+
+  // #6: Create a list that will keep the paged results
+  List<List<ProductData>>? _allPagedResults = [];
+
+  DocumentSnapshot? _lastDocument;
 
   Future<ProductData> getProductById(String productId) async {
     final productById = await _firestoreApi.getProductById(productId);
@@ -82,10 +57,6 @@ class ProductService {
     }
   }
 
-  /*  Future getMerchantByCategory() async {
-    _requestData();
-  } */
-
   Future addProduct(ProductData productData) async {
     try {
       doc = await categoryReference.add(productData.toJson());
@@ -104,86 +75,11 @@ class ProductService {
     }
   }
 
-  Query getQuery() {
-    return productsReference.orderBy('title');
-  }
-
-  Stream<List<ProductData>> getPopularProducts() {
-    try {
-      return productsReference
-          .where('isPopular', isEqualTo: true)
-          .snapshots()
-          .map((snapshot) => snapshot.docs
-              .map((doc) => ProductData.fromJson(doc.data()))
-              .toList());
-    } catch (e) {
-      // TODO: Find or create a way to repeat error handling without so much repeated code
-      if (e is PlatformException) {
-        // return e;
-      }
-      throw '';
-      //return e.toString();
-    }
-  }
-
-/*   Stream<List<ProductData>> getProductsByCategory() {
-    try {
-      return categoryReference
-          .doc(_productCategory)
-          .collection('itens')
-          .doc(_merchantData!.id)
-          .collection('products')
-          .snapshots()
-          .map((snapshot) => snapshot.docs
-              .map((doc) => ProductData.fromJson(doc.data()))
-              .toList());
-    } catch (e) {
-      // TODO: Find or create a way to repeat error handling without so much repeated code
-      if (e is PlatformException) {
-        // return e;
-      }
-      throw '';
-      //return e.toString();
-    }
-  } */
-
-/*   Stream<List<ProductData>> getProdutsByCategory(String uid) {
-    return productsReference
-        .where('category', isEqualTo: _productCategory)
-        .snapshots()
-        .map((snapShot) => snapShot.docs
-            .map((document) => ProductData.fromMap(document.data()))
-            .toList());
-  } */
-
-  Future getProdsByCategory() async {
-    try {
-      var productsDocuments = await productsReference
-          .where('category', isEqualTo: _productCategory)
-          .get();
-
-      if (productsDocuments.docs.isNotEmpty) {
-        return productsDocuments.docs
-            .map((docs) => ProductData.fromJson(docs.data()))
-            .toList();
-      }
-    } catch (e) {
-      if (e is PlatformException) {
-        return e.message;
-      }
-      return e.toString();
-    }
-  }
-
   Future addBookingInfo(BookedData bookData) async {
     try {
       doc = await bookingReference.add(bookData.toJson());
 
       await categoryReference.doc(doc!.id).update({'bookId': doc!.id});
-
-      //Set the Id Field to document ID
-      //setId(doc.id);
-
     } catch (e) {
       // TODO: Find or create a way to repeat error handling without so much repeated code
       if (e is PlatformException) {
@@ -193,36 +89,37 @@ class ProductService {
     }
   }
 
-  Stream listenToMerchantsRealTime() {
+  Stream listenToProductsRealTime() {
     // Register the handler for when the posts data changes
-    _requestMerchant();
-    return _merchantController.stream;
+    _requestProducts();
+    return _productController.stream;
   }
 
   // #1: Move the request Merchant Data into it's own function
-  void _requestMerchant() {
+  void _requestProducts() {
     // #2: split the query from the actual subscription
-    var pageMerchantQuery = categoryReference
-        .doc(_productCategory)
-        .collection('itens')
+    var pageProductQuery = merchantsReference
+        .doc(_merchantData!.id)
+        .collection('products')
         .orderBy('name')
         //Limit the Amoutn of Result
-        .limit(merchantProductLimit);
+        .limit(productLimit);
+    log.i('This is the Result of my Page Query $pageProductQuery');
 
     // #5: If we have a document start the query after it
     if (_lastDocument != null) {
-      pageMerchantQuery = pageMerchantQuery.startAfterDocument(_lastDocument!);
+      pageProductQuery = pageProductQuery.startAfterDocument(_lastDocument!);
     }
 
-    if (!_hasMoreMerchants) return;
+    //if (!_hasMoreProducts) return;
 
     // #7: Get and store the page index that the results belong to
     var currentRequestIndex = _allPagedResults!.length;
 
-    pageMerchantQuery.snapshots().listen((merchantSnapshot) {
-      if (merchantSnapshot.docs.isNotEmpty) {
-        var merchants = merchantSnapshot.docs
-            .map((document) => MerchantData.fromJson((document.data())));
+    pageProductQuery.snapshots().listen((productSnapshot) {
+      if (productSnapshot.docs.isNotEmpty) {
+        var products = productSnapshot.docs
+            .map((document) => ProductData.fromJson((document.data())));
 
         // #8: Check if the page exists or not
         var pageExists = currentRequestIndex < _allPagedResults!.length;
@@ -230,30 +127,32 @@ class ProductService {
         // #9: If the page exists update the posts for that page
         if (pageExists) {
           _allPagedResults![currentRequestIndex] =
-              merchants.cast<MerchantData>().toList();
+              products.cast<ProductData>().toList();
         }
         // #10: If the page doesn't exist add the page data
         else {
-          _allPagedResults!.add(merchants.toList());
+          _allPagedResults!.add(products.toList());
         }
 
         // #11: Concatenate the full list to be shown
-        var allMerchants = _allPagedResults!.fold<List<MerchantData>>(
+        var allProducts = _allPagedResults!.fold<List<ProductData>>(
             [], (initialValue, pageItems) => initialValue..addAll(pageItems));
 
         // #12: Broadcase all posts
-        _merchantController.add(allMerchants);
+        _productController.add(allProducts);
 
         // #13: Save the last document from the results only if it's the current last page
         if (currentRequestIndex == _allPagedResults!.length - 1) {
-          _lastDocument = merchantSnapshot.docs.last;
+          _lastDocument = productSnapshot.docs.last;
         }
 
-        // #14: Determine if there's more posts to request
-        _hasMoreMerchants = merchants.length == merchantProductLimit;
+        // #14: Determine if there's more products to request
+        _hasMoreProducts = products.length == productLimit;
+      } else {
+        log.w('do not give me empty Docs');
       }
     });
   }
 
-  void requestMoreData() => _requestMerchant();
+  void requestMoreData({String? merchantId}) => _requestProducts();
 }

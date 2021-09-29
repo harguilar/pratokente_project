@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pratokente_ui/pratokente_ui.dart';
 
 // Text Styles
 
@@ -19,6 +20,10 @@ const TextStyle heading3Style = TextStyle(
   fontSize: 24,
   fontWeight: FontWeight.w600,
 );
+const TextStyle headingLogin = TextStyle(
+  fontSize: 16,
+  fontWeight: FontWeight.w300,
+);
 
 const TextStyle headlineStyle = TextStyle(
   fontSize: 30,
@@ -29,7 +34,11 @@ const TextStyle bodyStyle = TextStyle(
   fontSize: 16,
   fontWeight: FontWeight.w400,
 );
-
+const TextStyle bodyStyleSofia = TextStyle(
+    fontFamily: "Sofia",
+    fontWeight: FontWeight.w500,
+    fontSize: 16.0,
+    color: Colors.black26);
 const TextStyle subheadingStyle = TextStyle(
   fontSize: 20,
   fontWeight: FontWeight.w400,
@@ -38,6 +47,12 @@ const TextStyle subheadingStyle = TextStyle(
 const TextStyle captionStyle = TextStyle(
   fontSize: 12,
   fontWeight: FontWeight.w400,
+);
+
+const TextStyle bookStyle = TextStyle(
+  fontSize: 16,
+  fontWeight: FontWeight.w400,
+  color: kcOrangeColor,
 );
 // Text Variables
 const TextStyle buttonTitleTextStyle =

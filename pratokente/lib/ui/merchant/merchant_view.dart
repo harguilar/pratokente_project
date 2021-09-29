@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pratokente/ui/widgets/create_list_awareness.dart';
 import 'package:pratokente/ui/widgets/custom_search_delegate_merchant.dart';
+import 'package:pratokente_ui/pratokente_ui.dart';
 import 'package:stacked/stacked.dart';
 import 'merchant_viewModel.dart';
 
@@ -9,20 +10,15 @@ class MerchantView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final _global = Global();
-
     return ViewModelBuilder<MerchantsViewModel>.reactive(
         disposeViewModel: false,
-        //initialiseSpecialViewModelsOnce: true,
-        //Indicates if the onModelReady should fire every time the model is inserted into the widget tree
-        // fireOnModelReadyOnce: true,
         onModelReady: (model) => model.listenToMerchants(),
         builder: (context, model, child) => model.getMerchants != null
             ? Scaffold(
                 backgroundColor: Colors.white,
                 appBar: AppBar(
-                  backgroundColor: Colors.orange,
-                  title: Text('Lista de Restaurantes'),
+                  backgroundColor: kcOrangeColor,
+                  title: PratokenteText.headingThree('Lista de Vendedores'),
                   centerTitle: true,
                   actions: [
                     IconButton(
@@ -115,16 +111,14 @@ class MerchantView extends StatelessWidget {
                                                     CrossAxisAlignment.start,
                                                 children: <Widget>[
                                                   Expanded(
-                                                    child: Text(
+                                                    child: PratokenteText.body(
                                                       model.getMerchants![index]
                                                           .name
                                                           .toString(),
                                                       // style: kcProductNameBody,
                                                     ),
                                                   ),
-                                                  SizedBox(
-                                                    height: 10.0,
-                                                  ),
+                                                  verticalSpaceSmall,
                                                   Expanded(
                                                     child: Row(
                                                       mainAxisAlignment:
@@ -142,9 +136,7 @@ class MerchantView extends StatelessWidget {
                                                       ],
                                                     ),
                                                   ),
-                                                  SizedBox(
-                                                    height: 10.0,
-                                                  ),
+                                                  verticalSpaceSmall,
                                                   Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
@@ -180,9 +172,12 @@ class MerchantView extends StatelessWidget {
                                                       Colors.deepPurple,
                                                   // width: double.maxFinite,
                                                   onTap: () {
-                                                    model.navToBookView();
+                                                    model.navToBookView(
+                                                        merchantData:
+                                                            model.getMerchants![
+                                                                index]);
                                                   },
-                                                  child: Text(
+                                                  child: PratokenteText.caption(
                                                     'Book Now',
                                                     // style: kcMediumBody,
                                                   ),
@@ -195,7 +190,11 @@ class MerchantView extends StatelessWidget {
                                         ),
                                       ],
                                     ),
-                                    onTap: () {},
+                                    onTap: () {
+                                      model.setToMerchants(
+                                          merchantData:
+                                              model.getMerchants![index]);
+                                    },
                                   ),
                                 ),
                               );

@@ -24,6 +24,7 @@ class _$BookedDataTearOff {
       {String? bookId,
       String? date,
       String? time,
+      String? restaurantName,
       String? restaurantId,
       int? bookStatus,
       int? numPerson}) {
@@ -31,6 +32,7 @@ class _$BookedDataTearOff {
       bookId: bookId,
       date: date,
       time: time,
+      restaurantName: restaurantName,
       restaurantId: restaurantId,
       bookStatus: bookStatus,
       numPerson: numPerson,
@@ -50,6 +52,7 @@ mixin _$BookedData {
   String? get bookId => throw _privateConstructorUsedError;
   String? get date => throw _privateConstructorUsedError;
   String? get time => throw _privateConstructorUsedError;
+  String? get restaurantName => throw _privateConstructorUsedError;
   String? get restaurantId => throw _privateConstructorUsedError;
   int? get bookStatus => throw _privateConstructorUsedError;
   int? get numPerson => throw _privateConstructorUsedError;
@@ -69,6 +72,7 @@ abstract class $BookedDataCopyWith<$Res> {
       {String? bookId,
       String? date,
       String? time,
+      String? restaurantName,
       String? restaurantId,
       int? bookStatus,
       int? numPerson});
@@ -87,6 +91,7 @@ class _$BookedDataCopyWithImpl<$Res> implements $BookedDataCopyWith<$Res> {
     Object? bookId = freezed,
     Object? date = freezed,
     Object? time = freezed,
+    Object? restaurantName = freezed,
     Object? restaurantId = freezed,
     Object? bookStatus = freezed,
     Object? numPerson = freezed,
@@ -103,6 +108,10 @@ class _$BookedDataCopyWithImpl<$Res> implements $BookedDataCopyWith<$Res> {
       time: time == freezed
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
+              as String?,
+      restaurantName: restaurantName == freezed
+          ? _value.restaurantName
+          : restaurantName // ignore: cast_nullable_to_non_nullable
               as String?,
       restaurantId: restaurantId == freezed
           ? _value.restaurantId
@@ -130,6 +139,7 @@ abstract class _$BookedDataCopyWith<$Res> implements $BookedDataCopyWith<$Res> {
       {String? bookId,
       String? date,
       String? time,
+      String? restaurantName,
       String? restaurantId,
       int? bookStatus,
       int? numPerson});
@@ -150,6 +160,7 @@ class __$BookedDataCopyWithImpl<$Res> extends _$BookedDataCopyWithImpl<$Res>
     Object? bookId = freezed,
     Object? date = freezed,
     Object? time = freezed,
+    Object? restaurantName = freezed,
     Object? restaurantId = freezed,
     Object? bookStatus = freezed,
     Object? numPerson = freezed,
@@ -166,6 +177,10 @@ class __$BookedDataCopyWithImpl<$Res> extends _$BookedDataCopyWithImpl<$Res>
       time: time == freezed
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
+              as String?,
+      restaurantName: restaurantName == freezed
+          ? _value.restaurantName
+          : restaurantName // ignore: cast_nullable_to_non_nullable
               as String?,
       restaurantId: restaurantId == freezed
           ? _value.restaurantId
@@ -190,6 +205,7 @@ class _$_BookedData implements _BookedData {
       {this.bookId,
       this.date,
       this.time,
+      this.restaurantName,
       this.restaurantId,
       this.bookStatus,
       this.numPerson});
@@ -204,6 +220,8 @@ class _$_BookedData implements _BookedData {
   @override
   final String? time;
   @override
+  final String? restaurantName;
+  @override
   final String? restaurantId;
   @override
   final int? bookStatus;
@@ -212,7 +230,7 @@ class _$_BookedData implements _BookedData {
 
   @override
   String toString() {
-    return 'BookedData(bookId: $bookId, date: $date, time: $time, restaurantId: $restaurantId, bookStatus: $bookStatus, numPerson: $numPerson)';
+    return 'BookedData(bookId: $bookId, date: $date, time: $time, restaurantName: $restaurantName, restaurantId: $restaurantId, bookStatus: $bookStatus, numPerson: $numPerson)';
   }
 
   @override
@@ -225,6 +243,9 @@ class _$_BookedData implements _BookedData {
                 const DeepCollectionEquality().equals(other.date, date)) &&
             (identical(other.time, time) ||
                 const DeepCollectionEquality().equals(other.time, time)) &&
+            (identical(other.restaurantName, restaurantName) ||
+                const DeepCollectionEquality()
+                    .equals(other.restaurantName, restaurantName)) &&
             (identical(other.restaurantId, restaurantId) ||
                 const DeepCollectionEquality()
                     .equals(other.restaurantId, restaurantId)) &&
@@ -242,6 +263,7 @@ class _$_BookedData implements _BookedData {
       const DeepCollectionEquality().hash(bookId) ^
       const DeepCollectionEquality().hash(date) ^
       const DeepCollectionEquality().hash(time) ^
+      const DeepCollectionEquality().hash(restaurantName) ^
       const DeepCollectionEquality().hash(restaurantId) ^
       const DeepCollectionEquality().hash(bookStatus) ^
       const DeepCollectionEquality().hash(numPerson);
@@ -262,6 +284,7 @@ abstract class _BookedData implements BookedData {
       {String? bookId,
       String? date,
       String? time,
+      String? restaurantName,
       String? restaurantId,
       int? bookStatus,
       int? numPerson}) = _$_BookedData;
@@ -275,6 +298,8 @@ abstract class _BookedData implements BookedData {
   String? get date => throw _privateConstructorUsedError;
   @override
   String? get time => throw _privateConstructorUsedError;
+  @override
+  String? get restaurantName => throw _privateConstructorUsedError;
   @override
   String? get restaurantId => throw _privateConstructorUsedError;
   @override

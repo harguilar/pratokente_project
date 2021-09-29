@@ -11,10 +11,14 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
 import '../ui/addres_selection/address_selection_view.dart';
+import '../ui/booking/book_view.dart';
+import '../ui/booking/restaurant/restaurant_book_view.dart';
 import '../ui/create_account/create_accountview.dart';
 import '../ui/home/home_view.dart';
 import '../ui/login/login_view.dart';
 import '../ui/merchant/merchant_view.dart';
+import '../ui/merchant/merchant_view_list.dart';
+import '../ui/products/get_products_by_merchant_view.dart';
 import '../ui/startup/startup_view.dart';
 
 class Routes {
@@ -22,15 +26,23 @@ class Routes {
   static const String addressSelectionView = '/address-selection-view';
   static const String createAccountView = '/create-account-view';
   static const String merchantView = '/merchant-view';
+  static const String getProuctByMerchantView = '/get-prouct-by-merchant-view';
   static const String homeView = '/home-view';
   static const String loginView = '/login-view';
+  static const String bookView = '/book-view';
+  static const String restaurantBookView = '/restaurant-book-view';
+  static const String merchantViewList = '/merchant-view-list';
   static const all = <String>{
     startupView,
     addressSelectionView,
     createAccountView,
     merchantView,
+    getProuctByMerchantView,
     homeView,
     loginView,
+    bookView,
+    restaurantBookView,
+    merchantViewList,
   };
 }
 
@@ -42,8 +54,12 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.addressSelectionView, page: AddressSelectionView),
     RouteDef(Routes.createAccountView, page: CreateAccountView),
     RouteDef(Routes.merchantView, page: MerchantView),
+    RouteDef(Routes.getProuctByMerchantView, page: GetProuctByMerchantView),
     RouteDef(Routes.homeView, page: HomeView),
     RouteDef(Routes.loginView, page: LoginView),
+    RouteDef(Routes.bookView, page: BookView),
+    RouteDef(Routes.restaurantBookView, page: RestaurantBookView),
+    RouteDef(Routes.merchantViewList, page: MerchantViewList),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
@@ -81,6 +97,15 @@ class StackedRouter extends RouterBase {
         settings: data,
       );
     },
+    GetProuctByMerchantView: (data) {
+      var args = data.getArgs<GetProuctByMerchantViewArguments>(
+        orElse: () => GetProuctByMerchantViewArguments(),
+      );
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => GetProuctByMerchantView(key: args.key),
+        settings: data,
+      );
+    },
     HomeView: (data) {
       return CupertinoPageRoute<dynamic>(
         builder: (context) => HomeView(),
@@ -93,6 +118,27 @@ class StackedRouter extends RouterBase {
       );
       return CupertinoPageRoute<dynamic>(
         builder: (context) => LoginView(key: args.key),
+        settings: data,
+      );
+    },
+    BookView: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => BookView(),
+        settings: data,
+      );
+    },
+    RestaurantBookView: (data) {
+      var args = data.getArgs<RestaurantBookViewArguments>(
+        orElse: () => RestaurantBookViewArguments(),
+      );
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => RestaurantBookView(key: args.key),
+        settings: data,
+      );
+    },
+    MerchantViewList: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => MerchantViewList(),
         settings: data,
       );
     },
@@ -121,8 +167,20 @@ class MerchantViewArguments {
   MerchantViewArguments({this.key});
 }
 
+/// GetProuctByMerchantView arguments holder class
+class GetProuctByMerchantViewArguments {
+  final Key? key;
+  GetProuctByMerchantViewArguments({this.key});
+}
+
 /// LoginView arguments holder class
 class LoginViewArguments {
   final Key? key;
   LoginViewArguments({this.key});
+}
+
+/// RestaurantBookView arguments holder class
+class RestaurantBookViewArguments {
+  final Key? key;
+  RestaurantBookViewArguments({this.key});
 }

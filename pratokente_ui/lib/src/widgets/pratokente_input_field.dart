@@ -29,7 +29,7 @@ class PratokenteInputField extends StatelessWidget {
       /// Overriding the default blue color.
       ///
       /// We can also avoid this by changing the [primarySwatch] in MaterialApp
-      data: ThemeData(primaryColor: kcPrimaryColor),
+      data: ThemeData(primaryColor: kcOrangeColor),
       child: TextField(
         controller: controller,
         style: TextStyle(height: 1),
@@ -54,7 +54,7 @@ class PratokenteInputField extends StatelessWidget {
             borderSide: BorderSide(color: Colors.red),
           ),
           focusedBorder: circularBorder.copyWith(
-            borderSide: BorderSide(color: kcPrimaryColor),
+            borderSide: BorderSide(color: kcOrangeColor),
           ),
           enabledBorder: circularBorder.copyWith(
             borderSide: BorderSide(color: kcLightGreyColor),

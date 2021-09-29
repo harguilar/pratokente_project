@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:pratokente_ui/pratokente_ui.dart';
 
 class AuthenticationLayout extends StatelessWidget {
-  final String? title;
-  final String? subtitle;
+  final Widget? title;
+  final Widget? subtitle;
   final String? mainButtonTitle;
   final Widget? form;
   final bool showTermsText;
@@ -57,20 +57,13 @@ class AuthenticationLayout extends StatelessWidget {
               ),
               onPressed: onBackPressed,
             ),
-          Text(
-            title!,
-            style: TextStyle(fontSize: 34),
-          ),
+          title!,
           verticalSpaceSmall,
           Align(
             alignment: Alignment.centerLeft,
             child: SizedBox(
-              width: screenWidthPercentage(context, percentage: 0.7),
-              child: Text(
-                subtitle!,
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 17.0),
-              ),
-            ),
+                width: screenWidthPercentage(context, percentage: 0.7),
+                child: subtitle),
           ),
           verticalSpaceRegular,
           form!,
@@ -99,29 +92,7 @@ class AuthenticationLayout extends StatelessWidget {
               ),
             ),
           if (validationMessage != null) verticalSpaceRegular,
-          GestureDetector(
-            onTap: onMainButtonTapped,
-            child: Container(
-              width: double.infinity,
-              height: 50,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: kcPrimaryColor,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: busy
-                  ? CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation(Colors.white),
-                    )
-                  : Text(
-                      mainButtonTitle!,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14),
-                    ),
-            ),
-          ),
+          PratokenteButton(title: mainButtonTitle!, onTap: onMainButtonTapped),
           verticalSpaceRegular,
           if (onCreateAccountTapped != null)
             GestureDetector(

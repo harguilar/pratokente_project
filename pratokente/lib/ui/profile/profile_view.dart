@@ -22,7 +22,7 @@ class ProfileViewEmail extends StatelessWidget with $ProfileViewEmail {
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.orange,
-            title: Text('Perfil do Utilizador'),
+            title: PratokenteText.headingThree('Perfil do Utilizador'),
             centerTitle: true,
             actions: [
               IconButton(
@@ -82,23 +82,13 @@ class ProfileViewEmail extends StatelessWidget with $ProfileViewEmail {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-                                    Text(
-                                      model.currentUser.name?.toString() ??
-                                          "Sem nome",
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontFamily: "Sofia",
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20.0),
-                                    ),
-                                    SizedBox(
-                                      height: 5.0,
-                                    ),
-                                    Text(
-                                      model.currentUser.email?.toString() ??
-                                          "Sem E-mail",
-                                      // style: kcTextProfileBody,
-                                    ),
+                                    PratokenteText.body(
+                                        model.currentUser.name?.toString() ??
+                                            "Sem nome"),
+                                    verticalSpaceTiny,
+                                    PratokenteText.body(
+                                        model.currentUser.email?.toString() ??
+                                            "Sem nome"),
                                   ]),
                             ),
                           ]),

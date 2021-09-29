@@ -12,8 +12,6 @@ import 'package:places_service/src/models/application_models.dart' as _i3;
 import 'package:places_service/src/places_service.dart' as _i9;
 import 'package:pratokente/apis/firestore_api.dart' as _i12;
 import 'package:pratokente/core/datamodels/cart/cart_product.dart' as _i14;
-import 'package:pratokente/core/datamodels/merchants/merchant_data.dart'
-    as _i15;
 import 'package:pratokente/core/datamodels/products/product_data.dart' as _i13;
 import 'package:pratokente/core/datamodels/user/user_models.dart' as _i2;
 import 'package:pratokente/core/services/environment_services.dart' as _i10;
@@ -496,15 +494,17 @@ class MockFirestoreApi extends _i1.Mock implements _i12.FirestoreApi {
       (super.noSuchMethod(Invocation.method(#listenToMerchantsRealTime, []),
           returnValue: Stream<dynamic>.empty()) as _i6.Stream<dynamic>);
   @override
-  _i6.Future<List<_i15.MerchantData>?> getMerchants() =>
-      (super.noSuchMethod(Invocation.method(#getMerchants, []),
-              returnValue: Future<List<_i15.MerchantData>?>.value())
-          as _i6.Future<List<_i15.MerchantData>?>);
+  _i6.Future<_i4.QuerySnapshot?> getMerchants(
+          {int? documentLimit, _i4.DocumentSnapshot? startAfter}) =>
+      (super.noSuchMethod(
+              Invocation.method(#getMerchants, [],
+                  {#documentLimit: documentLimit, #startAfter: startAfter}),
+              returnValue: Future<_i4.QuerySnapshot?>.value())
+          as _i6.Future<_i4.QuerySnapshot?>);
   @override
-  _i6.Future<List<_i15.MerchantData>?> getMoreMerchants() =>
+  _i6.Future<dynamic> getMoreMerchants() =>
       (super.noSuchMethod(Invocation.method(#getMoreMerchants, []),
-              returnValue: Future<List<_i15.MerchantData>?>.value())
-          as _i6.Future<List<_i15.MerchantData>?>);
+          returnValue: Future<dynamic>.value()) as _i6.Future<dynamic>);
   @override
   void requestMoreData() =>
       super.noSuchMethod(Invocation.method(#requestMoreData, []),

@@ -39,14 +39,14 @@ class PratokenteButton extends StatelessWidget {
         alignment: Alignment.center,
         decoration: !outline
             ? BoxDecoration(
-                color: !disabled ? Color(0xff22A45D) : kcMediumGreyColor,
+                color: !disabled ? kcOrangeColor : kcMediumGreyColor,
                 borderRadius: BorderRadius.circular(8),
               )
             : BoxDecoration(
                 color: Colors.transparent,
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
-                  color: Color(0xff22A45D),
+                  color: kcOrangeColor,
                   width: 1,
                 )),
         child: !busy

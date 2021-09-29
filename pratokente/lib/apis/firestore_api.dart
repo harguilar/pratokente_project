@@ -13,7 +13,8 @@ class FirestoreApi {
   DocumentSnapshot? _lastDocument;
   final log = getLogger('FirestoreApi');
   List<List<MerchantData>>? _allPagedResults = [];
-  bool _loadingMerchants = true;
+  //final _localStorage = locator<LocalStorageService>();
+
   List<DocumentSnapshot>? merchantsList = [];
 
   final StreamController<List<MerchantData>> _merchantsController =
@@ -211,7 +212,7 @@ class FirestoreApi {
         var merchants = _merchantsSnapshot.docs
             .map((docs) => MerchantData.fromJson(docs.data()))
             .toList();
-
+        // _localStorage.saveMerchantToDisk(merchants);
         var pageExists = currentRequestIndex < _allPagedResults!.length;
 
         if (pageExists) {
@@ -239,27 +240,34 @@ class FirestoreApi {
   }
   //Get Merchants By Users Section
 
-  Future<List<MerchantData>?> getMerchants() async {
+  Future<QuerySnapshot?> getMerchants(
+      {required int documentLimit, DocumentSnapshot? startAfter}) async {
     try {
       final _merchants =
-          await merchantsReference.orderBy('name').limit(MerchantsLimit).get();
+          await merchantsReference.orderBy('name').limit(documentLimit);
 
-      if (_merchants.docs.isEmpty) {
+      if (startAfter == null) {
+        return _merchants.get();
+      } else {
+        return _merchants.startAfterDocument(startAfter).get();
+      }
+
+/*       if (_merchants.docs.isEmpty) {
         log.v('We do not have User with Id: $_merchants in our Database');
       } else {
         _loadingMerchants = true;
         _lastDocument = _merchants.docs[_merchants.docs.length - 1];
         merchantsList = _merchants.docs;
-        return _merchants.docs
+/*         return _merchants.docs
             .map((docs) => MerchantData.fromJson(docs.data()))
-            .toList();
-      }
+            .toList(); */ */
     } catch (e) {
       log.wtf('I dont know what is cooking $e');
+      return null;
     }
   }
 
-  Future<List<MerchantData>?> getMoreMerchants() async {
+  Future getMoreMerchants() async {
     try {
       final _merchants = await merchantsReference
           .orderBy('name')

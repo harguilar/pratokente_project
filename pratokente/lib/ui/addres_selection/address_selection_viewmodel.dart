@@ -121,8 +121,6 @@ class AddressSelectionViewModel extends FormViewModel {
         }
       }
       setBusy(false);
-
-      // notifyListeners();
     }
   }
 

@@ -21,6 +21,7 @@ Future main() async {
   if (USE_EMULATOR) {
     await _connectToFirebaseEmulator();
   }
+  // await setupSharedPreferencesLocator();
   setupLocator();
   setupSnackbarUi();
   setupDialogUi();

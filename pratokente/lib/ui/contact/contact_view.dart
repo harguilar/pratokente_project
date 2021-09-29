@@ -1,3 +1,4 @@
+import 'package:pratokente_ui/pratokente_ui.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 
@@ -19,7 +20,7 @@ class ContactView extends StatelessWidget with $ContactView {
         builder: (context, model, child) => Scaffold(
               appBar: AppBar(
                 backgroundColor: Colors.orange,
-                title: Text('Apoio/Sugestão'),
+                title: PratokenteText.headingThree('Apoio/Sugestão'),
                 centerTitle: true,
               ),
               body: Padding(
@@ -33,14 +34,10 @@ class ContactView extends StatelessWidget with $ContactView {
                         "assets/Template2/girlcallcenter.png",
                         height: 175.0,
                       ),
-                      Text(
+                      PratokenteText.body(
                         'Mande-nos uma mensagem',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16),
                       ),
-                      SizedBox(
-                        height: 16.0,
-                      ),
+                      verticalSpaceRegular,
                       Flexible(
                         child: Card(
                           //color: Colors.grey,
@@ -57,37 +54,15 @@ class ContactView extends StatelessWidget with $ContactView {
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: 16,
-                      ),
+                      verticalSpaceRegular,
                       Padding(
                         padding: const EdgeInsets.only(top: 40.0),
-                        child: InkWell(
+                        child: PratokenteButton(
+                          title: "Enviar",
                           onTap: () {
                             model.sendMessage();
                             messageController.clear();
                           },
-                          child: Center(
-                            child: Container(
-                              height: 50.0,
-                              width: 280.0,
-                              decoration: BoxDecoration(
-                                color: Color(0xFFF48522),
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(25.0),
-                                ),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  "Enviar",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 16.0),
-                                ),
-                              ),
-                            ),
-                          ),
                         ),
                       ),
                       /* Center(

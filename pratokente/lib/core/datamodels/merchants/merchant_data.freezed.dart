@@ -23,12 +23,14 @@ class _$MerchantDataTearOff {
   _MerchantData call(
       {int? rating,
       int? numberOfRatings,
+      String? id,
       String? image,
       String? name,
-      List<String>? categories}) {
+      List<dynamic>? categories}) {
     return _MerchantData(
       rating: rating,
       numberOfRatings: numberOfRatings,
+      id: id,
       image: image,
       name: name,
       categories: categories,
@@ -48,10 +50,11 @@ mixin _$MerchantData {
 // String? deliveryFee,
 //DateTime? times,
   int? get rating => throw _privateConstructorUsedError;
-  int? get numberOfRatings => throw _privateConstructorUsedError; //String? id,
+  int? get numberOfRatings => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
-  List<String>? get categories => throw _privateConstructorUsedError;
+  List<dynamic>? get categories => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -67,9 +70,10 @@ abstract class $MerchantDataCopyWith<$Res> {
   $Res call(
       {int? rating,
       int? numberOfRatings,
+      String? id,
       String? image,
       String? name,
-      List<String>? categories});
+      List<dynamic>? categories});
 }
 
 /// @nodoc
@@ -84,6 +88,7 @@ class _$MerchantDataCopyWithImpl<$Res> implements $MerchantDataCopyWith<$Res> {
   $Res call({
     Object? rating = freezed,
     Object? numberOfRatings = freezed,
+    Object? id = freezed,
     Object? image = freezed,
     Object? name = freezed,
     Object? categories = freezed,
@@ -97,6 +102,10 @@ class _$MerchantDataCopyWithImpl<$Res> implements $MerchantDataCopyWith<$Res> {
           ? _value.numberOfRatings
           : numberOfRatings // ignore: cast_nullable_to_non_nullable
               as int?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -108,7 +117,7 @@ class _$MerchantDataCopyWithImpl<$Res> implements $MerchantDataCopyWith<$Res> {
       categories: categories == freezed
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<dynamic>?,
     ));
   }
 }
@@ -123,9 +132,10 @@ abstract class _$MerchantDataCopyWith<$Res>
   $Res call(
       {int? rating,
       int? numberOfRatings,
+      String? id,
       String? image,
       String? name,
-      List<String>? categories});
+      List<dynamic>? categories});
 }
 
 /// @nodoc
@@ -142,6 +152,7 @@ class __$MerchantDataCopyWithImpl<$Res> extends _$MerchantDataCopyWithImpl<$Res>
   $Res call({
     Object? rating = freezed,
     Object? numberOfRatings = freezed,
+    Object? id = freezed,
     Object? image = freezed,
     Object? name = freezed,
     Object? categories = freezed,
@@ -155,6 +166,10 @@ class __$MerchantDataCopyWithImpl<$Res> extends _$MerchantDataCopyWithImpl<$Res>
           ? _value.numberOfRatings
           : numberOfRatings // ignore: cast_nullable_to_non_nullable
               as int?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -166,7 +181,7 @@ class __$MerchantDataCopyWithImpl<$Res> extends _$MerchantDataCopyWithImpl<$Res>
       categories: categories == freezed
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<dynamic>?,
     ));
   }
 }
@@ -177,6 +192,7 @@ class _$_MerchantData implements _MerchantData {
   _$_MerchantData(
       {this.rating,
       this.numberOfRatings,
+      this.id,
       this.image,
       this.name,
       this.categories});
@@ -189,16 +205,18 @@ class _$_MerchantData implements _MerchantData {
   final int? rating;
   @override
   final int? numberOfRatings;
-  @override //String? id,
+  @override
+  final String? id;
+  @override
   final String? image;
   @override
   final String? name;
   @override
-  final List<String>? categories;
+  final List<dynamic>? categories;
 
   @override
   String toString() {
-    return 'MerchantData(rating: $rating, numberOfRatings: $numberOfRatings, image: $image, name: $name, categories: $categories)';
+    return 'MerchantData(rating: $rating, numberOfRatings: $numberOfRatings, id: $id, image: $image, name: $name, categories: $categories)';
   }
 
   @override
@@ -210,6 +228,8 @@ class _$_MerchantData implements _MerchantData {
             (identical(other.numberOfRatings, numberOfRatings) ||
                 const DeepCollectionEquality()
                     .equals(other.numberOfRatings, numberOfRatings)) &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.image, image) ||
                 const DeepCollectionEquality().equals(other.image, image)) &&
             (identical(other.name, name) ||
@@ -224,6 +244,7 @@ class _$_MerchantData implements _MerchantData {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(rating) ^
       const DeepCollectionEquality().hash(numberOfRatings) ^
+      const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(image) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(categories);
@@ -243,9 +264,10 @@ abstract class _MerchantData implements MerchantData {
   factory _MerchantData(
       {int? rating,
       int? numberOfRatings,
+      String? id,
       String? image,
       String? name,
-      List<String>? categories}) = _$_MerchantData;
+      List<dynamic>? categories}) = _$_MerchantData;
 
   factory _MerchantData.fromJson(Map<String, dynamic> json) =
       _$_MerchantData.fromJson;
@@ -255,12 +277,14 @@ abstract class _MerchantData implements MerchantData {
   int? get rating => throw _privateConstructorUsedError;
   @override
   int? get numberOfRatings => throw _privateConstructorUsedError;
-  @override //String? id,
+  @override
+  String? get id => throw _privateConstructorUsedError;
+  @override
   String? get image => throw _privateConstructorUsedError;
   @override
   String? get name => throw _privateConstructorUsedError;
   @override
-  List<String>? get categories => throw _privateConstructorUsedError;
+  List<dynamic>? get categories => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$MerchantDataCopyWith<_MerchantData> get copyWith =>

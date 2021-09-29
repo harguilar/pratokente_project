@@ -3,16 +3,21 @@ import 'package:pratokente/core/services/environment_services.dart';
 import 'package:pratokente/apis/firestore_api.dart';
 import 'package:pratokente/core/services/bottom_navigation_service.dart';
 import 'package:pratokente/core/services/cart/cart_service.dart';
+import 'package:pratokente/core/services/local_storage_service.dart';
 import 'package:pratokente/core/services/merchants/merchants_services.dart';
 import 'package:pratokente/core/services/orders_service.dart';
 import 'package:pratokente/core/services/product_service.dart';
 import 'package:pratokente/core/services/support/support_services.dart';
 import 'package:pratokente/core/services/users/users_services.dart';
 import 'package:pratokente/ui/addres_selection/address_selection_view.dart';
+import 'package:pratokente/ui/booking/book_view.dart';
+import 'package:pratokente/ui/booking/restaurant/restaurant_book_view.dart';
 import 'package:pratokente/ui/create_account/create_accountview.dart';
 import 'package:pratokente/ui/home/home_view.dart';
 import 'package:pratokente/ui/login/login_view.dart';
 import 'package:pratokente/ui/merchant/merchant_view.dart';
+import 'package:pratokente/ui/merchant/merchant_view_list.dart';
+import 'package:pratokente/ui/products/get_products_by_merchant_view.dart';
 import 'package:pratokente/ui/startup/startup_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_firebase_auth/stacked_firebase_auth.dart';
@@ -28,7 +33,7 @@ import 'package:stacked_services/stacked_services.dart';
     //CupertinoRoute(page: CateringServiceT2),
     CupertinoRoute(page: CreateAccountView),
     CupertinoRoute(page: MerchantView),
-    //CupertinoRoute(page: GetProuctByMerchantView),
+    CupertinoRoute(page: GetProuctByMerchantView),
     //CupertinoRoute(page: HomeMadeView),
     //CupertinoRoute(page: RestaurantView),
     //CupertinoRoute(page: StreetFoodView),
@@ -39,6 +44,9 @@ import 'package:stacked_services/stacked_services.dart';
     //CupertinoRoute(page: OrdersViewList),
     //CupertinoRoute(page: OrderCon),
     CupertinoRoute(page: LoginView),
+    CupertinoRoute(page: BookView),
+    CupertinoRoute(page: RestaurantBookView),
+    CupertinoRoute(page: MerchantViewList),
   ],
   dependencies: [
     LazySingleton(classType: NavigationService),
@@ -57,6 +65,7 @@ import 'package:stacked_services/stacked_services.dart';
     LazySingleton(classType: PlacesService),
     LazySingleton(classType: MerchantsService),
     LazySingleton(classType: SupportService),
+    LazySingleton(classType: LocalStorageService),
 
     //LazySingleton(classType: ThirdPartyServicesModule),
     // LazySingleton(classType: OrderViewModelList),

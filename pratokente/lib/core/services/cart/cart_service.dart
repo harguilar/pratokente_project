@@ -7,7 +7,6 @@ import 'package:pratokente/app/app.logger.dart';
 import 'package:pratokente/core/datamodels/cart/cart_product.dart';
 import 'package:pratokente/core/datamodels/orders/order_data.dart';
 import 'package:pratokente/core/services/users/users_services.dart';
-import 'package:pratokente/global/global.dart';
 import 'package:pratokente/constants/constants.dart';
 
 import '../../../apis/firestore_api.dart';
@@ -46,13 +45,7 @@ class CartService {
 
   List<CartProduct> get getProductList => _products;
 
-/*  void setTotalProducts ({double total, List<CartProduct> cartProducts, deliveryPrice, tax, double subTotal}){
-    _total = total;
-  }*/
-
   OrderData? get getUserOrders => _orderData;
-
-  //double get getTotalPrice=>_total;
 
   Future updateCart(
       {required CartProduct cartProduct, required String userId}) async {

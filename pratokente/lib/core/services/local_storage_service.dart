@@ -1,9 +1,13 @@
+import 'package:pratokente/app/app.logger.dart';
+import 'package:pratokente/core/datamodels/merchants/merchant_data.dart';
 import 'package:pratokente/core/datamodels/user/user_models.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 
 class LocalStorageService {
+  final log = getLogger('LocalStorageService');
   static const String Userkey = 'user';
+  static const String Merchantskey = 'merchants';
   static const String AppLanguagesKey = 'languages';
   static const String DarkModeKey = 'darkmode';
   User? noUser;
@@ -11,7 +15,7 @@ class LocalStorageService {
   static LocalStorageService? _instance;
   static SharedPreferences? _preferences;
 
-  static Future<LocalStorageService> getInstance() async {
+  static Future<LocalStorageService?>? getInstance() async {
     try {
       if (_instance == null) {
         _instance = LocalStorageService();
@@ -23,9 +27,8 @@ class LocalStorageService {
 
       return _instance!;
     } catch (e) {
-      // SharedPreferences.setMockInitialValues({});
       print(e.toString());
-      throw ' ';
+      return null;
     }
   }
 
@@ -57,6 +60,22 @@ class LocalStorageService {
     _preferences!.setString(Userkey, content!);
   }
 
+  void saveMerchantToDisk({List<MerchantData>? content}) {
+    if (content != null && content.isNotEmpty) {
+      //log.i(content);
+      final _listMerchant = json.encode(content);
+      if (_listMerchant != null || _listMerchant.isNotEmpty) {
+        log.i(
+            '(TRACE) LocalStorageService: saveMerchantToDisk. Key $Merchantskey value: $_listMerchant');
+        _preferences!.setString(Merchantskey, _listMerchant);
+      } else {
+        log.wtf('I do not accept empty Values in $_listMerchant');
+      }
+    } else {
+      log.wtf('I do not except Null Values');
+    }
+  }
+
   bool get darkMode => getFromDisk(DarkModeKey) ?? false;
 
   set darkMode(bool value) => saveToDisk(DarkModeKey, value);
@@ -68,11 +87,7 @@ class LocalStorageService {
 
   // updated _saveToDisk function that handles all types
   void saveToDisk<T>(String? key, T content) {
-    //SharedPreferences.setMockInitialValues({});
-    //SharedPreferences.setMockInitialValues({});
-
     print('(TRACE) LocalStorageService:_saveToDisk. key: $key value: $content');
-
     if (content is String) {
       _preferences!.setString(key!, content);
     }

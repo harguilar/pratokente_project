@@ -19,6 +19,12 @@ class PratokenteText extends StatelessWidget {
       {TextAlign align = TextAlign.start})
       : style = heading3Style,
         alignment = align;
+
+  const PratokenteText.headingLogin(this.text,
+      {TextAlign align = TextAlign.left})
+      : style = headingLogin,
+        alignment = align;
+
   const PratokenteText.headline(this.text, {TextAlign align = TextAlign.start})
       : style = headlineStyle,
         alignment = align;
@@ -30,9 +36,13 @@ class PratokenteText extends StatelessWidget {
       : style = captionStyle,
         alignment = align;
 
+  const PratokenteText.book(this.text, {TextAlign align = TextAlign.start})
+      : style = bookStyle,
+        alignment = align;
+
   PratokenteText.body(this.text,
       {Color color = kcMediumGreyColor, TextAlign align = TextAlign.start})
-      : style = bodyStyle.copyWith(color: color),
+      : style = bodyStyleSofia.copyWith(color: color),
         alignment = align;
 
   @override

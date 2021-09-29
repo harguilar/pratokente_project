@@ -10,6 +10,7 @@ class BookedData with _$BookedData {
     String? bookId,
     String? date,
     String? time,
+    String? restaurantName,
     String? restaurantId,
     int? bookStatus,
     int? numPerson,

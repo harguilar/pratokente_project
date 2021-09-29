@@ -45,7 +45,8 @@ dependencies:
   path_provider: ^2.0.1
 
   # Stacked State Management
-  stacked: ^2.1.0
+  #stacked: ^2.1.0
+  stacked: ^2.2.3
   stacked_services: ^0.8.3
   stacked_firebase_auth: ^0.2.1
   flutter_credit_card: ^2.0.0
@@ -53,7 +54,9 @@ dependencies:
   # storage
   shared_preferences: ^2.0.5
 
-  get_it: ^6.1.1
+  #get_it: ^6.1.1
+  get_it: ^7.1.2
+  
   image_picker: ^0.7.4
   cached_network_image: ^3.0.0
   observable_ish: ^3.0.0

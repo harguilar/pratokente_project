@@ -9,7 +9,7 @@ import 'create_accountview.form.dart';
 //Place form to Synch The userData to the ViewModel.
 @FormView(fields: [
   FormTextField(name: 'fullName'),
-  FormTextField(name: 'email'),
+  FormTextField(name: 'email', isPassword: true),
   FormTextField(name: 'password'),
 ])
 class CreateAccountView extends StatelessWidget with $CreateAccountView {
@@ -37,23 +37,40 @@ class CreateAccountView extends StatelessWidget with $CreateAccountView {
             onBackPressed: model.navigateBack,
             validationMessage: model.validationMessage,
             onCreateAccountTapped: () {},
-            title: 'Create Account',
-            subtitle: 'Enter Your Name, Email and Password',
+            title: PratokenteText.headingOne('Create Account'),
+            subtitle: PratokenteText.subheading(
+                'Enter Your Name, Email and Password'),
             mainButtonTitle: 'SIGN UP',
             form: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TextField(
-                  decoration: InputDecoration(labelText: 'Full Name: '),
+                PratokenteText.headingLogin('Full Name: '),
+                PratokenteInputField(
+                  leading: Icon(Icons.person),
                   controller: fullNameController,
+                  trailing: Icon(Icons.close),
+                  trailingTapped: () => fullNameController.clear(),
+                  //leading: Text('Email'),
                 ),
-                TextField(
-                  decoration: InputDecoration(labelText: 'Email: '),
+                verticalSpaceRegular,
+                PratokenteText.headingLogin('Email: '),
+                PratokenteInputField(
                   controller: emailController,
+                  leading: Icon(Icons.email),
+                  trailing: Icon(Icons.close),
+                  trailingTapped: () => emailController.clear(),
+                  //leading: Text('Email'),
                 ),
-                TextField(
-                  decoration: InputDecoration(labelText: 'Password: '),
+                verticalSpaceRegular,
+                PratokenteText.headingLogin('Password: '),
+                PratokenteInputField(
+                  leading: Icon(Icons.lock),
                   controller: passwordController,
-                )
+                  password: true,
+                  trailing: Icon(Icons.close),
+                  trailingTapped: () => passwordController.clear(),
+                  //leading: Text('Email'),
+                ),
               ],
             ),
             showTermsText: true,

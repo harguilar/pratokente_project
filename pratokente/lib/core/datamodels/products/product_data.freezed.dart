@@ -24,14 +24,14 @@ class _$ProductDataTearOff {
       {String? category,
       String? description,
       String? id,
-      String? images,
+      String? image,
       String? name,
       double? price}) {
     return _ProductData(
       category: category,
       description: description,
       id: id,
-      images: images,
+      image: image,
       name: name,
       price: price,
     );
@@ -50,7 +50,7 @@ mixin _$ProductData {
   String? get category => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
-  String? get images => throw _privateConstructorUsedError;
+  String? get image => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   double? get price => throw _privateConstructorUsedError;
 
@@ -69,7 +69,7 @@ abstract class $ProductDataCopyWith<$Res> {
       {String? category,
       String? description,
       String? id,
-      String? images,
+      String? image,
       String? name,
       double? price});
 }
@@ -87,7 +87,7 @@ class _$ProductDataCopyWithImpl<$Res> implements $ProductDataCopyWith<$Res> {
     Object? category = freezed,
     Object? description = freezed,
     Object? id = freezed,
-    Object? images = freezed,
+    Object? image = freezed,
     Object? name = freezed,
     Object? price = freezed,
   }) {
@@ -104,9 +104,9 @@ class _$ProductDataCopyWithImpl<$Res> implements $ProductDataCopyWith<$Res> {
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      images: images == freezed
-          ? _value.images
-          : images // ignore: cast_nullable_to_non_nullable
+      image: image == freezed
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
               as String?,
       name: name == freezed
           ? _value.name
@@ -131,7 +131,7 @@ abstract class _$ProductDataCopyWith<$Res>
       {String? category,
       String? description,
       String? id,
-      String? images,
+      String? image,
       String? name,
       double? price});
 }
@@ -151,7 +151,7 @@ class __$ProductDataCopyWithImpl<$Res> extends _$ProductDataCopyWithImpl<$Res>
     Object? category = freezed,
     Object? description = freezed,
     Object? id = freezed,
-    Object? images = freezed,
+    Object? image = freezed,
     Object? name = freezed,
     Object? price = freezed,
   }) {
@@ -168,9 +168,9 @@ class __$ProductDataCopyWithImpl<$Res> extends _$ProductDataCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      images: images == freezed
-          ? _value.images
-          : images // ignore: cast_nullable_to_non_nullable
+      image: image == freezed
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
               as String?,
       name: name == freezed
           ? _value.name
@@ -191,7 +191,7 @@ class _$_ProductData implements _ProductData {
       {this.category,
       this.description,
       this.id,
-      this.images,
+      this.image,
       this.name,
       this.price});
 
@@ -205,7 +205,7 @@ class _$_ProductData implements _ProductData {
   @override
   final String? id;
   @override
-  final String? images;
+  final String? image;
   @override
   final String? name;
   @override
@@ -213,7 +213,7 @@ class _$_ProductData implements _ProductData {
 
   @override
   String toString() {
-    return 'ProductData(category: $category, description: $description, id: $id, images: $images, name: $name, price: $price)';
+    return 'ProductData(category: $category, description: $description, id: $id, image: $image, name: $name, price: $price)';
   }
 
   @override
@@ -228,8 +228,8 @@ class _$_ProductData implements _ProductData {
                     .equals(other.description, description)) &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.images, images) ||
-                const DeepCollectionEquality().equals(other.images, images)) &&
+            (identical(other.image, image) ||
+                const DeepCollectionEquality().equals(other.image, image)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.price, price) ||
@@ -242,7 +242,7 @@ class _$_ProductData implements _ProductData {
       const DeepCollectionEquality().hash(category) ^
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(images) ^
+      const DeepCollectionEquality().hash(image) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(price);
 
@@ -262,7 +262,7 @@ abstract class _ProductData implements ProductData {
       {String? category,
       String? description,
       String? id,
-      String? images,
+      String? image,
       String? name,
       double? price}) = _$_ProductData;
 
@@ -276,7 +276,7 @@ abstract class _ProductData implements ProductData {
   @override
   String? get id => throw _privateConstructorUsedError;
   @override
-  String? get images => throw _privateConstructorUsedError;
+  String? get image => throw _privateConstructorUsedError;
   @override
   String? get name => throw _privateConstructorUsedError;
   @override

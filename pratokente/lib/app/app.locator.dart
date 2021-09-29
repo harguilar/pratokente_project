@@ -16,6 +16,7 @@ import '../apis/firestore_api.dart';
 import '../core/services/bottom_navigation_service.dart';
 import '../core/services/cart/cart_service.dart';
 import '../core/services/environment_services.dart';
+import '../core/services/local_storage_service.dart';
 import '../core/services/merchants/merchants_services.dart';
 import '../core/services/orders_service.dart';
 import '../core/services/product_service.dart';
@@ -44,4 +45,5 @@ void setupLocator({String? environment, EnvironmentFilter? environmentFilter}) {
   locator.registerLazySingleton(() => PlacesService());
   locator.registerLazySingleton(() => MerchantsService());
   locator.registerLazySingleton(() => SupportService());
+  locator.registerLazySingleton(() => LocalStorageService());
 }

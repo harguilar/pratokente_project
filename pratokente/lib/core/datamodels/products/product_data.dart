@@ -8,7 +8,7 @@ class ProductData with _$ProductData {
     String? category,
     String? description,
     String? id,
-    String? images,
+    String? image,
     String? name,
     double? price,
   }) = _ProductData;
