@@ -129,7 +129,7 @@ class AuthenticationLayout extends StatelessWidget {
           if (Platform.isIOS)
             AppleAuthButton(
               onPressed: onSignInWithApple ?? () {},
-              // darkMode: true,
+              darkMode: true,
               //iconSize: 24,
               //height: 50,
               text: 'CONTINUE WITH APPLE',

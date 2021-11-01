@@ -13,36 +13,39 @@ import 'package:stacked/stacked.dart';
 import '../ui/addres_selection/address_selection_view.dart';
 import '../ui/booking/book_view.dart';
 import '../ui/booking/restaurant/restaurant_book_view.dart';
+import '../ui/contact/contact_view.dart';
 import '../ui/create_account/create_accountview.dart';
 import '../ui/home/home_view.dart';
 import '../ui/login/login_view.dart';
-import '../ui/merchant/merchant_view.dart';
 import '../ui/merchant/merchant_view_list.dart';
 import '../ui/products/get_products_by_merchant_view.dart';
+import '../ui/products/products_view.dart';
 import '../ui/startup/startup_view.dart';
 
 class Routes {
   static const String startupView = '/';
   static const String addressSelectionView = '/address-selection-view';
   static const String createAccountView = '/create-account-view';
-  static const String merchantView = '/merchant-view';
   static const String getProuctByMerchantView = '/get-prouct-by-merchant-view';
   static const String homeView = '/home-view';
   static const String loginView = '/login-view';
   static const String bookView = '/book-view';
+  static const String contactView = '/contact-view';
   static const String restaurantBookView = '/restaurant-book-view';
   static const String merchantViewList = '/merchant-view-list';
+  static const String productView = '/product-view';
   static const all = <String>{
     startupView,
     addressSelectionView,
     createAccountView,
-    merchantView,
     getProuctByMerchantView,
     homeView,
     loginView,
     bookView,
+    contactView,
     restaurantBookView,
     merchantViewList,
+    productView,
   };
 }
 
@@ -53,13 +56,14 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.startupView, page: StartupView),
     RouteDef(Routes.addressSelectionView, page: AddressSelectionView),
     RouteDef(Routes.createAccountView, page: CreateAccountView),
-    RouteDef(Routes.merchantView, page: MerchantView),
     RouteDef(Routes.getProuctByMerchantView, page: GetProuctByMerchantView),
     RouteDef(Routes.homeView, page: HomeView),
     RouteDef(Routes.loginView, page: LoginView),
     RouteDef(Routes.bookView, page: BookView),
+    RouteDef(Routes.contactView, page: ContactView),
     RouteDef(Routes.restaurantBookView, page: RestaurantBookView),
     RouteDef(Routes.merchantViewList, page: MerchantViewList),
+    RouteDef(Routes.productView, page: ProductView),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
@@ -85,15 +89,6 @@ class StackedRouter extends RouterBase {
       );
       return CupertinoPageRoute<dynamic>(
         builder: (context) => CreateAccountView(key: args.key),
-        settings: data,
-      );
-    },
-    MerchantView: (data) {
-      var args = data.getArgs<MerchantViewArguments>(
-        orElse: () => MerchantViewArguments(),
-      );
-      return CupertinoPageRoute<dynamic>(
-        builder: (context) => MerchantView(key: args.key),
         settings: data,
       );
     },
@@ -127,6 +122,15 @@ class StackedRouter extends RouterBase {
         settings: data,
       );
     },
+    ContactView: (data) {
+      var args = data.getArgs<ContactViewArguments>(
+        orElse: () => ContactViewArguments(),
+      );
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => ContactView(key: args.key),
+        settings: data,
+      );
+    },
     RestaurantBookView: (data) {
       var args = data.getArgs<RestaurantBookViewArguments>(
         orElse: () => RestaurantBookViewArguments(),
@@ -139,6 +143,12 @@ class StackedRouter extends RouterBase {
     MerchantViewList: (data) {
       return CupertinoPageRoute<dynamic>(
         builder: (context) => MerchantViewList(),
+        settings: data,
+      );
+    },
+    ProductView: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => ProductView(),
         settings: data,
       );
     },
@@ -161,12 +171,6 @@ class CreateAccountViewArguments {
   CreateAccountViewArguments({this.key});
 }
 
-/// MerchantView arguments holder class
-class MerchantViewArguments {
-  final Key? key;
-  MerchantViewArguments({this.key});
-}
-
 /// GetProuctByMerchantView arguments holder class
 class GetProuctByMerchantViewArguments {
   final Key? key;
@@ -177,6 +181,12 @@ class GetProuctByMerchantViewArguments {
 class LoginViewArguments {
   final Key? key;
   LoginViewArguments({this.key});
+}
+
+/// ContactView arguments holder class
+class ContactViewArguments {
+  final Key? key;
+  ContactViewArguments({this.key});
 }
 
 /// RestaurantBookView arguments holder class

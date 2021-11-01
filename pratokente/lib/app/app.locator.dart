@@ -19,7 +19,7 @@ import '../core/services/environment_services.dart';
 import '../core/services/local_storage_service.dart';
 import '../core/services/merchants/merchants_services.dart';
 import '../core/services/orders_service.dart';
-import '../core/services/product_service.dart';
+import '../core/services/products/product_service.dart';
 import '../core/services/support/support_services.dart';
 import '../core/services/users/users_services.dart';
 
@@ -34,9 +34,9 @@ void setupLocator({String? environment, EnvironmentFilter? environmentFilter}) {
   locator.registerLazySingleton(() => NavigationService());
   locator.registerSingleton(FirebaseAuthenticationService());
   locator.registerLazySingleton(() => BottomNavigation());
+  locator.registerLazySingleton(() => ProductService());
   locator.registerLazySingleton(() => CartService());
   locator.registerLazySingleton(() => OrdersService());
-  locator.registerLazySingleton(() => ProductService());
   locator.registerLazySingleton(() => EnvironmentService());
   locator.registerLazySingleton(() => DialogService());
   locator.registerLazySingleton(() => SnackbarService());

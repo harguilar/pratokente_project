@@ -1,3 +1,4 @@
+/*
 import 'package:flutter/material.dart';
 import 'package:pratokente/ui/widgets/create_list_awareness.dart';
 import 'package:pratokente/ui/widgets/custom_search_delegate_merchant.dart';
@@ -7,12 +8,13 @@ import 'merchant_viewModel.dart';
 
 class MerchantView extends StatelessWidget {
   MerchantView({Key? key});
+  final scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<MerchantsViewModel>.reactive(
         disposeViewModel: false,
-        onModelReady: (model) => model.listenToMerchants(),
+        //onModelReady: (model) => model.listenToMerchants(),
         builder: (context, model, child) => model.getMerchants != null
             ? Scaffold(
                 backgroundColor: Colors.white,
@@ -212,7 +214,9 @@ class MerchantView extends StatelessWidget {
                   backgroundColor: Colors.orange,
                 )),
               ),
-        viewModelBuilder: () =>
-            MerchantsViewModel(height: MediaQuery.of(context).size.height));
+        viewModelBuilder: () => MerchantsViewModel(
+            height: MediaQuery.of(context).size.height,
+            scrollController: scrollController));
   }
 }
+*/

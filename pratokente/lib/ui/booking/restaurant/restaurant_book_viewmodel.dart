@@ -118,7 +118,7 @@ class RestaurantBookViewModel extends FormViewModel {
     _productService.addBookingInfo(makeBooking!);
     _snackbarService.showSnackbar(
         message: 'Agendamento Socitado com Sucesso !!!');
-    _navigationService.replaceWith(Routes.merchantView);
+    _navigationService.replaceWith(Routes.merchantViewList);
   }
 
   MerchantData get getMerchantData => _productService.getMerchantData!;

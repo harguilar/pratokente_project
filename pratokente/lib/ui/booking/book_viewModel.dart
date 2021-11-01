@@ -2,7 +2,7 @@ import 'package:pratokente/app/app.locator.dart';
 import 'package:pratokente/app/app.router.dart';
 import 'package:pratokente/core/datamodels/booked/booked_data.dart';
 import 'package:pratokente/core/datamodels/merchants/merchant_data.dart';
-import 'package:pratokente/core/services/product_service.dart';
+import 'package:pratokente/core/services/products/product_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 //import 'package:cloud_firestore/src/utils/auto_id_generator.dart';
@@ -46,7 +46,7 @@ class BookViewModel extends BaseViewModel {
     _productService.addBookingInfo(makeBooking!);
     _snackbarService.showSnackbar(
         message: 'Agendamento Socitado com Sucesso !!!');
-    _navigationService.replaceWith(Routes.merchantView);
+    _navigationService.replaceWith(Routes.merchantViewList);
   }
 
   MerchantData get getMerchantData => _productService.getMerchantData!;

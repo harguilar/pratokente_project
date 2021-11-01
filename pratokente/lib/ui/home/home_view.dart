@@ -91,7 +91,7 @@ class HomeView extends StatelessWidget {
     switch (index) {
       case 0:
         return MerchantViewList();
-        return MerchantView();
+      // return MerchantView();
       //return HomeViewDetailed();
       case 1:
         return Container();

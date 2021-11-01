@@ -110,12 +110,13 @@ class ProfileViewEmail extends StatelessWidget with $ProfileViewEmail {
                       ), */
                       InkWell(
                         onTap: () {
-                          Navigator.of(context).push(
+                          model.navigateToProfile();
+                          /*                   Navigator.of(context).push(
                             PageRouteBuilder(
                               pageBuilder: (_, __, ___) =>
                                   ContactView(), /*new CallCenterT2(),*/
                             ),
-                          );
+                          ); */
                         },
                         child: category(
                           txt: "Call Center",

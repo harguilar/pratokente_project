@@ -4,7 +4,6 @@ import 'package:pratokente/ui/addres_selection/address_selection_view.form.dart'
 import 'package:pratokente_ui/pratokente_ui.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
-
 import 'address_selection_viewmodel.dart';
 
 @FormView(fields: [

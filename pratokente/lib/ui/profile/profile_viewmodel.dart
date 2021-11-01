@@ -42,6 +42,11 @@ class ProfileViewModel extends FormViewModel {
     }
   }
 
+  void navigateToProfile() {
+    //   navigationService.replaceWith(Routes.ContactView);
+  }
+
+  // void navigateToProfile() => navigationService.replaceWith(Routes.ContactView);
   void navigateToLogin() => navigationService.replaceWith(Routes.loginView);
 
   @override

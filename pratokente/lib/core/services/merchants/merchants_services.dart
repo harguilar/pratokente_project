@@ -13,8 +13,11 @@ class MerchantsService {
   final _firestoreApi = locator<FirestoreApi>();
 
   final _merchantDocumentSnap = <DocumentSnapshot>[];
+
   int documentLimit = 10;
+
   bool _hasMoreMerchants = true;
+
   bool _fetchMerchants = false;
 
   Future<QuerySnapshot?> getMerchants(
@@ -32,7 +35,7 @@ class MerchantsService {
     }
   }
 
-  //Get Merchants By Users Section
+  bool get getHasMoreMerchants => _hasMoreMerchants;
 
   Future<QuerySnapshot?> fetchMerchants(
       {required int documentLimit, DocumentSnapshot? startAfter}) async {
@@ -51,12 +54,10 @@ class MerchantsService {
     }
   }
 
-  bool get hasMoreMerchants => _hasMoreMerchants;
+  //bool get hasMoreMerchants => _hasMoreMerchants;
 
-  List<MerchantData>? get merchants => _merchantDocumentSnap.map((snap) {
-        final _merchants = snap.data();
-        // if (_merchants!.isNotEmpty)
-
+  List<MerchantData>? get merchants => _merchantDocumentSnap.map((docs) {
+        final _merchants = docs.data();
         return MerchantData(
           name: _merchants!['name'],
           rating: _merchants['rating'],
@@ -70,7 +71,9 @@ class MerchantsService {
   Future fetchAllMerchants() async {
     try {
       if (_fetchMerchants) return;
+
       _fetchMerchants = true;
+
       final _snapShot = await fetchMerchants(
           documentLimit: documentLimit,
           startAfter: _merchantDocumentSnap.isNotEmpty

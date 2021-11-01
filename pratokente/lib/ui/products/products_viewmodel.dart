@@ -1,81 +1,83 @@
 import 'dart:async';
-import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:pratokente/apis/firestore_api.dart';
 import 'package:pratokente/app/app.locator.dart';
 import 'package:pratokente/app/app.router.dart';
 import 'package:pratokente/core/datamodels/merchants/merchant_data.dart';
+import 'package:pratokente/core/datamodels/products/product_data.dart';
 import 'package:pratokente/core/services/merchants/merchants_services.dart';
 import 'package:pratokente/core/services/products/product_service.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
-class MerchantsViewModel extends BaseViewModel {
+class ProductsViewModel extends BaseViewModel {
   final _firestoreApi = locator<FirestoreApi>();
   final _merchantService = locator<MerchantsService>();
   final _productService = locator<ProductService>();
   final _navigationService = locator<NavigationService>();
-  final VoidCallback? scrollControllerCallFunction;
+  final bookedRef = FirebaseFirestore.instance.collection('booked');
+  // var _listMerchant;
+
+  //final scrollController = ScrollController();
+
   var scrollController;
 
-  double? offset;
-  double? maxScrollExtent;
-  bool? verifyScroll;
+  double? height;
+  ProductsViewModel({this.height, this.scrollController});
 
-  MerchantsViewModel(
-      {this.scrollControllerCallFunction,
-      this.scrollController,
-      this.verifyScroll,
-      this.offset,
-      this.maxScrollExtent});
+  List<ProductData>? _products = [];
 
-  List<MerchantData>? _merchants = [];
-
-  List<MerchantData>? get getMerchants => _merchants!;
+  List<ProductData>? get getProducts => _products!;
 
   void setToMerchants({required MerchantData merchantData}) {
     _productService.setMerchantData(merchantData: merchantData);
   }
 
-  bool get getHasMoreMerchants => _merchantService.getHasMoreMerchants;
+  MerchantData? get getMerchantData => _productService.getMerchantData!;
 
-  Future fetchMerchants() async {
-    //scrollController.addListener(scrollControllerCallFunction);
+  Future fetchProducts() async {
     setBusy(true);
-    await _merchantService.fetchAllMerchants();
-    _merchants = _merchantService.merchants;
+    scrollController.addListener(scrollListener);
+
+    await _productService.fetchAllProducts();
+
+    _products = _productService.getProducts;
+
     setBusy(false);
+
     notifyListeners();
   }
 
   void navToProductByMerchant() {
     //_merchantStreamSubscription!.cancel();
+    //Harguilar Commented
     _navigationService.navigateTo(Routes.getProuctByMerchantView);
+
+    //  _amplitudeRouteObserver.routePush(currentRoute: ProfViewRoute);
   }
 
   void navToBookView({required MerchantData merchantData}) {
     _navigationService.navigateTo(Routes.bookView);
 
-    // _productService.setMerchantData(merchantData: merchantData);
+    _productService.setMerchantData(merchantData: merchantData);
     //  _amplitudeRouteObserver.routePush(currentRoute: ProfViewRoute);
   }
 
   void requestMoreMerchants() => _firestoreApi.requestMoreData();
 
-/*   @override
+  @override
   void dispose() {
     scrollController.dispose();
     super.dispose();
   }
 
-
-  scrollListener() {
+  void scrollListener() {
     if (scrollController.offset >=
             scrollController.position.maxScrollExtent / 2 &&
         !scrollController.position.outOfRange) {
-      if (_merchantService.hasMoreMerchants) {
-        fetchMerchants();
-        notifyListeners();
+      if (_productService.hasMoreProducts) {
+        fetchProducts();
       }
     }
-  } */
+  }
 }

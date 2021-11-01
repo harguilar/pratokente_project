@@ -44,7 +44,8 @@ class StartUpViewModel extends BaseViewModel {
       //_navigationService.replaceWith(Routes.homeView);
 
       if (!currentUser.hasAddress) {
-        _navigationService.navigateTo(Routes.addressSelectionView);
+        // _navigationService.navigateTo(Routes.addressSelectionView);
+        _navigationService.replaceWith(Routes.homeView);
       } else {
         // navigate to home view
         _navigationService.replaceWith(Routes.homeView);

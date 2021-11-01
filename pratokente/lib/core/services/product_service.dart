@@ -48,12 +48,9 @@ class ProductService {
           .map((doc) => ProductData.fromJson(doc.data()))
           .toList());
     } catch (err) {
-      // TODO: Find or create a way to repeat error handling without so much repeated code
       return productsReference.snapshots().map((snapshot) => snapshot.docs
           .map((doc) => ProductData.fromJson(doc.data()))
           .toList());
-      // throw '';
-      //return e.toString();
     }
   }
 
@@ -62,10 +59,6 @@ class ProductService {
       doc = await categoryReference.add(productData.toJson());
 
       await categoryReference.doc(doc!.id).update({'id': doc!.id});
-
-      //Set the Id Field to document ID
-      //setId(doc.id);
-
     } catch (e) {
       // TODO: Find or create a way to repeat error handling without so much repeated code
       if (e is PlatformException) {

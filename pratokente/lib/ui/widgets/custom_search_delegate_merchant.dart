@@ -6,7 +6,7 @@ import 'package:pratokente/ui/merchant/merchant_viewModel.dart';
 class CustomSearchDelegateMerchant extends SearchDelegate<MerchantData?> {
   // final Stream<List<ProductData>> products;
   List<MerchantData> _merchantList;
-  final model = MerchantsViewModel();
+  //final model = MerchantsViewModel();
   CustomSearchDelegateMerchant(this._merchantList);
   // final model = SearchDelegateViewModel();
 
@@ -380,7 +380,7 @@ class CustomSearchDelegateMerchant extends SearchDelegate<MerchantData?> {
                     //showResults(context);
 /*                     model.setMerchants(
                         merchantData: merchantList.elementAt(index)); */
-                    model.navToProductByMerchant();
+                    // model.navToProductByMerchant();
                     print("Harguilar Nhanga " +
                         merchantList
                             .elementAt(index)

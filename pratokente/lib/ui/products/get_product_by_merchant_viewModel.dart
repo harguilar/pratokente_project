@@ -3,8 +3,9 @@ import 'package:pratokente/core/datamodels/cart/cart_product.dart';
 import 'package:pratokente/core/datamodels/merchants/merchant_data.dart';
 import 'package:pratokente/core/datamodels/products/product_data.dart';
 import 'package:pratokente/core/services/cart/cart_service.dart';
-import 'package:pratokente/core/services/product_service.dart';
 import 'package:pratokente/core/services/users/users_services.dart';
+import 'package:pratokente/core/services/products/product_service.dart';
+
 import 'package:stacked/stacked.dart';
 //import 'package:stacked_services/stacked_services.dart';
 
@@ -12,7 +13,6 @@ class GetProductByMerchantViewModel extends BaseViewModel {
   final ProductService _productService = locator<ProductService>();
   final _currentUser = locator<UserService>();
   final CartService _cartService = locator<CartService>();
-  //final _navigationService = locator<NavigationService>();
   List<CartProduct>? products = [];
   List<CartProduct> productsTmp = [];
 
@@ -27,24 +27,11 @@ class GetProductByMerchantViewModel extends BaseViewModel {
 
   String? get getUserId => _userId;
 
-  void listenToProducts() {
-    setBusy(true);
-    //Set UserId;
-    setUserId(_currentUser.getCurrentUser.id);
-    _productService.listenToProductsRealTime().listen((productstData) {
-      List<ProductData> productData = productstData;
-      if ((productData != null) && (productData.length > 0)) {
-        _productsData = productData;
-        notifyListeners();
-      }
-      setBusy(false);
-    });
-  }
-
   void setUserId(String userId) {
     _userId = userId;
   }
 
+  bool get getHasMoreProducts => _productService.hasMoreProducts;
   List<ProductData>? get getProductsData => _productsData!;
   MerchantData? get getMerchantData => _productService.getMerchantData!;
 
@@ -53,6 +40,15 @@ class GetProductByMerchantViewModel extends BaseViewModel {
     //products = Global.products!;
     products = _cartService.getProductList;
     //print('Testing the Line \n');
+    setBusy(false);
+    notifyListeners();
+  }
+
+  Future fetchProduct() async {
+    //scrollController.addListener(scrollControllerCallFunction);
+    setBusy(true);
+    await _productService.fetchAllProducts();
+    _productsData = _productService.getProducts;
     setBusy(false);
     notifyListeners();
   }
@@ -186,6 +182,4 @@ class GetProductByMerchantViewModel extends BaseViewModel {
     setCartLength();
     return _cartLength;
   }
-
-  void requestMoreProducts() => _productService.requestMoreData();
 }

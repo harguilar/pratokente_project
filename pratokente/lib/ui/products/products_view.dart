@@ -1,68 +1,62 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:pratokente/ui/widgets/create_list_awareness.dart';
-import 'package:pratokente/ui/widgets/custom_search_delegate_merchant.dart';
+import 'package:pratokente/ui/widgets/notification_counter.dart';
 import 'package:pratokente_ui/pratokente_ui.dart';
 import 'package:stacked/stacked.dart';
-import 'merchant_viewModel.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'products_viewmodel.dart';
 
-class MerchantViewList extends StatelessWidget {
-  final scrollCrontoller = ScrollController();
+class ProductView extends StatefulWidget {
+  @override
+  _ProductViewState createState() => _ProductViewState();
+}
+
+class _ProductViewState extends State<ProductView> {
+  final scrollController = ScrollController;
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder<MerchantsViewModel>.reactive(
-      viewModelBuilder: () => MerchantsViewModel(),
-      onModelReady: (model) =>
-          SchedulerBinding.instance?.addPostFrameCallback((timeStamp) {
-        model.fetchMerchants();
-      }),
-      builder: (BuildContext, model, child) => model.getMerchants != null
-          ? Scaffold(
-              appBar: AppBar(
-                backgroundColor: kcOrangeColor,
-                title: PratokenteText.headingThree('Lista de Vendedores'),
-                centerTitle: true,
-                actions: [
-                  IconButton(
-                      icon: Icon(Icons.search),
-                      onPressed: () {
-                        showSearch(
-                          context: context,
-                          delegate:
-                              CustomSearchDelegateMerchant(model.getMerchants!),
-                        );
-                      })
-                ],
-              ),
-              body: Padding(
-                padding: const EdgeInsets.only(top: 15.0, left: 15.0),
-                child: SingleChildScrollView(
-                  controller: scrollCrontoller,
-                  child: Container(
-                    child: ListView.builder(
-                      key: PageStorageKey('merchants'),
-                      itemCount: model.getMerchants!.length,
-                      padding: EdgeInsets.only(top: 10.0),
-                      shrinkWrap: true,
-                      primary: false,
-                      itemBuilder: (ctx, index) {
-                        return CreationAwareListItem(
-                          itemCreated: () {
-                            if (index % 10 == 0 &&
-                                scrollCrontoller.offset >
-                                    scrollCrontoller.position.maxScrollExtent /
-                                        2) {
-                              if (model.getHasMoreMerchants) {
-                                print("we are Inside Here Harguilar $index:" +
-                                    model.getHasMoreMerchants.toString());
-                                SchedulerBinding.instance
-                                    ?.addPostFrameCallback((timeStamp) {
-                                  model.fetchMerchants();
-                                });
-                              }
-                            }
-                          },
-                          child: Container(
+    return ViewModelBuilder<ProductsViewModel>.reactive(
+        onModelReady: (model) => model.fetchProducts(),
+        builder: (BuildContext, model, child) => model.getProducts != null
+            ? Scaffold(
+                backgroundColor: Colors.white,
+                appBar: AppBar(
+                  backgroundColor: kcOrangeColor,
+                  title:
+                      PratokenteText.headingThree(model.getMerchantData!.name!),
+                  centerTitle: true,
+                  actions: [
+                    IconButton(
+                        icon: NotificationCounter(
+                          icon: SvgPicture.asset(
+                            'assets/icon/cart_icon.svg',
+                            width: 32,
+                          ),
+                          // counter:  Global.products.length > 0 ? Global.products.length : 0,
+                          //counter: model.getCartLength,
+                        ),
+                        onPressed: () {
+                          // model.navToCart();
+                        })
+                  ],
+                ),
+                body: Padding(
+                  padding: const EdgeInsets.only(top: 15.0, left: 15.0),
+                  child: SingleChildScrollView(
+                    child: Container(
+                      child: ListView.builder(
+                        controller: model.scrollController,
+                        key: PageStorageKey('products category'),
+                        itemCount: model.getProducts!.length,
+                        padding: EdgeInsets.only(top: 10.0),
+                        shrinkWrap: true,
+                        primary: false,
+                        itemBuilder: (ctx, index) {
+                          return Container(
                             padding: EdgeInsets.symmetric(
                               vertical: 5.0,
                             ),
@@ -72,6 +66,7 @@ class MerchantViewList extends StatelessWidget {
                                     width: 1.0, color: Colors.grey[300]!),
                               ),
                             ),
+                            //height: 150,
                             child: InkWell(
                               splashColor: Colors.blueGrey,
                               child: Container(
@@ -91,15 +86,14 @@ class MerchantViewList extends StatelessWidget {
                                               Radius.circular(10.0)),
                                           image: DecorationImage(
                                               image: NetworkImage((model
-                                                  .getMerchants![index]
-                                                  .image)!),
+                                                  .getProducts![index].image)!),
                                               fit: BoxFit.cover),
                                         ),
                                       ),
                                       verticalSpaceSmall,
                                       Container(
                                         child: PratokenteText.headingThree(
-                                            model.getMerchants![index].name!),
+                                            model.getProducts![index].name!),
                                       ),
                                       verticalSpaceSmall,
                                       Row(
@@ -109,22 +103,24 @@ class MerchantViewList extends StatelessWidget {
                                             CrossAxisAlignment.start,
                                         children: [
                                           PratokenteText.body(
-                                            model
-                                                .getMerchants![index].categories
+                                            model.getProducts![index].category
                                                 .toString(),
                                           ),
                                           horizontalSpaceRegular,
-                                          PratokenteText.body(
-                                            model.getMerchants![index]
-                                                    .numberOfRatings
-                                                    .toString() +
-                                                "+ votos",
-                                          ),
+                                          PratokenteText.body(model
+                                              .getProducts![index].price
+                                              .toString()),
                                           horizontalSpaceRegular,
                                           PratokenteText.body(
-                                            model.getMerchants![index].rating
-                                                .toString(),
+                                            model.getProducts![index]
+                                                .description!,
                                           ),
+
+                                          /*                                         Expanded(
+                                            child: PratokenteText.body(model
+                                                .getProductsData![index]
+                                                .category!),
+                                          ), */
                                         ],
                                       ),
                                       verticalSpaceSmall,
@@ -134,9 +130,7 @@ class MerchantViewList extends StatelessWidget {
                                           splashColor: Colors.deepPurple,
                                           // width: double.maxFinite,
                                           onTap: () {
-                                            model.navToBookView(
-                                                merchantData:
-                                                    model.getMerchants![index]);
+                                            model.getProducts![index];
                                           },
                                           child: Padding(
                                             padding: const EdgeInsets.only(
@@ -154,29 +148,30 @@ class MerchantViewList extends StatelessWidget {
                                     ],
                                   ),
                                   onTap: () {
-                                    model.setToMerchants(
+                                    /*  model.setToMerchants(
                                         merchantData:
-                                            model.getMerchants![index]);
-                                    model.navToProductByMerchant();
+                                            model.getProducts![index]);
+                                    model.navToProductByMerchant(); */
                                   },
                                 ),
                               ),
                             ),
-                          ),
-                        );
-                      },
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ),
-              ),
-            )
-          : Container(
-              child: Center(
-                child: CircularProgressIndicator(
-                  backgroundColor: Colors.orange,
+              )
+            : Container(
+                child: Center(
+                  child: CircularProgressIndicator(
+                    backgroundColor: Colors.orange,
+                  ),
                 ),
               ),
-            ),
-    );
+        viewModelBuilder: () => ProductsViewModel(
+            height: MediaQuery.of(context).size.height,
+            scrollController: scrollController));
   }
 }
