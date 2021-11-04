@@ -17,7 +17,11 @@ class RestaurantBookView extends StatelessWidget with $RestaurantBookView {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<RestaurantBookViewModel>.reactive(
-      onModelReady: (model) => listenToFormUpdated(model),
+      viewModelBuilder: () => RestaurantBookViewModel(
+        timeOfDayMinutes: TimeOfDay.now().minute.toString().padLeft(2, '0'),
+        timeofDayHours: TimeOfDay.now().hour.toString().padLeft(2, '0'),
+      ),
+      onModelReady: (model) => {listenToFormUpdated(model), model.initState()},
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.orange,
@@ -93,7 +97,6 @@ class RestaurantBookView extends StatelessWidget with $RestaurantBookView {
           ),
         ),
       ),
-      viewModelBuilder: () => RestaurantBookViewModel(),
     );
   }
 }

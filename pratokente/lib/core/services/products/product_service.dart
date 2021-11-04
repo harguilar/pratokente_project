@@ -27,6 +27,11 @@ class ProductService {
     _productCategory = productCategory;
   }
 
+  getBookReference() {
+    final bookReference = FirebaseFirestore.instance.collection('booked');
+    return bookReference.doc().id;
+  }
+
   void setMerchantData({required MerchantData merchantData}) {
     if (merchantData != null) {
       log.i('This is the Current Data Being Set $merchantData');

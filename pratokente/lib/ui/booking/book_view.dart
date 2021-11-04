@@ -168,8 +168,7 @@ class _BookViewState extends State<BookView> {
                                         final loForm = _oFormKey.currentState;
                                         model.saveBookingInfo(
                                             makeBooking: BookedData(
-                                                bookId:
-                                                    model.bookedRef.doc().id,
+                                                bookId: model.getBookReference,
                                                 restaurantName:
                                                     model.getMerchantData.name,
                                                 restaurantId:

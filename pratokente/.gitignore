@@ -19,6 +19,13 @@
 # VS Code which you may wish to be included in version control, so this line
 # is commented out by default.
 #.vscode/
+#Android Services 
+pratokente/android/app/src/dev/google-services.json
+pratokente/android/app/src/dev/AndroidManifest.xml
+pratokente/android/app/src/main/AndroidManifest.xml
+android/app/src/dev/google-services.json
+android/app/src/dev/AndroidManifest.xml
+android/app/src/main/AndroidManifest.xml
 .env
 # Flutter/Dart/Pub related
 **/doc/api/

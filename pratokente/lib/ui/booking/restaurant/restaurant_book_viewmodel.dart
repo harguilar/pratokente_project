@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:pratokente/app/app.locator.dart';
 import 'package:pratokente/app/app.logger.dart';
 import 'package:pratokente/app/app.router.dart';
@@ -8,6 +8,7 @@ import 'package:pratokente/core/services/product_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'restaurant_book_view.form.dart';
 
 class RestaurantBookViewModel extends FormViewModel {
   final log = getLogger('RestaurantBookViewModel');
@@ -20,64 +21,71 @@ class RestaurantBookViewModel extends FormViewModel {
   String _horaValidate = '';
   String _horaSaved = '';
 
+  String? timeOfDayMinutes;
+  String? timeofDayHours;
+  RestaurantBookViewModel({this.timeOfDayMinutes, this.timeofDayHours});
+
   setDataChanged({String? dataChanged}) {
-    setBusy(true);
     _dataChanged = dataChanged!;
-    setBusy(false);
     notifyListeners();
     return _dataChanged;
   }
 
   setDataValidate({String? dataValidate}) {
-    setBusy(true);
     _dataValidate = dataValidate!;
-    setBusy(false);
     notifyListeners();
     return _dataValidate;
   }
 
   setDataSaved({String? dataSaved}) {
-    setBusy(true);
     _dataSaved = dataSaved!;
-    setBusy(false);
     notifyListeners();
     return _dataSaved;
   }
 
   setHoraSaved({String? horaSaved}) {
-    setBusy(true);
     _horaSaved = horaSaved!;
-    setBusy(false);
     notifyListeners();
     return _horaSaved;
   }
 
   setHoraValidate({String? horaValidate}) {
-    setBusy(true);
     _horaValidate = horaValidate!;
-    setBusy(false);
     notifyListeners();
     return _horaValidate;
   }
 
   setHoraChanged({String? horaChanged}) {
-    setBusy(true);
     _horaChanged = horaChanged!;
-    setBusy(false);
     notifyListeners();
     return _horaChanged;
+  }
+
+  void initState() {
+    Intl.defaultLocale = 'pt_BR';
+    //_initialValue = DateTime.now().toString();
+    String lsHour = timeofDayHours!;
+    String lsMinute = timeOfDayMinutes!;
+    //dataValue = DateTime.now().toString();
+    //horaValue = '$lsHour:$lsMinute';
+    //dateValue! = DateTime.now().toString();
+    //horaValue
+
+    //_controller3 = TextEditingController(text: DateTime.now().toString());
+
+    //_controller4 = TextEditingController(text: '$lsHour:$lsMinute');
+
+    _getValue();
   }
 
   Future<void> _getValue() async {
     await Future.delayed(const Duration(seconds: 3), () {
       setBusy(true);
-      String lstHour = TimeOfDay.now().hour.toString().padLeft(2, '0');
-      String lstMinute = TimeOfDay.now().minute.toString().padLeft(2, '0');
+      String lstHour = timeofDayHours!;
+      String lstMinute = timeOfDayMinutes!;
 
-      DateTime.now().month.toString();
-
-      lstHour + ':' + lstMinute;
-
+      //  _controller3!.text = DateTime.now().month.toString();
+      //_controller4!.text = lstHour + ':' + lstMinute;
       setBusy(false);
       notifyListeners();
     });
