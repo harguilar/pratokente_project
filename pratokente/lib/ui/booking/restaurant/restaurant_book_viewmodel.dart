@@ -133,6 +133,6 @@ class RestaurantBookViewModel extends FormViewModel {
   @override
   void setFormStatus({String? dataValidate, String? horaValidate}) {
     setDataValidate(dataValidate: dataValidate);
-    print('Harguilar Tested This Out');
+    print('Harguilar Error Found');
   }
 }
