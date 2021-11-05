@@ -21,6 +21,7 @@
 #.vscode/
 #Android Services 
 pratokente/android/app/src/dev/google-services.json
+pratokente/android/app/google-services.json
 pratokente/android/app/src/dev/AndroidManifest.xml
 pratokente/android/app/src/main/AndroidManifest.xml
 android/app/src/dev/google-services.json
