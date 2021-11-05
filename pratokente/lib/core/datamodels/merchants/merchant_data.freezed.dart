@@ -21,12 +21,12 @@ class _$MerchantDataTearOff {
   const _$MerchantDataTearOff();
 
   _MerchantData call(
-      {int? rating,
-      int? numberOfRatings,
-      String? id,
-      String? image,
-      String? name,
-      List<dynamic>? categories}) {
+      {required int rating,
+      required int numberOfRatings,
+      required String id,
+      required String image,
+      required String name,
+      required List<dynamic>? categories}) {
     return _MerchantData(
       rating: rating,
       numberOfRatings: numberOfRatings,
@@ -49,11 +49,11 @@ const $MerchantData = _$MerchantDataTearOff();
 mixin _$MerchantData {
 // String? deliveryFee,
 //DateTime? times,
-  int? get rating => throw _privateConstructorUsedError;
-  int? get numberOfRatings => throw _privateConstructorUsedError;
-  String? get id => throw _privateConstructorUsedError;
-  String? get image => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
+  int get rating => throw _privateConstructorUsedError;
+  int get numberOfRatings => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get image => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   List<dynamic>? get categories => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -68,11 +68,11 @@ abstract class $MerchantDataCopyWith<$Res> {
           MerchantData value, $Res Function(MerchantData) then) =
       _$MerchantDataCopyWithImpl<$Res>;
   $Res call(
-      {int? rating,
-      int? numberOfRatings,
-      String? id,
-      String? image,
-      String? name,
+      {int rating,
+      int numberOfRatings,
+      String id,
+      String image,
+      String name,
       List<dynamic>? categories});
 }
 
@@ -97,23 +97,23 @@ class _$MerchantDataCopyWithImpl<$Res> implements $MerchantDataCopyWith<$Res> {
       rating: rating == freezed
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       numberOfRatings: numberOfRatings == freezed
           ? _value.numberOfRatings
           : numberOfRatings // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       categories: categories == freezed
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
@@ -130,11 +130,11 @@ abstract class _$MerchantDataCopyWith<$Res>
       __$MerchantDataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int? rating,
-      int? numberOfRatings,
-      String? id,
-      String? image,
-      String? name,
+      {int rating,
+      int numberOfRatings,
+      String id,
+      String image,
+      String name,
       List<dynamic>? categories});
 }
 
@@ -161,23 +161,23 @@ class __$MerchantDataCopyWithImpl<$Res> extends _$MerchantDataCopyWithImpl<$Res>
       rating: rating == freezed
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       numberOfRatings: numberOfRatings == freezed
           ? _value.numberOfRatings
           : numberOfRatings // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       categories: categories == freezed
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
@@ -190,27 +190,27 @@ class __$MerchantDataCopyWithImpl<$Res> extends _$MerchantDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_MerchantData implements _MerchantData {
   _$_MerchantData(
-      {this.rating,
-      this.numberOfRatings,
-      this.id,
-      this.image,
-      this.name,
-      this.categories});
+      {required this.rating,
+      required this.numberOfRatings,
+      required this.id,
+      required this.image,
+      required this.name,
+      required this.categories});
 
   factory _$_MerchantData.fromJson(Map<String, dynamic> json) =>
       _$_$_MerchantDataFromJson(json);
 
   @override // String? deliveryFee,
 //DateTime? times,
-  final int? rating;
+  final int rating;
   @override
-  final int? numberOfRatings;
+  final int numberOfRatings;
   @override
-  final String? id;
+  final String id;
   @override
-  final String? image;
+  final String image;
   @override
-  final String? name;
+  final String name;
   @override
   final List<dynamic>? categories;
 
@@ -262,27 +262,27 @@ class _$_MerchantData implements _MerchantData {
 
 abstract class _MerchantData implements MerchantData {
   factory _MerchantData(
-      {int? rating,
-      int? numberOfRatings,
-      String? id,
-      String? image,
-      String? name,
-      List<dynamic>? categories}) = _$_MerchantData;
+      {required int rating,
+      required int numberOfRatings,
+      required String id,
+      required String image,
+      required String name,
+      required List<dynamic>? categories}) = _$_MerchantData;
 
   factory _MerchantData.fromJson(Map<String, dynamic> json) =
       _$_MerchantData.fromJson;
 
   @override // String? deliveryFee,
 //DateTime? times,
-  int? get rating => throw _privateConstructorUsedError;
+  int get rating => throw _privateConstructorUsedError;
   @override
-  int? get numberOfRatings => throw _privateConstructorUsedError;
+  int get numberOfRatings => throw _privateConstructorUsedError;
   @override
-  String? get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   @override
-  String? get image => throw _privateConstructorUsedError;
+  String get image => throw _privateConstructorUsedError;
   @override
-  String? get name => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   @override
   List<dynamic>? get categories => throw _privateConstructorUsedError;
   @override

@@ -43,7 +43,7 @@ class CustomSearchDelegateMerchant extends SearchDelegate<MerchantData?> {
     final merchantList = query.isNotEmpty
         ? _merchantList
         : _merchantList
-            .where((element) => Global.removeDiacritics(element.name!)
+            .where((element) => Global.removeDiacritics(element.name)
                 .toLowerCase()
                 .startsWith(Global.removeDiacritics(query).toLowerCase()))
             .toList();
@@ -86,7 +86,7 @@ class CustomSearchDelegateMerchant extends SearchDelegate<MerchantData?> {
                               ),
                               image: DecorationImage(
                                   image: NetworkImage(
-                                      merchantList.elementAt(index).image!),
+                                      merchantList.elementAt(index).image),
                                   fit: BoxFit.cover),
                             ),
                           ),
@@ -212,10 +212,10 @@ class CustomSearchDelegateMerchant extends SearchDelegate<MerchantData?> {
   Widget buildSuggestions(BuildContext context) {
     // TODO: implement buildSuggestions
     final merchantList = _merchantList.where((element) {
-      return Global.removeDiacritics(element.name!)
+      return Global.removeDiacritics(element.name)
               .toLowerCase()
               .contains(Global.removeDiacritics(query).toLowerCase()) ||
-          Global.removeDiacritics(element.name!)
+          Global.removeDiacritics(element.name)
               .toLowerCase()
               .contains(Global.removeDiacritics(query).toLowerCase());
     });
@@ -258,7 +258,7 @@ class CustomSearchDelegateMerchant extends SearchDelegate<MerchantData?> {
                               ),
                               image: DecorationImage(
                                   image: NetworkImage(
-                                      merchantList.elementAt(index).image!),
+                                      merchantList.elementAt(index).image),
                                   fit: BoxFit.cover),
                             ),
                           ),
@@ -384,7 +384,7 @@ class CustomSearchDelegateMerchant extends SearchDelegate<MerchantData?> {
                     print("Harguilar Nhanga " +
                         merchantList
                             .elementAt(index)
-                            .name!
+                            .name
                             .toLowerCase()
                             .toString());
                   },

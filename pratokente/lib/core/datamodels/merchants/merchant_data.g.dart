@@ -8,11 +8,11 @@ part of 'merchant_data.dart';
 
 _$_MerchantData _$_$_MerchantDataFromJson(Map<String, dynamic> json) {
   return _$_MerchantData(
-    rating: json['rating'] as int?,
-    numberOfRatings: json['numberOfRatings'] as int?,
-    id: json['id'] as String?,
-    image: json['image'] as String?,
-    name: json['name'] as String?,
+    rating: json['rating'] as int,
+    numberOfRatings: json['numberOfRatings'] as int,
+    id: json['id'] as String,
+    image: json['image'] as String,
+    name: json['name'] as String,
     categories: json['categories'] as List<dynamic>?,
   );
 }

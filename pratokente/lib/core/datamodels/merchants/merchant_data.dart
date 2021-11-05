@@ -7,12 +7,12 @@ class MerchantData with _$MerchantData {
   factory MerchantData({
     // String? deliveryFee,
     //DateTime? times,
-    int? rating,
-    int? numberOfRatings,
-    String? id,
-    String? image,
-    String? name,
-    List<dynamic>? categories,
+    required int rating,
+    required int numberOfRatings,
+    required String id,
+    required String image,
+    required String name,
+    required List<dynamic>? categories,
   }) = _MerchantData;
 
   factory MerchantData.fromJson(Map<String, dynamic> json) =>

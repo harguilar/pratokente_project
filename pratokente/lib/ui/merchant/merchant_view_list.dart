@@ -91,15 +91,14 @@ class MerchantViewList extends StatelessWidget {
                                               Radius.circular(10.0)),
                                           image: DecorationImage(
                                               image: NetworkImage((model
-                                                  .getMerchants![index]
-                                                  .image)!),
+                                                  .getMerchants![index].image)),
                                               fit: BoxFit.cover),
                                         ),
                                       ),
                                       verticalSpaceSmall,
                                       Container(
                                         child: PratokenteText.headingThree(
-                                            model.getMerchants![index].name!),
+                                            model.getMerchants![index].name),
                                       ),
                                       verticalSpaceSmall,
                                       Row(

@@ -4,11 +4,10 @@ import 'package:pratokente/app/app.logger.dart';
 import 'package:pratokente/app/app.router.dart';
 import 'package:pratokente/core/datamodels/booked/booked_data.dart';
 import 'package:pratokente/core/datamodels/merchants/merchant_data.dart';
-import 'package:pratokente/core/services/product_service.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'restaurant_book_view.form.dart';
+import 'package:pratokente/core/services/products/product_service.dart';
 
 class RestaurantBookViewModel extends FormViewModel {
   final log = getLogger('RestaurantBookViewModel');
@@ -98,7 +97,7 @@ class RestaurantBookViewModel extends FormViewModel {
 
   int _count = 1;
 
-  final bookedRef = FirebaseFirestore.instance.collection('booked');
+  //final bookedRef = FirebaseFirestore.instance.collection('booked');
 
   int get quantity => _count;
 
@@ -134,6 +133,6 @@ class RestaurantBookViewModel extends FormViewModel {
   @override
   void setFormStatus({String? dataValidate, String? horaValidate}) {
     setDataValidate(dataValidate: dataValidate);
-    // TODO: implement setFormStatus
+    print('Harguilar Tested This Out');
   }
 }

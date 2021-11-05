@@ -27,7 +27,7 @@ class _ProductViewState extends State<ProductView> {
                 appBar: AppBar(
                   backgroundColor: kcOrangeColor,
                   title:
-                      PratokenteText.headingThree(model.getMerchantData!.name!),
+                      PratokenteText.headingThree(model.getMerchantData!.name),
                   centerTitle: true,
                   actions: [
                     IconButton(
