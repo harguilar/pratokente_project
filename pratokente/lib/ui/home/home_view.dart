@@ -1,7 +1,6 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:pratokente/ui/merchant/merchant_view.dart';
 import 'package:pratokente/ui/merchant/merchant_view_list.dart';
 import 'package:pratokente/ui/profile/profile_view.dart';
 import 'package:stacked/stacked.dart';

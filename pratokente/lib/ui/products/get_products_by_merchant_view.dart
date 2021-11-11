@@ -19,9 +19,6 @@ class GetProuctByMerchantView extends StatelessWidget {
     return ViewModelBuilder<GetProductByMerchantViewModel>.reactive(
         disposeViewModel: false,
         initialiseSpecialViewModelsOnce: true,
-        //Indicates if the onModelReady should fire every time the model is inserted into the widget tree
-        //fireOnModelReadyOnce: true,
-
         onModelReady: (model) => model.fetchProduct(),
         builder: (context, model, child) => model.getProductsData != null
             ? Scaffold(
