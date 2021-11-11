@@ -1,5 +1,6 @@
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:pratokente/core/datamodels/booked/booked_data.dart';
 import 'package:pratokente_ui/pratokente_ui.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
@@ -21,7 +22,9 @@ class RestaurantBookView extends StatelessWidget with $RestaurantBookView {
         timeOfDayMinutes: TimeOfDay.now().minute.toString().padLeft(2, '0'),
         timeofDayHours: TimeOfDay.now().hour.toString().padLeft(2, '0'),
       ),
-      onModelReady: (model) => {listenToFormUpdated(model), model.initState()},
+      onModelReady: (model) => {
+        listenToFormUpdated(model),
+      },
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.orange,
@@ -66,15 +69,16 @@ class RestaurantBookView extends StatelessWidget with $RestaurantBookView {
                             model.setDataChanged(dataChanged: val),
                         validator: (val) {
                           dataController.text = val!;
-                          model.setFormStatus(dataValidate: val);
+                          model.setFormStatus(validateDateTime: val);
                         },
                         onSaved: (val) =>
                             model.setDataSaved(dataSaved: val ?? ''),
                       ),
+                      verticalSpaceSmall,
                       DateTimePicker(
                         type: DateTimePickerType.time,
                         // dateMask: 'dd/MM/yyyy',
-                        controller: dataController,
+                        controller: horaController,
                         firstDate: DateTime(2000),
                         lastDate: DateTime(2100),
                         icon: Icon(Icons.access_time, color: Colors.orange),
@@ -83,11 +87,65 @@ class RestaurantBookView extends StatelessWidget with $RestaurantBookView {
                         onChanged: (val) =>
                             model.setHoraChanged(horaChanged: val),
                         validator: (val) {
-                          dataController.text = val!;
-                          model.setFormStatus(horaValidate: val);
+                          horaController.text = val!;
+                          model.setFormStatus(validateDateTime: val);
                         },
                         onSaved: (val) =>
                             model.setHoraSaved(horaSaved: val ?? ''),
+                      ),
+                      verticalSpaceMedium,
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Icon(
+                            Icons.person,
+                            color: Colors.orange,
+                          ),
+                          IconButton(
+                              icon: Icon(Icons.remove),
+                              color: Theme.of(context).primaryColor,
+                              onPressed: () {
+                                model.decrement();
+                              }),
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0.0, 14.0, 20.0, 0.0),
+                            child: PratokenteText.body(
+                              model.quantity.toString(),
+                            ),
+                          ),
+                          IconButton(
+                              icon: Icon(Icons.add),
+                              color: Theme.of(context).primaryColor,
+                              onPressed: () {
+                                model.increment();
+                              }),
+                        ],
+                      ),
+                      verticalSpaceMediumLarge,
+                      PratokenteButton(
+                        onTap: model.isBusy
+                            ? null
+                            : () {
+                                model.saveBookingInfo(
+                                  makeBooking: BookedData(
+                                      bookId: model.getBookReference,
+                                      restaurantName:
+                                          model.getMerchantData.name,
+                                      restaurantId: model.getMerchantData.id,
+                                      date: dataController.text.toString(),
+                                      time: horaController.text.toString(),
+                                      bookStatus: 1,
+                                      numPerson: model.quantity),
+                                );
+                                print('Harguilar Nhanga: ' +
+                                    'Data Harguilar : ' +
+                                    dataController.text.toString());
+                                print('Hora HARGUILAR:' +
+                                    horaController.text.toString());
+                              },
+                        // color: Colors.orange,
+                        title: 'Booked',
                       ),
                     ],
                   ),

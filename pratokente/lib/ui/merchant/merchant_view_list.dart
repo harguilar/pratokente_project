@@ -48,10 +48,7 @@ class MerchantViewList extends StatelessWidget {
                       itemBuilder: (ctx, index) {
                         return CreationAwareListItem(
                           itemCreated: () {
-                            if (index % 10 == 0 &&
-                                scrollCrontoller.offset >
-                                    scrollCrontoller.position.maxScrollExtent /
-                                        2) {
+                            if (index % 10 == 0) {
                               if (model.getHasMoreMerchants) {
                                 print("we are Inside Here Harguilar $index:" +
                                     model.getHasMoreMerchants.toString());

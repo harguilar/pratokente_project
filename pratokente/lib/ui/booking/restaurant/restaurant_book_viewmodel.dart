@@ -1,4 +1,3 @@
-import 'package:intl/intl.dart';
 import 'package:pratokente/app/app.locator.dart';
 import 'package:pratokente/app/app.logger.dart';
 import 'package:pratokente/app/app.router.dart';
@@ -6,11 +5,15 @@ import 'package:pratokente/core/datamodels/booked/booked_data.dart';
 import 'package:pratokente/core/datamodels/merchants/merchant_data.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
-import 'restaurant_book_view.form.dart';
 import 'package:pratokente/core/services/products/product_service.dart';
 
 class RestaurantBookViewModel extends FormViewModel {
   final log = getLogger('RestaurantBookViewModel');
+
+  final _snackbarService = locator<SnackbarService>();
+
+  final ProductService _productService = locator<ProductService>();
+  final _navigationService = locator<NavigationService>();
 
   String _dataChanged = '';
   String _dataValidate = '';
@@ -22,7 +25,14 @@ class RestaurantBookViewModel extends FormViewModel {
 
   String? timeOfDayMinutes;
   String? timeofDayHours;
-  RestaurantBookViewModel({this.timeOfDayMinutes, this.timeofDayHours});
+  var hours;
+  var lastMinutes;
+
+  RestaurantBookViewModel(
+      {this.timeOfDayMinutes,
+      this.timeofDayHours,
+      this.lastMinutes,
+      this.hours});
 
   setDataChanged({String? dataChanged}) {
     _dataChanged = dataChanged!;
@@ -30,8 +40,8 @@ class RestaurantBookViewModel extends FormViewModel {
     return _dataChanged;
   }
 
-  setDataValidate({String? dataValidate}) {
-    _dataValidate = dataValidate!;
+  setDataValidate({required String dataValidate}) {
+    _dataValidate = dataValidate;
     notifyListeners();
     return _dataValidate;
   }
@@ -60,46 +70,14 @@ class RestaurantBookViewModel extends FormViewModel {
     return _horaChanged;
   }
 
-  void initState() {
-    Intl.defaultLocale = 'pt_BR';
-    //_initialValue = DateTime.now().toString();
-    String lsHour = timeofDayHours!;
-    String lsMinute = timeOfDayMinutes!;
-    //dataValue = DateTime.now().toString();
-    //horaValue = '$lsHour:$lsMinute';
-    //dateValue! = DateTime.now().toString();
-    //horaValue
-
-    //_controller3 = TextEditingController(text: DateTime.now().toString());
-
-    //_controller4 = TextEditingController(text: '$lsHour:$lsMinute');
-
-    _getValue();
-  }
-
-  Future<void> _getValue() async {
-    await Future.delayed(const Duration(seconds: 3), () {
-      setBusy(true);
-      String lstHour = timeofDayHours!;
-      String lstMinute = timeOfDayMinutes!;
-
-      //  _controller3!.text = DateTime.now().month.toString();
-      //_controller4!.text = lstHour + ':' + lstMinute;
-      setBusy(false);
-      notifyListeners();
-    });
-  }
-
-  final _snackbarService = locator<SnackbarService>();
-
-  final ProductService _productService = locator<ProductService>();
-  final _navigationService = locator<NavigationService>();
+  get getBookReference => _productService.getBookReference();
 
   int _count = 1;
 
   //final bookedRef = FirebaseFirestore.instance.collection('booked');
 
   int get quantity => _count;
+  MerchantData get getMerchantData => _productService.getMerchantData!;
 
   // MerchantData? get getMerchantData => _productService.getMerchantData;
 
@@ -121,18 +99,33 @@ class RestaurantBookViewModel extends FormViewModel {
     return _count;
   }
 
-  void saveBookingInfo({BookedData? makeBooking}) {
+  Future<void> saveBookingInfo({BookedData? makeBooking}) async {
     _productService.addBookingInfo(makeBooking!);
-    _snackbarService.showSnackbar(
-        message: 'Agendamento Socitado com Sucesso !!!');
-    _navigationService.replaceWith(Routes.merchantViewList);
+    snackBarAgendamento(
+        data: makeBooking.date.toString(), hora: makeBooking.time.toString());
+    await navigate();
   }
 
-  MerchantData get getMerchantData => _productService.getMerchantData!;
+  void snackBarAgendamento({required String hora, required String data}) {
+    _snackbarService.showSnackbar(
+      message: ' Hora: ' + hora + ' Data: ' + data.toString(),
+      title: 'Solicitação de Reserva Efectuada ',
+      duration: Duration(seconds: 10),
+      onTap: (_) {
+        print('snackbar tapped');
+      },
+    );
+  }
+
+  Future<void> navigate() async {
+    await Future.delayed(const Duration(seconds: 11), () {
+      //_navigationService.replaceWith(Routes.merchantViewList);
+      _navigationService.clearStackAndShow(Routes.merchantViewList);
+    });
+  }
 
   @override
-  void setFormStatus({String? dataValidate, String? horaValidate}) {
-    setDataValidate(dataValidate: dataValidate);
-    print('Harguilar Error Found');
+  void setFormStatus({String? validateDateTime}) {
+    setDataValidate(dataValidate: validateDateTime!);
   }
 }

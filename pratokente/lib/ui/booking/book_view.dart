@@ -32,13 +32,13 @@ class _BookViewState extends State<BookView> {
     super.initState();
     Intl.defaultLocale = 'pt_BR';
     //_initialValue = DateTime.now().toString();
-    String lsHour = TimeOfDay.now().hour.toString().padLeft(2, '0');
+    //String lsHour = TimeOfDay.now().hour.toString().padLeft(2, '0');
 
-    String lsMinute = TimeOfDay.now().minute.toString().padLeft(2, '0');
+    //String lsMinute = TimeOfDay.now().minute.toString().padLeft(2, '0');
 
-    _controller3 = TextEditingController(text: DateTime.now().toString());
+    //_controller3 = TextEditingController(text: DateTime.now().toString());
 
-    _controller4 = TextEditingController(text: '$lsHour:$lsMinute');
+    //_controller4 = TextEditingController(text: '$lsHour:$lsMinute');
 
     _getValue();
   }
@@ -188,7 +188,7 @@ class _BookViewState extends State<BookView> {
                                         }
                                       },
                                 // color: Colors.orange,
-                                title: 'Submit',
+                                title: 'Booked',
                               ),
                             ],
                           ),
