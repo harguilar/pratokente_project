@@ -47,11 +47,10 @@ class CartService {
 
   OrderData? get getUserOrders => _orderData;
 
-  Future updateCart(
-      {required CartProduct cartProduct, required String userId}) async {
+  Future updateCart({required CartProduct cartProduct}) async {
     try {
       await userRef
-          .doc(userId)
+          .doc(cartProduct.userId)
           .collection('cart')
           .doc(cartProduct.cartId)
           .update(cartProduct.toJson());

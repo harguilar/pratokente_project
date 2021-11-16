@@ -12,9 +12,8 @@ class GetProductByMerchantViewModel extends BaseViewModel {
   final ProductService _productService = locator<ProductService>();
   final _currentUser = locator<UserService>();
   final CartService _cartService = locator<CartService>();
-  List<CartProduct>? products = [];
+  List<CartProduct>? cartProducts = [];
   List<CartProduct> productsTmp = [];
-
   List<ProductData>? _productsData = [];
   CartProduct? tempCart;
   int? quantity;
@@ -37,7 +36,7 @@ class GetProductByMerchantViewModel extends BaseViewModel {
   initializeCartProducts() {
     setBusy(true);
     //products = Global.products!;
-    products = _cartService.getProductList;
+    cartProducts = _cartService.getProductList;
     //print('Testing the Line \n');
     setBusy(false);
     notifyListeners();
@@ -52,50 +51,66 @@ class GetProductByMerchantViewModel extends BaseViewModel {
   }
 
   void addCartItens({required CartProduct cartProduct}) {
-    setBusy(true);
+    if ((cartProducts != null) && (cartProducts!.length > 0)) {
+      for (int count = 0; count < cartProducts!.length; count++) {
+        //You Itens in the Cart With Same Id-> Increase Quantity
+        if (cartProducts!.contains(cartProduct.products.id)) {
+          checkItemInCart = true;
+          //Increment Quantity
+          quantity = cartProducts![count].quantity + 1;
+          //Calculate SubTotal
+          subtotal = calculateSubTotal(
+              price: cartProduct.products.price!, quantity: quantity!);
 
-    //final cartInDatabase = _productInCart(cartProduct.id);
-    if ((products != null) && (products!.length > 0)) {
-      //IF PRODUCT ALREADY IN CART INCREMENT QUANTITY
-      for (int count = 0; count < products!.length; count++) {
-        if (products!.contains(cartProduct.products.id)) {}
-        if (cartProduct.products.id == products![count].products.id) {
-          //increment 1 in quantity
-          //if (products![count].quantity != null) {
-
-          // products![count].quantity = products![count].quantity! + 1;
-          quantity = products![count].quantity + 1;
-
-          //}
-          subtotal = products![count].quantity * cartProduct.products.price!;
-          /*    
-              products![count].subtotal =
-              products![count].quantity! * cartProduct.products!.price!; 
-          */
-
-          CartProduct tempCartProducts = CartProduct(
-              userId: products![count].userId,
+          tempCart = CartProduct(
+              userId: cartProducts![count].userId,
               quantity: quantity!,
               subtotal: subtotal!,
-              cartId: products![count].cartId,
-              products: products![count].products,
-              status: products![count].status,
-              date: products![count].date,
+              cartId: cartProducts![count].cartId,
+              products: cartProducts![count].products,
+              status: cartProducts![count].status,
+              date: cartProducts![count].date,
               totalPrice: 0.0);
 
-          //products.add(cartProduct);
-          checkItemInCart = true;
-          //tempCart = products![count];
-          tempCart = tempCartProducts;
           break;
         }
+        /*    if (cartProduct.products.id == cartProducts![count].products.id) {
+
+        } */
       }
       if (!checkItemInCart) {
-/*                 cartProduct.subtotal =
-            cartProduct.products!.price! * cartProduct.quantity!; */
-        subtotal = cartProduct.products.price! * cartProduct.quantity;
+        //You have Itens in The Carts with Different Ids-. Add New Item
+        subtotal = calculateSubTotal(
+            price: cartProduct.products.price!, quantity: quantity!);
 
-        CartProduct tempCartProducts = CartProduct(
+        syncAddedCartProducts(
+          cartProduct: CartProduct(
+              userId: cartProduct.userId,
+              quantity: cartProduct.quantity,
+              subtotal: subtotal!,
+              cartId: cartProduct.cartId,
+              products: cartProduct.products,
+              status: cartProduct.status,
+              date: cartProduct.date,
+              totalPrice: 0.0),
+        );
+
+        _cartService.addCartItem(
+            cartProduct: cartProduct, userId: _currentUser.getCurrentUser.id);
+      } else {
+        // Update Cart
+        _cartService.updateCart(
+          cartProduct: tempCart!,
+        );
+        checkItemInCart = false;
+      }
+    } else {
+      subtotal = calculateSubTotal(
+          price: cartProduct.products.price!, quantity: cartProduct.quantity);
+
+      // You do not have Itens in the Carts Add one.
+      syncAddedCartProducts(
+        cartProduct: CartProduct(
             userId: cartProduct.userId,
             quantity: cartProduct.quantity,
             subtotal: subtotal!,
@@ -103,66 +118,43 @@ class GetProductByMerchantViewModel extends BaseViewModel {
             products: cartProduct.products,
             status: cartProduct.status,
             date: cartProduct.date,
-            totalPrice: 0.0);
+            totalPrice: 0.0),
+      );
 
-        products!.add(tempCartProducts);
+      //cartProducts = productsTmp;
 
-        _cartService.addCartItem(
-            cartProduct: cartProduct, userId: _currentUser.getCurrentUser.id);
-      } else {
-        // Trabalhar no UPdate
-        _cartService.updateCart(
-          cartProduct: tempCart!,
-          userId: _currentUser.getCurrentUser.id,
-        );
-        checkItemInCart = false;
-      }
-    } else {
-      //Add the Product to Cart List
-      subtotal = cartProduct.products.price! * cartProduct.quantity;
-
-      CartProduct tempCartProducts = CartProduct(
-          userId: cartProduct.userId,
-          quantity: cartProduct.quantity,
-          subtotal: subtotal!,
-          cartId: cartProduct.cartId,
-          products: cartProduct.products,
-          status: cartProduct.status,
-          date: cartProduct.date,
-          totalPrice: 0.0);
-
-      productsTmp.add(tempCartProducts);
-      // products.add(cartProduct);
-
-      products = productsTmp;
-      print('The Product Lenght is : ' + products!.length.toString());
-      print("Look The code Above. ");
       _cartService.addCartItem(
-          cartProduct: cartProduct, userId: _currentUser.getCurrentUser.id);
+          cartProduct: cartProduct, userId: cartProduct.userId);
     }
-    setBusy(false);
     //now notify listernsš
     notifyListeners();
     //_navigationService.navigateTo(CartRoute);
   }
 
+  void syncAddedCartProducts({required CartProduct cartProduct}) {
+    cartProducts!.add(cartProduct);
+  }
+
   void navToCart() {
     //_navigationService.navigateTo(Routes.cartView);
+  }
+  double? calculateSubTotal({required double price, required int quantity}) {
+    return price * quantity;
   }
 
   int getProductLength() {
     setBusy(true);
     try {
-      if (products == null) {
+      if (cartProducts == null) {
         return 0;
-      } else if (products!.length == 0) {
+      } else if (cartProducts!.length == 0) {
         return 0;
-      } else if (products!.length > 0) {
-        return products!.length;
+      } else if (cartProducts!.length > 0) {
+        return cartProducts!.length;
       }
     } catch (e) {
       print(e.toString());
-      return products!.length;
+      return cartProducts!.length;
     }
     setBusy(false);
     notifyListeners();
