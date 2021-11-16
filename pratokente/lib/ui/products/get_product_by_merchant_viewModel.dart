@@ -83,7 +83,7 @@ class GetProductByMerchantViewModel extends BaseViewModel {
         subtotal = calculateSubTotal(
             price: cartProduct.products.price!, quantity: quantity!);
 
-        syncAddedCartProducts(
+        addProductsToCartProducts(
           cartProduct: CartProduct(
               userId: cartProduct.userId,
               quantity: cartProduct.quantity,
@@ -109,7 +109,7 @@ class GetProductByMerchantViewModel extends BaseViewModel {
           price: cartProduct.products.price!, quantity: cartProduct.quantity);
 
       // You do not have Itens in the Carts Add one.
-      syncAddedCartProducts(
+      addProductsToCartProducts(
         cartProduct: CartProduct(
             userId: cartProduct.userId,
             quantity: cartProduct.quantity,
@@ -131,7 +131,7 @@ class GetProductByMerchantViewModel extends BaseViewModel {
     //_navigationService.navigateTo(CartRoute);
   }
 
-  void syncAddedCartProducts({required CartProduct cartProduct}) {
+  void addProductsToCartProducts({required CartProduct cartProduct}) {
     cartProducts!.add(cartProduct);
   }
 
