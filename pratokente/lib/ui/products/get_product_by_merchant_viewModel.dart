@@ -58,29 +58,29 @@ class GetProductByMerchantViewModel extends BaseViewModel {
     if ((products != null) && (products!.length > 0)) {
       //IF PRODUCT ALREADY IN CART INCREMENT QUANTITY
       for (int count = 0; count < products!.length; count++) {
-        if (products!.contains(cartProduct.products!.id)) {}
-        if (cartProduct.products!.id == products![count].products!.id) {
+        if (products!.contains(cartProduct.products.id)) {}
+        if (cartProduct.products.id == products![count].products.id) {
           //increment 1 in quantity
           //if (products![count].quantity != null) {
 
           // products![count].quantity = products![count].quantity! + 1;
-          quantity = products![count].quantity! + 1;
+          quantity = products![count].quantity + 1;
 
           //}
-          subtotal = products![count].quantity! * cartProduct.products!.price!;
+          subtotal = products![count].quantity * cartProduct.products!.price!;
           /*    
               products![count].subtotal =
               products![count].quantity! * cartProduct.products!.price!; 
           */
 
           CartProduct tempCartProducts = CartProduct(
-              userId: products![count].userId!,
+              userId: products![count].userId,
               quantity: quantity!,
               subtotal: subtotal!,
-              cartId: products![count].cartId!,
-              products: products![count].products!,
-              status: products![count].status!,
-              date: products![count].date!,
+              cartId: products![count].cartId,
+              products: products![count].products,
+              status: products![count].status,
+              date: products![count].date,
               totalPrice: 0.0);
 
           //products.add(cartProduct);
@@ -93,16 +93,16 @@ class GetProductByMerchantViewModel extends BaseViewModel {
       if (!checkItemInCart) {
 /*                 cartProduct.subtotal =
             cartProduct.products!.price! * cartProduct.quantity!; */
-        subtotal = cartProduct.products!.price! * cartProduct.quantity!;
+        subtotal = cartProduct.products.price! * cartProduct.quantity;
 
         CartProduct tempCartProducts = CartProduct(
-            userId: cartProduct.userId!,
-            quantity: cartProduct.quantity!,
+            userId: cartProduct.userId,
+            quantity: cartProduct.quantity,
             subtotal: subtotal!,
-            cartId: cartProduct.cartId!,
-            products: cartProduct.products!,
-            status: cartProduct.status!,
-            date: cartProduct.date!,
+            cartId: cartProduct.cartId,
+            products: cartProduct.products,
+            status: cartProduct.status,
+            date: cartProduct.date,
             totalPrice: 0.0);
 
         products!.add(tempCartProducts);
@@ -119,16 +119,16 @@ class GetProductByMerchantViewModel extends BaseViewModel {
       }
     } else {
       //Add the Product to Cart List
-      subtotal = cartProduct.products!.price! * cartProduct.quantity!;
+      subtotal = cartProduct.products.price! * cartProduct.quantity;
 
       CartProduct tempCartProducts = CartProduct(
-          userId: cartProduct.userId!,
-          quantity: cartProduct.quantity!,
+          userId: cartProduct.userId,
+          quantity: cartProduct.quantity,
           subtotal: subtotal!,
-          cartId: cartProduct.cartId!,
-          products: cartProduct.products!,
-          status: cartProduct.status!,
-          date: cartProduct.date!,
+          cartId: cartProduct.cartId,
+          products: cartProduct.products,
+          status: cartProduct.status,
+          date: cartProduct.date,
           totalPrice: 0.0);
 
       productsTmp.add(tempCartProducts);
