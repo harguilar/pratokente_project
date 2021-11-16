@@ -8,14 +8,14 @@ part 'cart_product.g.dart';
 @freezed
 class CartProduct with _$CartProduct {
   factory CartProduct({
-    double? totalPrice,
-    String? userId,
-    int? quantity,
-    double? subtotal,
-    String? cartId,
-    ProductData? products,
-    String? status,
-    DateTime? date,
+    required double totalPrice,
+    required String userId,
+    required int quantity,
+    required double subtotal,
+    required String cartId,
+    required ProductData products,
+    required String status,
+    required DateTime date,
   }) = _CartProduct;
 
   factory CartProduct.fromJson(Map<String, dynamic> json) =>

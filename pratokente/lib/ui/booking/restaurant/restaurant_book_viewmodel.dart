@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:pratokente/app/app.locator.dart';
 import 'package:pratokente/app/app.logger.dart';
 import 'package:pratokente/app/app.router.dart';
@@ -101,6 +102,7 @@ class RestaurantBookViewModel extends FormViewModel {
 
   Future<void> saveBookingInfo({BookedData? makeBooking}) async {
     _productService.addBookingInfo(makeBooking!);
+    log.i('This is the Value of ${makeBooking.date} and ${makeBooking.time}');
     snackBarAgendamento(
         data: makeBooking.date.toString(), hora: makeBooking.time.toString());
     await navigate();
@@ -111,9 +113,6 @@ class RestaurantBookViewModel extends FormViewModel {
       message: ' Hora: ' + hora + ' Data: ' + data.toString(),
       title: 'Solicitação de Reserva Efectuada ',
       duration: Duration(seconds: 10),
-      onTap: (_) {
-        print('snackbar tapped');
-      },
     );
   }
 

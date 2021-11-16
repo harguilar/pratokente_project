@@ -74,7 +74,7 @@ class BookViewModel extends FormViewModel {
     });
   }
 
-  void saveBookingInfo({BookedData? makeBooking}) {
+  void saveBookingInfo({BookedData? makeBooking}) async {
     _productService.addBookingInfo(makeBooking!);
     _snackbarService.showSnackbar(
         message: 'Agendamento Socitado com Sucesso !!!');

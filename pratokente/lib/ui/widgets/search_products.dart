@@ -14,8 +14,6 @@ class SearchProducts extends SearchDelegate<ProductData?> {
   @override
   String get searchFieldLabel => 'Pesquisar por Nome';
 
-  // CustomSearchDelegateMerchant(this.products);
-
   @override
   List<Widget> buildActions(BuildContext context) {
     return [
@@ -173,10 +171,11 @@ class SearchProducts extends SearchDelegate<ProductData?> {
                                       products: productList.elementAt(index),
                                       quantity: 1,
                                       status: '1',
-                                      userId: Global.userId,
+                                      userId: model.getUserId!,
                                       subtotal:
                                           productList.elementAt(index).price!,
-                                      date: DateTime.now());
+                                      date: DateTime.now(),
+                                      cartId: '');
 
                                   model.addCartItens(cartProduct: cartProduct);
                                 },
@@ -333,14 +332,16 @@ class SearchProducts extends SearchDelegate<ProductData?> {
                                 onTap: () {
                                   model.initializeCartProducts();
                                   CartProduct cartProduct = CartProduct(
-                                      totalPrice: 0.0,
-                                      products: productList.elementAt(index),
-                                      quantity: 1,
-                                      status: '1',
-                                      userId: Global.userId,
-                                      subtotal:
-                                          productList.elementAt(index).price!,
-                                      date: DateTime.now());
+                                    totalPrice: 0.0,
+                                    products: productList.elementAt(index),
+                                    quantity: 1,
+                                    status: '1',
+                                    userId: model.getUserId!,
+                                    subtotal:
+                                        productList.elementAt(index).price!,
+                                    date: DateTime.now(),
+                                    cartId: '',
+                                  );
                                   model.addCartItens(cartProduct: cartProduct);
                                 },
                                 child: Icon(

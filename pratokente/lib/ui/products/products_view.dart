@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:pratokente/ui/widgets/notification_counter.dart';
 import 'package:pratokente_ui/pratokente_ui.dart';
@@ -85,8 +86,9 @@ class _ProductViewState extends State<ProductView> {
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(10.0)),
                                           image: DecorationImage(
-                                              image: NetworkImage((model
-                                                  .getProducts![index].image)!),
+                                              image: CachedNetworkImageProvider(
+                                                  model.getProducts![index]
+                                                      .toString()),
                                               fit: BoxFit.cover),
                                         ),
                                       ),
@@ -115,12 +117,6 @@ class _ProductViewState extends State<ProductView> {
                                             model.getProducts![index]
                                                 .description!,
                                           ),
-
-                                          /*                                         Expanded(
-                                            child: PratokenteText.body(model
-                                                .getProductsData![index]
-                                                .category!),
-                                          ), */
                                         ],
                                       ),
                                       verticalSpaceSmall,

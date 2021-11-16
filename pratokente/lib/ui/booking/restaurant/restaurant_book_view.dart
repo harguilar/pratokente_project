@@ -14,6 +14,8 @@ import 'restaurant_book_viewmodel.dart';
 ])
 class RestaurantBookView extends StatelessWidget with $RestaurantBookView {
   RestaurantBookView({Key? key}) : super(key: key);
+  final initialDate = DateTime.now();
+  final initialTime = TimeOfDay.now();
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +51,10 @@ class RestaurantBookView extends StatelessWidget with $RestaurantBookView {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 PratokenteText.body(
-                  'Solicita Agendamento',
+                  'Solicitar Reserva no Restaurante',
+                ),
+                PratokenteText.body(
+                  '${model.getMerchantData.name.toString()}',
                 ),
                 verticalSpaceRegular,
                 SingleChildScrollView(
@@ -58,12 +63,14 @@ class RestaurantBookView extends StatelessWidget with $RestaurantBookView {
                     children: <Widget>[
                       DateTimePicker(
                         type: DateTimePickerType.date,
+                        calendarTitle: 'Mês',
+                        initialDate: initialDate,
                         dateMask: 'dd/MM/yyyy',
                         controller: dataController,
-                        firstDate: DateTime(2000),
-                        lastDate: DateTime(2100),
+                        firstDate: initialDate,
+                        lastDate: DateTime(2022),
                         icon: Icon(Icons.event, color: Colors.orange),
-                        dateLabelText: 'Selectionar a Data',
+                        dateLabelText: 'Selectionar o Dia',
                         locale: Locale('pt', 'BR'),
                         onChanged: (val) =>
                             model.setDataChanged(dataChanged: val),
@@ -76,13 +83,15 @@ class RestaurantBookView extends StatelessWidget with $RestaurantBookView {
                       ),
                       verticalSpaceSmall,
                       DateTimePicker(
+                        //decoration: BoxDecoration(),
                         type: DateTimePickerType.time,
-                        // dateMask: 'dd/MM/yyyy',
+                        calendarTitle: 'Hora',
+                        //initialValue: TimeOfDay.now().toString(),
+                        initialTime: TimeOfDay.now(),
+                        firstDate: DateTime.now(),
                         controller: horaController,
-                        firstDate: DateTime(2000),
-                        lastDate: DateTime(2100),
                         icon: Icon(Icons.access_time, color: Colors.orange),
-                        dateLabelText: "Selectionar a Hora",
+                        timeLabelText: "Selectionar a Hora",
                         locale: Locale('pt', 'BR'),
                         onChanged: (val) =>
                             model.setHoraChanged(horaChanged: val),
@@ -115,38 +124,41 @@ class RestaurantBookView extends StatelessWidget with $RestaurantBookView {
                             ),
                           ),
                           IconButton(
-                              icon: Icon(Icons.add),
-                              color: Theme.of(context).primaryColor,
-                              onPressed: () {
-                                model.increment();
-                              }),
+                            icon: Icon(Icons.add),
+                            color: Theme.of(context).primaryColor,
+                            onPressed: () {
+                              model.increment();
+                            },
+                          ),
                         ],
                       ),
                       verticalSpaceMediumLarge,
-                      PratokenteButton(
-                        onTap: model.isBusy
-                            ? null
-                            : () {
-                                model.saveBookingInfo(
-                                  makeBooking: BookedData(
-                                      bookId: model.getBookReference,
-                                      restaurantName:
-                                          model.getMerchantData.name,
-                                      restaurantId: model.getMerchantData.id,
-                                      date: dataController.text.toString(),
-                                      time: horaController.text.toString(),
-                                      bookStatus: 1,
-                                      numPerson: model.quantity),
-                                );
-                                print('Harguilar Nhanga: ' +
-                                    'Data Harguilar : ' +
-                                    dataController.text.toString());
-                                print('Hora HARGUILAR:' +
-                                    horaController.text.toString());
-                              },
-                        // color: Colors.orange,
-                        title: 'Booked',
-                      ),
+                      if (horaController.text.isNotEmpty &&
+                          dataController.text.isNotEmpty) ...[
+                        PratokenteButton(
+                          onTap: model.isBusy
+                              ? null
+                              : () {
+                                  model.saveBookingInfo(
+                                    makeBooking: BookedData(
+                                        bookId: model.getBookReference,
+                                        restaurantName:
+                                            model.getMerchantData.name,
+                                        restaurantId: model.getMerchantData.id,
+                                        date: dataController.text.toString(),
+                                        time: horaController.text.toString(),
+                                        bookStatus: 1,
+                                        numPerson: model.quantity),
+                                  );
+                                  //Clean the Controllers.
+                                  horaController.clear();
+                                  dataController.clear();
+                                },
+                          // color: Colors.orange,
+                          title: 'Solicitar Reserva',
+                        ),
+                      ] else
+                        ...[],
                     ],
                   ),
                 )

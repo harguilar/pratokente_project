@@ -1,7 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:pratokente/core/datamodels/cart/cart_product.dart';
 import 'package:pratokente/global/global.dart';
 import 'package:pratokente/ui/widgets/create_list_awareness.dart';
 import 'package:pratokente/ui/widgets/notification_counter.dart';
@@ -62,7 +64,7 @@ class GetProuctByMerchantView extends StatelessWidget {
                         ),
                         Container(
                           child: ListView.builder(
-                            // key: PageStorageKey('products category'),
+                            key: PageStorageKey('products category'),
                             itemCount: model.getProductsData!.length,
                             padding: EdgeInsets.only(top: 10.0),
                             shrinkWrap: true,
@@ -121,16 +123,18 @@ class GetProuctByMerchantView extends StatelessWidget {
                                                       Radius.circular(7.0),
                                                 ),
                                                 image: DecorationImage(
-                                                    image: NetworkImage(model
+                                                    image: CachedNetworkImageProvider(model
                                                                 .getProductsData![
                                                                     index]
-                                                                .image! ==
+                                                                .image!
+                                                                .toString() ==
                                                             null
                                                         ? 'https://blogs.kcl.ac.uk/editlab/files/2019/05/functionalfoods_mainimage.jpg'
                                                         : model
                                                             .getProductsData![
                                                                 index]
-                                                            .image!),
+                                                            .image!
+                                                            .toString()),
                                                     fit: BoxFit.cover),
                                               ),
                                             ),
@@ -264,15 +268,28 @@ class GetProuctByMerchantView extends StatelessWidget {
                                                       Colors.deepPurple,
                                                   // width: double.maxFinite,
                                                   onTap: () {
-                                                    /*                                             model.initializeCartProducts();
-                                              CartProduct cartProduct = CartProduct();
-                                              cartProduct.products = model.data[index];
-                                              cartProduct.quantity = 1;
-                                              cartProduct.status = 1;
-                                              cartProduct.userId = Global.userId;
-                                              cartProduct.subtotal = model.data[index].price;
-                                              cartProduct.date = DateTime.now();
-                                              model.addCartItens(cartProduct: cartProduct); */
+                                                    model
+                                                        .initializeCartProducts();
+
+                                                    final cartProduct = CartProduct(
+                                                        totalPrice: 0.0,
+                                                        userId:
+                                                            model.getUserId!,
+                                                        quantity: 1,
+                                                        subtotal: model
+                                                            .getProductsData![
+                                                                index]
+                                                            .price!,
+                                                        cartId: "xxxxxxx",
+                                                        products: model
+                                                                .getProductsData![
+                                                            index],
+                                                        status: "1",
+                                                        date: DateTime.now());
+
+                                                    model.addCartItens(
+                                                        cartProduct:
+                                                            cartProduct);
                                                   },
                                                   child: Icon(
                                                     Icons.add_shopping_cart,

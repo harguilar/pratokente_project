@@ -42,19 +42,20 @@ class AddressSelectionView extends StatelessWidget with $AddressSelectionView {
           padding: EdgeInsets.all(20.0),
           children: [
             Container(
-                child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                PratokenteText.headingTwo("Encontrar restaurantes próximos"),
-                verticalSpaceSmall,
-                PratokenteText.body(
-                  "Por Favor adicionar a tua localização ou permitir acesso a sua localização",
-                  align: TextAlign.center,
-                ),
-              ],
-            )),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  PratokenteText.headingTwo("Encontrar restaurantes próximos"),
+                  verticalSpaceSmall,
+                  PratokenteText.body(
+                    "Por Favor adicionar a tua localização ou permitir acesso a sua localização",
+                    align: TextAlign.center,
+                  ),
+                ],
+              ),
+            ),
             FocusScope(
               child: Focus(
                 onFocusChange: model.onFocusChanged,

@@ -5,7 +5,6 @@ import 'package:pratokente/core/datamodels/products/product_data.dart';
 import 'package:pratokente/core/services/cart/cart_service.dart';
 import 'package:pratokente/core/services/users/users_services.dart';
 import 'package:pratokente/core/services/products/product_service.dart';
-
 import 'package:stacked/stacked.dart';
 //import 'package:stacked_services/stacked_services.dart';
 
@@ -45,7 +44,6 @@ class GetProductByMerchantViewModel extends BaseViewModel {
   }
 
   Future fetchProduct() async {
-    //scrollController.addListener(scrollControllerCallFunction);
     setBusy(true);
     await _productService.fetchAllProducts();
     _productsData = _productService.getProducts;
@@ -60,6 +58,7 @@ class GetProductByMerchantViewModel extends BaseViewModel {
     if ((products != null) && (products!.length > 0)) {
       //IF PRODUCT ALREADY IN CART INCREMENT QUANTITY
       for (int count = 0; count < products!.length; count++) {
+        if (products!.contains(cartProduct.products!.id)) {}
         if (cartProduct.products!.id == products![count].products!.id) {
           //increment 1 in quantity
           //if (products![count].quantity != null) {
@@ -75,13 +74,14 @@ class GetProductByMerchantViewModel extends BaseViewModel {
           */
 
           CartProduct tempCartProducts = CartProduct(
-              userId: products![count].userId,
-              quantity: quantity,
-              subtotal: subtotal,
-              cartId: products![count].cartId,
-              products: products![count].products,
-              status: products![count].status,
-              date: products![count].date);
+              userId: products![count].userId!,
+              quantity: quantity!,
+              subtotal: subtotal!,
+              cartId: products![count].cartId!,
+              products: products![count].products!,
+              status: products![count].status!,
+              date: products![count].date!,
+              totalPrice: 0.0);
 
           //products.add(cartProduct);
           checkItemInCart = true;
@@ -90,19 +90,20 @@ class GetProductByMerchantViewModel extends BaseViewModel {
           break;
         }
       }
-      if (checkItemInCart == false) {
+      if (!checkItemInCart) {
 /*                 cartProduct.subtotal =
             cartProduct.products!.price! * cartProduct.quantity!; */
         subtotal = cartProduct.products!.price! * cartProduct.quantity!;
 
         CartProduct tempCartProducts = CartProduct(
-            userId: cartProduct.userId,
-            quantity: cartProduct.quantity,
-            subtotal: subtotal,
-            cartId: cartProduct.cartId,
-            products: cartProduct.products,
-            status: cartProduct.status,
-            date: cartProduct.date);
+            userId: cartProduct.userId!,
+            quantity: cartProduct.quantity!,
+            subtotal: subtotal!,
+            cartId: cartProduct.cartId!,
+            products: cartProduct.products!,
+            status: cartProduct.status!,
+            date: cartProduct.date!,
+            totalPrice: 0.0);
 
         products!.add(tempCartProducts);
 
@@ -121,13 +122,14 @@ class GetProductByMerchantViewModel extends BaseViewModel {
       subtotal = cartProduct.products!.price! * cartProduct.quantity!;
 
       CartProduct tempCartProducts = CartProduct(
-          userId: cartProduct.userId,
-          quantity: cartProduct.quantity,
-          subtotal: subtotal,
-          cartId: cartProduct.cartId,
-          products: cartProduct.products,
-          status: cartProduct.status,
-          date: cartProduct.date);
+          userId: cartProduct.userId!,
+          quantity: cartProduct.quantity!,
+          subtotal: subtotal!,
+          cartId: cartProduct.cartId!,
+          products: cartProduct.products!,
+          status: cartProduct.status!,
+          date: cartProduct.date!,
+          totalPrice: 0.0);
 
       productsTmp.add(tempCartProducts);
       // products.add(cartProduct);

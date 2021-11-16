@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:pratokente/ui/widgets/create_list_awareness.dart';
@@ -87,8 +88,9 @@ class MerchantViewList extends StatelessWidget {
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(10.0)),
                                           image: DecorationImage(
-                                              image: NetworkImage((model
-                                                  .getMerchants![index].image)),
+                                              image: CachedNetworkImageProvider(
+                                                  model.getMerchants![index]
+                                                      .toString()),
                                               fit: BoxFit.cover),
                                         ),
                                       ),
@@ -98,6 +100,7 @@ class MerchantViewList extends StatelessWidget {
                                             model.getMerchants![index].name),
                                       ),
                                       verticalSpaceSmall,
+
                                       Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
