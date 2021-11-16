@@ -68,7 +68,7 @@ class CartService {
         'userId': userId,
         'cartId': cartProduct!.cartId,
         //Convert The product in our Cart  to Map list.
-        'products': cartProduct.products!.toJson(),
+        'products': cartProduct.products.toJson(),
         'subtotal': cartProduct.subtotal,
         'quantity': cartProduct.quantity,
         'totalPrice': cartProduct.totalPrice,

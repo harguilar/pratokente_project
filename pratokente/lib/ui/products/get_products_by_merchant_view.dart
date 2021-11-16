@@ -184,30 +184,6 @@ class GetProuctByMerchantView extends StatelessWidget {
                                                   SizedBox(
                                                     height: 10.0,
                                                   ),
-                                                  /* Row(
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              children: <Widget>[
-                                                /* Icon(
-                                                  Icons.location_on,
-                                                  size: 18.0,
-                                                  color: Colors.black12,
-                                                  ),*/
-                                                Text(
-                                                  model.data[index].description,
-                                                  style: TextStyle(
-                                                      fontFamily: "Sofia",
-                                                      fontWeight: FontWeight.w500,
-                                                      fontSize: 15.0,
-                                                      color: Colors.black26
-                                                  ),
-                                                ),
-                                              ],
-                                            ),*/
-
-                                                  /* SizedBox(
-                                              height: 10.0,
-                                            ),*/
                                                   Text(
                                                     _global
                                                         .formatPrice(model
@@ -235,17 +211,6 @@ class GetProuctByMerchantView extends StatelessWidget {
                                                         size: 18.0,
                                                         color: Colors.yellow,
                                                       ),
-                                                      /* Padding(
-                                                  padding: const EdgeInsets.only(top: 3.0),
-                                                  child: Text(
-                                                       _dinner.ratting,
-                                                              style: TextStyle(
-                                                                fontWeight: FontWeight.w700,
-                                                                fontFamily: "Sofia",
-                                                                fontSize: 13.0
-                                                              ),
-                                                            ),
-                                                            ),*/
                                                     ],
                                                   ),
                                                 ],

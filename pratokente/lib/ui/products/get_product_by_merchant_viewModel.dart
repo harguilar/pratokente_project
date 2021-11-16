@@ -67,7 +67,7 @@ class GetProductByMerchantViewModel extends BaseViewModel {
           quantity = products![count].quantity + 1;
 
           //}
-          subtotal = products![count].quantity * cartProduct.products!.price!;
+          subtotal = products![count].quantity * cartProduct.products.price!;
           /*    
               products![count].subtotal =
               products![count].quantity! * cartProduct.products!.price!; 
