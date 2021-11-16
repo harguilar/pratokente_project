@@ -8,16 +8,14 @@ part of 'cart_product.dart';
 
 _$_CartProduct _$_$_CartProductFromJson(Map<String, dynamic> json) {
   return _$_CartProduct(
-    totalPrice: (json['totalPrice'] as num?)?.toDouble(),
-    userId: json['userId'] as String?,
-    quantity: json['quantity'] as int?,
-    subtotal: (json['subtotal'] as num?)?.toDouble(),
-    cartId: json['cartId'] as String?,
-    products: json['products'] == null
-        ? null
-        : ProductData.fromJson(json['products'] as Map<String, dynamic>),
-    status: json['status'] as String?,
-    date: json['date'] == null ? null : DateTime.parse(json['date'] as String),
+    totalPrice: (json['totalPrice'] as num).toDouble(),
+    userId: json['userId'] as String,
+    quantity: json['quantity'] as int,
+    subtotal: (json['subtotal'] as num).toDouble(),
+    cartId: json['cartId'] as String,
+    products: ProductData.fromJson(json['products'] as Map<String, dynamic>),
+    status: json['status'] as String,
+    date: DateTime.parse(json['date'] as String),
   );
 }
 
@@ -30,5 +28,5 @@ Map<String, dynamic> _$_$_CartProductToJson(_$_CartProduct instance) =>
       'cartId': instance.cartId,
       'products': instance.products,
       'status': instance.status,
-      'date': instance.date?.toIso8601String(),
+      'date': instance.date.toIso8601String(),
     };

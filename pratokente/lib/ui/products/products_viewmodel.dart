@@ -57,7 +57,7 @@ class ProductsViewModel extends BaseViewModel {
   }
 
   void navToBookView({required MerchantData merchantData}) {
-    _navigationService.navigateTo(Routes.bookView);
+    // _navigationService.navigateTo(Routes.bookView);
 
     _productService.setMerchantData(merchantData: merchantData);
     //  _amplitudeRouteObserver.routePush(currentRoute: ProfViewRoute);

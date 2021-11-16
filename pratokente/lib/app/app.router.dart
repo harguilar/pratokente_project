@@ -11,7 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
 import '../ui/addres_selection/address_selection_view.dart';
-import '../ui/booking/book_view.dart';
 import '../ui/booking/restaurant/restaurant_book_view.dart';
 import '../ui/contact/contact_view.dart';
 import '../ui/create_account/create_accountview.dart';
@@ -29,7 +28,6 @@ class Routes {
   static const String getProuctByMerchantView = '/get-prouct-by-merchant-view';
   static const String homeView = '/home-view';
   static const String loginView = '/login-view';
-  static const String bookView = '/book-view';
   static const String contactView = '/contact-view';
   static const String restaurantBookView = '/restaurant-book-view';
   static const String merchantViewList = '/merchant-view-list';
@@ -41,7 +39,6 @@ class Routes {
     getProuctByMerchantView,
     homeView,
     loginView,
-    bookView,
     contactView,
     restaurantBookView,
     merchantViewList,
@@ -59,7 +56,6 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.getProuctByMerchantView, page: GetProuctByMerchantView),
     RouteDef(Routes.homeView, page: HomeView),
     RouteDef(Routes.loginView, page: LoginView),
-    RouteDef(Routes.bookView, page: BookView),
     RouteDef(Routes.contactView, page: ContactView),
     RouteDef(Routes.restaurantBookView, page: RestaurantBookView),
     RouteDef(Routes.merchantViewList, page: MerchantViewList),
@@ -113,12 +109,6 @@ class StackedRouter extends RouterBase {
       );
       return CupertinoPageRoute<dynamic>(
         builder: (context) => LoginView(key: args.key),
-        settings: data,
-      );
-    },
-    BookView: (data) {
-      return CupertinoPageRoute<dynamic>(
-        builder: (context) => BookView(),
         settings: data,
       );
     },

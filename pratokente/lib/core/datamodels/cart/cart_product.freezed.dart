@@ -21,14 +21,14 @@ class _$CartProductTearOff {
   const _$CartProductTearOff();
 
   _CartProduct call(
-      {double? totalPrice,
-      String? userId,
-      int? quantity,
-      double? subtotal,
-      String? cartId,
-      ProductData? products,
-      String? status,
-      DateTime? date}) {
+      {required double totalPrice,
+      required String userId,
+      required int quantity,
+      required double subtotal,
+      required String cartId,
+      required ProductData products,
+      required String status,
+      required DateTime date}) {
     return _CartProduct(
       totalPrice: totalPrice,
       userId: userId,
@@ -51,14 +51,14 @@ const $CartProduct = _$CartProductTearOff();
 
 /// @nodoc
 mixin _$CartProduct {
-  double? get totalPrice => throw _privateConstructorUsedError;
-  String? get userId => throw _privateConstructorUsedError;
-  int? get quantity => throw _privateConstructorUsedError;
-  double? get subtotal => throw _privateConstructorUsedError;
-  String? get cartId => throw _privateConstructorUsedError;
-  ProductData? get products => throw _privateConstructorUsedError;
-  String? get status => throw _privateConstructorUsedError;
-  DateTime? get date => throw _privateConstructorUsedError;
+  double get totalPrice => throw _privateConstructorUsedError;
+  String get userId => throw _privateConstructorUsedError;
+  int get quantity => throw _privateConstructorUsedError;
+  double get subtotal => throw _privateConstructorUsedError;
+  String get cartId => throw _privateConstructorUsedError;
+  ProductData get products => throw _privateConstructorUsedError;
+  String get status => throw _privateConstructorUsedError;
+  DateTime get date => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -72,16 +72,16 @@ abstract class $CartProductCopyWith<$Res> {
           CartProduct value, $Res Function(CartProduct) then) =
       _$CartProductCopyWithImpl<$Res>;
   $Res call(
-      {double? totalPrice,
-      String? userId,
-      int? quantity,
-      double? subtotal,
-      String? cartId,
-      ProductData? products,
-      String? status,
-      DateTime? date});
+      {double totalPrice,
+      String userId,
+      int quantity,
+      double subtotal,
+      String cartId,
+      ProductData products,
+      String status,
+      DateTime date});
 
-  $ProductDataCopyWith<$Res>? get products;
+  $ProductDataCopyWith<$Res> get products;
 }
 
 /// @nodoc
@@ -107,45 +107,41 @@ class _$CartProductCopyWithImpl<$Res> implements $CartProductCopyWith<$Res> {
       totalPrice: totalPrice == freezed
           ? _value.totalPrice
           : totalPrice // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as double,
       userId: userId == freezed
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       quantity: quantity == freezed
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       subtotal: subtotal == freezed
           ? _value.subtotal
           : subtotal // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as double,
       cartId: cartId == freezed
           ? _value.cartId
           : cartId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       products: products == freezed
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
-              as ProductData?,
+              as ProductData,
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
     ));
   }
 
   @override
-  $ProductDataCopyWith<$Res>? get products {
-    if (_value.products == null) {
-      return null;
-    }
-
-    return $ProductDataCopyWith<$Res>(_value.products!, (value) {
+  $ProductDataCopyWith<$Res> get products {
+    return $ProductDataCopyWith<$Res>(_value.products, (value) {
       return _then(_value.copyWith(products: value));
     });
   }
@@ -159,17 +155,17 @@ abstract class _$CartProductCopyWith<$Res>
       __$CartProductCopyWithImpl<$Res>;
   @override
   $Res call(
-      {double? totalPrice,
-      String? userId,
-      int? quantity,
-      double? subtotal,
-      String? cartId,
-      ProductData? products,
-      String? status,
-      DateTime? date});
+      {double totalPrice,
+      String userId,
+      int quantity,
+      double subtotal,
+      String cartId,
+      ProductData products,
+      String status,
+      DateTime date});
 
   @override
-  $ProductDataCopyWith<$Res>? get products;
+  $ProductDataCopyWith<$Res> get products;
 }
 
 /// @nodoc
@@ -197,35 +193,35 @@ class __$CartProductCopyWithImpl<$Res> extends _$CartProductCopyWithImpl<$Res>
       totalPrice: totalPrice == freezed
           ? _value.totalPrice
           : totalPrice // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as double,
       userId: userId == freezed
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       quantity: quantity == freezed
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       subtotal: subtotal == freezed
           ? _value.subtotal
           : subtotal // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as double,
       cartId: cartId == freezed
           ? _value.cartId
           : cartId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       products: products == freezed
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
-              as ProductData?,
+              as ProductData,
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
     ));
   }
 }
@@ -234,34 +230,34 @@ class __$CartProductCopyWithImpl<$Res> extends _$CartProductCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_CartProduct implements _CartProduct {
   _$_CartProduct(
-      {this.totalPrice,
-      this.userId,
-      this.quantity,
-      this.subtotal,
-      this.cartId,
-      this.products,
-      this.status,
-      this.date});
+      {required this.totalPrice,
+      required this.userId,
+      required this.quantity,
+      required this.subtotal,
+      required this.cartId,
+      required this.products,
+      required this.status,
+      required this.date});
 
   factory _$_CartProduct.fromJson(Map<String, dynamic> json) =>
       _$_$_CartProductFromJson(json);
 
   @override
-  final double? totalPrice;
+  final double totalPrice;
   @override
-  final String? userId;
+  final String userId;
   @override
-  final int? quantity;
+  final int quantity;
   @override
-  final double? subtotal;
+  final double subtotal;
   @override
-  final String? cartId;
+  final String cartId;
   @override
-  final ProductData? products;
+  final ProductData products;
   @override
-  final String? status;
+  final String status;
   @override
-  final DateTime? date;
+  final DateTime date;
 
   @override
   String toString() {
@@ -319,34 +315,34 @@ class _$_CartProduct implements _CartProduct {
 
 abstract class _CartProduct implements CartProduct {
   factory _CartProduct(
-      {double? totalPrice,
-      String? userId,
-      int? quantity,
-      double? subtotal,
-      String? cartId,
-      ProductData? products,
-      String? status,
-      DateTime? date}) = _$_CartProduct;
+      {required double totalPrice,
+      required String userId,
+      required int quantity,
+      required double subtotal,
+      required String cartId,
+      required ProductData products,
+      required String status,
+      required DateTime date}) = _$_CartProduct;
 
   factory _CartProduct.fromJson(Map<String, dynamic> json) =
       _$_CartProduct.fromJson;
 
   @override
-  double? get totalPrice => throw _privateConstructorUsedError;
+  double get totalPrice => throw _privateConstructorUsedError;
   @override
-  String? get userId => throw _privateConstructorUsedError;
+  String get userId => throw _privateConstructorUsedError;
   @override
-  int? get quantity => throw _privateConstructorUsedError;
+  int get quantity => throw _privateConstructorUsedError;
   @override
-  double? get subtotal => throw _privateConstructorUsedError;
+  double get subtotal => throw _privateConstructorUsedError;
   @override
-  String? get cartId => throw _privateConstructorUsedError;
+  String get cartId => throw _privateConstructorUsedError;
   @override
-  ProductData? get products => throw _privateConstructorUsedError;
+  ProductData get products => throw _privateConstructorUsedError;
   @override
-  String? get status => throw _privateConstructorUsedError;
+  String get status => throw _privateConstructorUsedError;
   @override
-  DateTime? get date => throw _privateConstructorUsedError;
+  DateTime get date => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$CartProductCopyWith<_CartProduct> get copyWith =>

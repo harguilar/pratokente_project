@@ -9,7 +9,6 @@ import 'package:pratokente/core/services/orders_service.dart';
 import 'package:pratokente/core/services/support/support_services.dart';
 import 'package:pratokente/core/services/users/users_services.dart';
 import 'package:pratokente/ui/addres_selection/address_selection_view.dart';
-import 'package:pratokente/ui/booking/book_view.dart';
 import 'package:pratokente/ui/booking/restaurant/restaurant_book_view.dart';
 import 'package:pratokente/ui/contact/contact_view.dart';
 import 'package:pratokente/ui/create_account/create_accountview.dart';
@@ -44,7 +43,6 @@ import 'package:stacked_services/stacked_services.dart';
     //CupertinoRoute(page: OrdersViewList),
     //CupertinoRoute(page: OrderCon),
     CupertinoRoute(page: LoginView),
-    CupertinoRoute(page: BookView),
     CupertinoRoute(page: ContactView),
     CupertinoRoute(page: RestaurantBookView),
     CupertinoRoute(page: MerchantViewList),
