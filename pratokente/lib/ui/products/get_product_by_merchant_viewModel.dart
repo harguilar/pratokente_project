@@ -1,4 +1,6 @@
+import 'package:logger/logger.dart';
 import 'package:pratokente/app/app.locator.dart';
+import 'package:pratokente/app/app.logger.dart';
 import 'package:pratokente/core/datamodels/cart/cart_product.dart';
 import 'package:pratokente/core/datamodels/merchants/merchant_data.dart';
 import 'package:pratokente/core/datamodels/products/product_data.dart';
@@ -6,28 +8,22 @@ import 'package:pratokente/core/services/cart/cart_service.dart';
 import 'package:pratokente/core/services/users/users_services.dart';
 import 'package:pratokente/core/services/products/product_service.dart';
 import 'package:stacked/stacked.dart';
-//import 'package:stacked_services/stacked_services.dart';
 
 class GetProductByMerchantViewModel extends BaseViewModel {
   final ProductService _productService = locator<ProductService>();
+  final logger = getLogger('GetProductByMerchantViewModel');
   final _currentUser = locator<UserService>();
   final CartService _cartService = locator<CartService>();
   List<CartProduct>? cartProducts = [];
   List<CartProduct> productsTmp = [];
   List<ProductData>? _productsData = [];
   CartProduct? tempCart;
-  int? quantity;
+  int quantity = 0;
   double? subtotal;
   int? _cartLength;
   bool checkItemInCart = false;
 
-  String? _userId;
-
-  String? get getUserId => _userId;
-
-  void setUserId(String userId) {
-    _userId = userId;
-  }
+  String? get getUserId => _currentUser.getCurrentUser.id;
 
   bool get getHasMoreProducts => _productService.hasMoreProducts;
   List<ProductData>? get getProductsData => _productsData!;
@@ -52,36 +48,31 @@ class GetProductByMerchantViewModel extends BaseViewModel {
 
   void addCartItens({required CartProduct cartProduct}) {
     if ((cartProducts != null) && (cartProducts!.length > 0)) {
-      for (int count = 0; count < cartProducts!.length; count++) {
-        //You Itens in the Cart With Same Id-> Increase Quantity
-        if (cartProducts!.contains(cartProduct.products.id)) {
+      for (CartProduct productsInCart in cartProducts!) {
+        if (productsInCart.products.id == cartProduct.products.id) {
           checkItemInCart = true;
           //Increment Quantity
-          quantity = cartProducts![count].quantity + 1;
+          quantity += productsInCart.quantity + 1;
           //Calculate SubTotal
           subtotal = calculateSubTotal(
-              price: cartProduct.products.price!, quantity: quantity!);
+              price: cartProduct.products.price!, quantity: quantity);
 
           tempCart = CartProduct(
-              userId: cartProducts![count].userId,
-              quantity: quantity!,
+              userId: productsInCart.userId,
+              quantity: quantity,
               subtotal: subtotal!,
-              cartId: cartProducts![count].cartId,
-              products: cartProducts![count].products,
-              status: cartProducts![count].status,
-              date: cartProducts![count].date,
+              cartId: productsInCart.cartId,
+              products: productsInCart.products,
+              status: productsInCart.status,
+              date: productsInCart.date,
               totalPrice: 0.0);
-
           break;
         }
-        /*    if (cartProduct.products.id == cartProducts![count].products.id) {
-
-        } */
       }
       if (!checkItemInCart) {
         //You have Itens in The Carts with Different Ids-. Add New Item
         subtotal = calculateSubTotal(
-            price: cartProduct.products.price!, quantity: quantity!);
+            price: cartProduct.products.price!, quantity: quantity);
 
         addProductsToCartProducts(
           cartProduct: CartProduct(
@@ -142,8 +133,7 @@ class GetProductByMerchantViewModel extends BaseViewModel {
     return price * quantity;
   }
 
-  int getProductLength() {
-    setBusy(true);
+  int? getProductLength() {
     try {
       if (cartProducts == null) {
         return 0;
@@ -156,9 +146,7 @@ class GetProductByMerchantViewModel extends BaseViewModel {
       print(e.toString());
       return cartProducts!.length;
     }
-    setBusy(false);
     notifyListeners();
-    throw '';
   }
 
   void setCartLength() {

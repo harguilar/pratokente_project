@@ -17,6 +17,8 @@ class CartProduct with _$CartProduct {
     required String status,
     required DateTime date,
   }) = _CartProduct;
+/*   int? get getQuantity => quantity;
+  set getQuantity(int? quantity) => quantity = (quantity! + 1); */
 
   factory CartProduct.fromJson(Map<String, dynamic> json) =>
       _$CartProductFromJson(json);
