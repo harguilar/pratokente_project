@@ -8,7 +8,6 @@ import 'package:pratokente/core/datamodels/cart/cart_product.dart';
 import 'package:pratokente/core/datamodels/orders/order_data.dart';
 import 'package:pratokente/core/services/users/users_services.dart';
 import 'package:pratokente/constants/constants.dart';
-
 import '../../../apis/firestore_api.dart';
 
 class CartService {
@@ -17,7 +16,7 @@ class CartService {
   final _userService = locator<UserService>();
 
   // double _total;
-  List<CartProduct> _products = [];
+  List<CartProduct>? _cartListOfProduct = [];
 
   OrderData? _orderData;
 
@@ -36,14 +35,13 @@ class CartService {
 
   get getDocumentIdRef => _docIdReference;
 
-  void setListProducts(
-      {List<CartProduct>? product, List<CartProduct>? cartProduct}) {
-    if (product != null) {
-      _products = product;
+  void setCartOfListProducts({List<CartProduct>? cartListOfProduct}) {
+    if (cartListOfProduct != null && cartListOfProduct.isNotEmpty) {
+      _cartListOfProduct = cartListOfProduct;
     }
   }
 
-  List<CartProduct> get getProductList => _products;
+  List<CartProduct>? get getCartOfListProducts => _cartListOfProduct!;
 
   OrderData? get getUserOrders => _orderData;
 
@@ -55,36 +53,27 @@ class CartService {
           .doc(cartProduct.cartId)
           .update(cartProduct.toJson());
     } catch (err) {
-      print('Caught Error: $err');
+      log.i('Caught Error: $err');
     }
   }
 
-  addCartItem({CartProduct? cartProduct, String? userId}) async {
+  addCartItem({CartProduct? cartProduct}) async {
     try {
       //Add Orders to FireBase. and Get the Id of the Document.
-      _documentReference = await userRef.doc(userId).collection('cart').add({
-        //Add the MAP to firestore.
-        'userId': userId,
-        'cartId': cartProduct!.cartId,
-        //Convert The product in our Cart  to Map list.
-        'products': cartProduct.products.toJson(),
-        'subtotal': cartProduct.subtotal,
-        'quantity': cartProduct.quantity,
-        'totalPrice': cartProduct.totalPrice,
-        //Status 1 means is processing your order 2 means is done.
-        'status': cartProduct.status
-      }
-          //Now Lets Safe the Order ID within our User. so that we are aware which order belongs to which user.
-          );
-
-      //_userRef.doc(userId).collection('cart').add(cartProduct.toMap()).then((doc){cartProduct.id = doc.id;});
       _documentReference = await userRef
-          .doc(userId)
+          .doc(cartProduct!.userId)
           .collection('cart')
           .add(cartProduct.toJson());
 
+/*       
+      _documentReference = await userRef
+          .doc(cartProduct.userId)
+          .collection('cart')
+          .add(cartProduct.toJson());
+           */
+
       await userRef
-          .doc(userId)
+          .doc(cartProduct.userId)
           .collection('cart')
           .doc(_documentReference!.id)
           .update({'id': _documentReference!.id});
@@ -100,12 +89,12 @@ class CartService {
 
   int? getProductLength() {
     try {
-      if (_products == null) {
+      if (_cartListOfProduct == null) {
         return 0;
-      } else if (_products.length == 0) {
+      } else if (_cartListOfProduct!.length == 0) {
         return 0;
-      } else if (_products.length > 0) {
-        return _products.length;
+      } else if (_cartListOfProduct!.length > 0) {
+        return _cartListOfProduct!.length;
       }
     } catch (err) {
       print('Caught Error: $err');
@@ -121,10 +110,10 @@ class CartService {
     } catch (err) {
       print('Caught Error: $err');
     }
-    //snapshot.documents.map((doc) => CartProduct.fromDoucment(doc)).toList());
   }
 
-  Future<List<CartProduct>?> getCartProducts({required String userId}) async {
+  Future<List<CartProduct>?> getCartListOfProducts(
+      {required String userId}) async {
     return await _firestoreApi.getCartProducts(userId: userId);
   }
 
@@ -136,9 +125,13 @@ class CartService {
         .then((doc) => doc['delivery'] + 0.0);
   }
 
-  void removeCartItem({CartProduct? cartProduct, String? userId}) {
+  void removeCartItem({CartProduct? cartProduct}) {
     //Remove The product from Firebase
-    userRef.doc(userId).collection('cart').doc(cartProduct!.cartId).delete();
+    userRef
+        .doc(cartProduct!.userId)
+        .collection('cart')
+        .doc(cartProduct.cartId)
+        .delete();
   }
 
   void deleteUserCartItem({String? userId}) {

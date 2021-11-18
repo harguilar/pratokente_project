@@ -10,6 +10,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
+import '../cart/cart_view.dart';
 import '../ui/addres_selection/address_selection_view.dart';
 import '../ui/booking/restaurant/restaurant_book_view.dart';
 import '../ui/contact/contact_view.dart';
@@ -24,6 +25,7 @@ import '../ui/startup/startup_view.dart';
 class Routes {
   static const String startupView = '/';
   static const String addressSelectionView = '/address-selection-view';
+  static const String cartView = '/cart-view';
   static const String createAccountView = '/create-account-view';
   static const String getProuctByMerchantView = '/get-prouct-by-merchant-view';
   static const String homeView = '/home-view';
@@ -35,6 +37,7 @@ class Routes {
   static const all = <String>{
     startupView,
     addressSelectionView,
+    cartView,
     createAccountView,
     getProuctByMerchantView,
     homeView,
@@ -52,6 +55,7 @@ class StackedRouter extends RouterBase {
   final _routes = <RouteDef>[
     RouteDef(Routes.startupView, page: StartupView),
     RouteDef(Routes.addressSelectionView, page: AddressSelectionView),
+    RouteDef(Routes.cartView, page: CartView),
     RouteDef(Routes.createAccountView, page: CreateAccountView),
     RouteDef(Routes.getProuctByMerchantView, page: GetProuctByMerchantView),
     RouteDef(Routes.homeView, page: HomeView),
@@ -76,6 +80,12 @@ class StackedRouter extends RouterBase {
       );
       return CupertinoPageRoute<dynamic>(
         builder: (context) => AddressSelectionView(key: args.key),
+        settings: data,
+      );
+    },
+    CartView: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => CartView(),
         settings: data,
       );
     },

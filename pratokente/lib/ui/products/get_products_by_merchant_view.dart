@@ -36,15 +36,10 @@ class GetProuctByMerchantView extends StatelessWidget {
                             'assets/icon/cart_icon.svg',
                             width: 32,
                           ),
-                          // counter:  Global.products.length > 0 ? Global.products.length : 0,
                           counter: model.getCartLength,
-                          /*StreamBuilder(
-                    stream: model.getCartProductByUser(),
-                    builder: (BuildContext context, ),
-
-                  ),*/
                         ),
                         onPressed: () {
+                          model.navToCart();
                           // Route route = MaterialPageRoute(builder: (context) => CartView());
                           //Navigator.pushReplacement(context, route)/*.then(Global.products.length)*/;
 

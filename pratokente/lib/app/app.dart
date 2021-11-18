@@ -1,4 +1,5 @@
 import 'package:places_service/places_service.dart';
+import 'package:pratokente/cart/cart_view.dart';
 import 'package:pratokente/core/services/environment_services.dart';
 import 'package:pratokente/apis/firestore_api.dart';
 import 'package:pratokente/core/services/bottom_navigation_service.dart';
@@ -27,7 +28,7 @@ import 'package:stacked_services/stacked_services.dart';
   routes: [
     MaterialRoute(page: StartupView, initial: true),
     CupertinoRoute(page: AddressSelectionView),
-    //CupertinoRoute(page: CartView),
+    CupertinoRoute(page: CartView),
     //CupertinoRoute(page: CategoryView),
     //CupertinoRoute(page: CateringServiceT2),
     CupertinoRoute(page: CreateAccountView),

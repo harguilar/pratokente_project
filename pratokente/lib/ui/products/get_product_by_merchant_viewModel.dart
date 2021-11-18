@@ -1,6 +1,6 @@
-import 'package:logger/logger.dart';
 import 'package:pratokente/app/app.locator.dart';
 import 'package:pratokente/app/app.logger.dart';
+import 'package:pratokente/app/app.router.dart';
 import 'package:pratokente/core/datamodels/cart/cart_product.dart';
 import 'package:pratokente/core/datamodels/merchants/merchant_data.dart';
 import 'package:pratokente/core/datamodels/products/product_data.dart';
@@ -8,16 +8,20 @@ import 'package:pratokente/core/services/cart/cart_service.dart';
 import 'package:pratokente/core/services/users/users_services.dart';
 import 'package:pratokente/core/services/products/product_service.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 class GetProductByMerchantViewModel extends BaseViewModel {
   final ProductService _productService = locator<ProductService>();
+  final _navigationService = locator<NavigationService>();
   final logger = getLogger('GetProductByMerchantViewModel');
   final _currentUser = locator<UserService>();
   final CartService _cartService = locator<CartService>();
+
   List<CartProduct>? cartProducts = [];
   List<CartProduct> productsTmp = [];
   List<ProductData>? _productsData = [];
   CartProduct? tempCart;
+
   int quantity = 0;
   double? subtotal;
   int? _cartLength;
@@ -32,7 +36,7 @@ class GetProductByMerchantViewModel extends BaseViewModel {
   initializeCartProducts() {
     setBusy(true);
     //products = Global.products!;
-    cartProducts = _cartService.getProductList;
+    cartProducts = _cartService.getCartOfListProducts;
     //print('Testing the Line \n');
     setBusy(false);
     notifyListeners();
@@ -73,7 +77,6 @@ class GetProductByMerchantViewModel extends BaseViewModel {
         //You have Itens in The Carts with Different Ids-. Add New Item
         subtotal = calculateSubTotal(
             price: cartProduct.products.price!, quantity: quantity);
-
         addProductsToCartProducts(
           cartProduct: CartProduct(
               userId: cartProduct.userId,
@@ -86,8 +89,7 @@ class GetProductByMerchantViewModel extends BaseViewModel {
               totalPrice: 0.0),
         );
 
-        _cartService.addCartItem(
-            cartProduct: cartProduct, userId: _currentUser.getCurrentUser.id);
+        _cartService.addCartItem(cartProduct: cartProduct);
       } else {
         // Update Cart
         _cartService.updateCart(
@@ -114,8 +116,7 @@ class GetProductByMerchantViewModel extends BaseViewModel {
 
       //cartProducts = productsTmp;
 
-      _cartService.addCartItem(
-          cartProduct: cartProduct, userId: cartProduct.userId);
+      _cartService.addCartItem(cartProduct: cartProduct);
     }
     //now notify listernsš
     notifyListeners();
@@ -127,8 +128,9 @@ class GetProductByMerchantViewModel extends BaseViewModel {
   }
 
   void navToCart() {
-    //_navigationService.navigateTo(Routes.cartView);
+    _navigationService.navigateTo(Routes.cartView);
   }
+
   double? calculateSubTotal({required double price, required int quantity}) {
     return price * quantity;
   }
