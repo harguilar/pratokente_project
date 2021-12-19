@@ -26,14 +26,13 @@ class CartService {
 
   DocumentReference? _orderReference;
 
-  String? _docIdReference;
+  String? _cartDocIdReference;
 
   setId(String id) {
-    //  _clientOrders.id = id;
-    _docIdReference = id;
+    _cartDocIdReference = id;
   }
 
-  get getDocumentIdRef => _docIdReference;
+  get getCartDocumentIdRef => _cartDocIdReference;
 
   void setCartOfListProducts({List<CartProduct>? cartListOfProduct}) {
     if (cartListOfProduct != null && cartListOfProduct.isNotEmpty) {
@@ -57,33 +56,35 @@ class CartService {
     }
   }
 
+  Future generateDocumentId() async {
+    DocumentReference ref = await userRef.doc();
+    _cartDocIdReference = ref.id;
+  }
+
   addCartItem({CartProduct? cartProduct}) async {
     try {
       //Add Orders to FireBase. and Get the Id of the Document.
-      _documentReference = await userRef
-          .doc(cartProduct!.userId)
-          .collection('cart')
-          .add(cartProduct.toJson());
-
-/*       
-      _documentReference = await userRef
-          .doc(cartProduct.userId)
-          .collection('cart')
-          .add(cartProduct.toJson());
-           */
+      _documentReference =
+          await userRef.doc(cartProduct!.userId).collection('cart').add({
+        "cartId": cartProduct.cartId,
+        "date": cartProduct.date,
+        "products": cartProduct.products.toJson(),
+        "quantity": cartProduct.quantity,
+        "status": cartProduct.status,
+        "subtotal": cartProduct.subtotal,
+        "totalPrice": cartProduct.totalPrice,
+        "userId": cartProduct.userId,
+      });
 
       await userRef
           .doc(cartProduct.userId)
           .collection('cart')
           .doc(_documentReference!.id)
-          .update({'id': _documentReference!.id});
+          .update({'cartId': _documentReference!.id});
 
       setId(_documentReference!.id);
     } catch (e) {
-      if (e is PlatformException) {
-        return e.message;
-      }
-      return e.toString();
+      log.wtf(" Document Error: " + e.toString());
     }
   }
 
@@ -114,7 +115,13 @@ class CartService {
 
   Future<List<CartProduct>?> getCartListOfProducts(
       {required String userId}) async {
-    return await _firestoreApi.getCartProducts(userId: userId);
+    var getCartListOfProducts =
+        await _firestoreApi.getCartProducts(userId: userId);
+    if (getCartOfListProducts!.isNotEmpty) {
+      return getCartOfListProducts;
+    } else {
+      log.wtf('List of Products should not be Empty: $getCartOfListProducts');
+    }
   }
 
   getDelivery() {

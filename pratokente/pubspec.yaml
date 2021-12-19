@@ -31,10 +31,10 @@ dependencies:
   firebase_core: ^1.0.2
   firebase_storage: ^8.0.1
   cloud_firestore: ^1.0.3
-  cloud_functions: ^1.0.2
+  cloud_functions: ^3.2.0
 
   # Firebase Authentications
-  firebase_auth: ^1.0.1
+  firebase_auth: ^3.2.0
   google_sign_in: ^5.0.1
   sign_in_with_apple: ^3.0.0
   # flutter_facebook_auth: ^3.1.1
@@ -48,8 +48,9 @@ dependencies:
   #stacked: ^2.1.0
   stacked: ^2.2.3
   stacked_services: ^0.8.3
-  stacked_firebase_auth: ^0.2.1
+  #stacked_firebase_auth: ^0.2.1
   flutter_credit_card: ^2.0.0
+  stacked_firebase_auth: ^0.2.10+2
 
   # storage
   shared_preferences: ^2.0.5

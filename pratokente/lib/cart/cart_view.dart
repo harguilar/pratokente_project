@@ -161,6 +161,8 @@ class CartView extends StatelessWidget {
                                                                 right: 20),
                                                         child:
                                                             PratokenteText.body(
+                                                          /* model.quantity
+                                                                .toString() */
                                                           model
                                                               .getCartOfListProducts[
                                                                   index]
@@ -191,15 +193,17 @@ class CartView extends StatelessWidget {
                                                         ),
                                                       ),
                                                       IconButton(
-                                                          icon: Icon(Icons.add),
-                                                          color:
-                                                              Theme.of(context)
-                                                                  .primaryColor,
-                                                          onPressed: () {
-                                                            model.incProduct(
-                                                                model.getCartOfListProducts[
-                                                                    index]);
-                                                          }),
+                                                        icon: Icon(Icons.add),
+                                                        color: Theme.of(context)
+                                                            .primaryColor,
+                                                        onPressed: () {
+                                                          // model.increment();
+
+                                                          model.incProduct(model
+                                                                  .getCartOfListProducts[
+                                                              index]);
+                                                        },
+                                                      ),
                                                     ],
                                                   ),
                                                   horizontalSpaceSmall,

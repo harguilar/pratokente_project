@@ -18,7 +18,6 @@ class GetProductByMerchantViewModel extends BaseViewModel {
   final CartService _cartService = locator<CartService>();
 
   List<CartProduct>? cartProducts = [];
-  List<CartProduct> productsTmp = [];
   List<ProductData>? _productsData = [];
   CartProduct? tempCart;
 
@@ -32,6 +31,8 @@ class GetProductByMerchantViewModel extends BaseViewModel {
   bool get getHasMoreProducts => _productService.hasMoreProducts;
   List<ProductData>? get getProductsData => _productsData!;
   MerchantData? get getMerchantData => _productService.getMerchantData!;
+
+  get getCartDocumentId => _cartService.getCartDocumentIdRef;
 
   initializeCartProducts() {
     setBusy(true);

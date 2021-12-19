@@ -118,32 +118,26 @@ class CartViewModel extends BaseViewModel {
     return getProductPrice();
   }
 
-  void incProduct(CartProduct cartProduct) {
-    setBusy(true);
-
+  void incProduct(CartProduct cartProduct) async {
     //Increase The Quantity.
     if (cartProduct.quantity != null) {
       cartQuantity = cartProduct.quantity + 1;
-
-      CartProduct tempCartProducts = CartProduct(
-          userId: cartProduct.userId,
-          quantity: cartQuantity,
-          subtotal: cartProduct.subtotal,
-          cartId: cartProduct.cartId,
-          products: cartProduct.products,
-          status: cartProduct.status,
-          date: cartProduct.date,
-          totalPrice: 0.0);
+      // cartProduct.quantity++;
 
       //Update The Database
-      _cartService.updateCart(
-        cartProduct: tempCartProducts,
+      await _cartService.updateCart(
+        cartProduct: CartProduct(
+            userId: cartProduct.userId,
+            quantity: cartQuantity,
+            subtotal: cartProduct.subtotal,
+            cartId: cartProduct.cartId,
+            products: cartProduct.products,
+            status: cartProduct.status,
+            date: cartProduct.date,
+            totalPrice: 0.0),
       );
+      notifyListeners();
     }
-
-    setBusy(false);
-    //update Our Screen
-    notifyListeners();
   }
 
   int get quantity => _count;

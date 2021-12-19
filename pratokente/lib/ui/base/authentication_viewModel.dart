@@ -18,8 +18,6 @@ abstract class AuthenticationViewModel extends FormViewModel {
   final firebaseAuthenticationService =
       locator<FirebaseAuthenticationService>();
 
-  //final storageService = locator<LocalStorageService>();
-
   final _snackbarService = locator<SnackbarService>();
 
   final String successRoute;

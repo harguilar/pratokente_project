@@ -26,7 +26,6 @@ class FirestoreApi {
 
   final CollectionReference regionsCollection =
       FirebaseFirestore.instance.collection(RegionsFirestoreKey);
-  // final _userService = locator<UserService>();
 
   bool _hasMoreMerchants = true;
 
@@ -251,16 +250,6 @@ class FirestoreApi {
       } else {
         return _merchants.startAfterDocument(startAfter).get();
       }
-
-/*       if (_merchants.docs.isEmpty) {
-        log.v('We do not have User with Id: $_merchants in our Database');
-      } else {
-        _loadingMerchants = true;
-        _lastDocument = _merchants.docs[_merchants.docs.length - 1];
-        merchantsList = _merchants.docs;
-/*         return _merchants.docs
-            .map((docs) => MerchantData.fromJson(docs.data()))
-            .toList(); */ */
     } catch (e) {
       log.wtf('I dont know what is cooking $e');
       return null;

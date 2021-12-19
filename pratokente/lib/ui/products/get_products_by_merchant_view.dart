@@ -118,18 +118,13 @@ class GetProuctByMerchantView extends StatelessWidget {
                                                       Radius.circular(7.0),
                                                 ),
                                                 image: DecorationImage(
-                                                    image: CachedNetworkImageProvider(model
+                                                    image:
+                                                        CachedNetworkImageProvider(
+                                                            model
                                                                 .getProductsData![
                                                                     index]
                                                                 .image!
-                                                                .toString() ==
-                                                            null
-                                                        ? 'https://blogs.kcl.ac.uk/editlab/files/2019/05/functionalfoods_mainimage.jpg'
-                                                        : model
-                                                            .getProductsData![
-                                                                index]
-                                                            .image!
-                                                            .toString()),
+                                                                .toString()),
                                                     fit: BoxFit.cover),
                                               ),
                                             ),
@@ -240,7 +235,7 @@ class GetProuctByMerchantView extends StatelessWidget {
                                                             .getProductsData![
                                                                 index]
                                                             .price!,
-                                                        cartId: "xxxxxxx",
+                                                        cartId: "xxxxxxxxx",
                                                         products: model
                                                                 .getProductsData![
                                                             index],

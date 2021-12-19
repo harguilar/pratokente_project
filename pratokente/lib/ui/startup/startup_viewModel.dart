@@ -4,7 +4,6 @@ import 'package:pratokente/app/app.locator.dart';
 import 'package:pratokente/app/app.logger.dart';
 import 'package:pratokente/app/app.router.dart';
 import 'package:pratokente/constants/constants.dart';
-import 'package:pratokente/core/datamodels/cart/cart_product.dart';
 import 'package:pratokente/core/services/cart/cart_service.dart';
 import 'package:pratokente/core/services/environment_services.dart';
 import 'package:pratokente/core/services/users/users_services.dart';
@@ -23,10 +22,9 @@ class StartUpViewModel extends BaseViewModel {
     final _cartServices = locator<CartService>();
 
     await _environmentService.initialise();
-    //final placesKey =  _environment.getValue(key)
     _placesService.initialize(
         apiKey: _environmentService.getValue(GoogleMapsEnvKey));
-    List<CartProduct>? _cartListOfProducts = [];
+    //List<CartProduct>? _cartListOfProducts = [];
 
     if (_userService.hasLoggedInUser) {
       log.v('We have a user session on disk. Sync the user profile ...');
@@ -36,17 +34,11 @@ class StartUpViewModel extends BaseViewModel {
 
       log.v('User sync complete. User profile: $currentUser');
 
-      /* Global.products =
-          await _cartService.getCartProducts(_userService.getCurrentUser.id); */
-
-      _cartListOfProducts = await _cartServices.getCartListOfProducts(
+      final _cartListOfProducts = await _cartServices.getCartListOfProducts(
           userId: _userService.getCurrentUser.id);
 
       _cartServices.setCartOfListProducts(
           cartListOfProduct: _cartListOfProducts);
-
-      // navigate to home view
-      //_navigationService.replaceWith(Routes.homeView);
 
       if (!currentUser.hasAddress) {
         // _navigationService.navigateTo(Routes.addressSelectionView);
